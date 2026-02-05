@@ -25,7 +25,6 @@ const endingsEditorEl = document.getElementById("endingsEditor");
 const addEndingBtn = document.getElementById("addEndingBtn");
 const characterEditorEl = document.getElementById("characterEditor");
 const graphLegendEl = document.getElementById("graphLegend");
-const graphFiltersEl = document.getElementById("graphFilters");
 
 const editorState = {
   story: window.getStory(),
@@ -115,6 +114,17 @@ function renderLegend(colorMap) {
   labels.forEach((label) => {
     const item = document.createElement("div");
     item.className = "graph__legend-item";
+    if (!graphFilterState.labels.has(label)) {
+      item.classList.add("is-inactive");
+    }
+    item.addEventListener("click", () => {
+      if (graphFilterState.labels.has(label)) {
+        graphFilterState.labels.delete(label);
+      } else {
+        graphFilterState.labels.add(label);
+      }
+      renderGraph();
+    });
     const swatch = document.createElement("span");
     swatch.className = "graph__legend-swatch";
     swatch.style.background = colorMap[label];
@@ -142,39 +152,12 @@ function getLabelList() {
 
 function ensureFilterState(labels) {
   if (!graphFilterState.labels.size) {
-    labels.forEach((label) => graphFilterState.labels.add(label));
     return;
   }
-  labels.forEach((label) => graphFilterState.labels.add(label));
   Array.from(graphFilterState.labels).forEach((label) => {
     if (!labels.includes(label)) {
       graphFilterState.labels.delete(label);
     }
-  });
-}
-
-function renderFilters(labels) {
-  if (!graphFiltersEl) return;
-  graphFiltersEl.innerHTML = "";
-  labels.forEach((label) => {
-    const item = document.createElement("label");
-    item.className = "graph__filter";
-    const input = document.createElement("input");
-    input.type = "checkbox";
-    input.checked = graphFilterState.labels.has(label);
-    input.addEventListener("change", () => {
-      if (input.checked) {
-        graphFilterState.labels.add(label);
-      } else {
-        graphFilterState.labels.delete(label);
-      }
-      renderGraph();
-    });
-    const text = document.createElement("span");
-    text.textContent = label;
-    item.appendChild(input);
-    item.appendChild(text);
-    graphFiltersEl.appendChild(item);
   });
 }
 
@@ -781,7 +764,6 @@ function renderGraph() {
   const colorMap = getGroupColorMap();
   const labels = getLabelList();
   ensureFilterState(labels);
-  renderFilters(labels);
 
   ids.forEach((id) => {
     const scene = getScene(id);

@@ -116,29 +116,6 @@
   color: rgba(28, 28, 28, 0.65);
 }
 
-.graph__filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem 0.6rem;
-  margin-top: 0.6rem;
-}
-
-.graph__filter {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.2rem 0.5rem;
-  border-radius: 999px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.7);
-  font-size: 0.78rem;
-  color: rgba(28, 28, 28, 0.75);
-}
-
-.graph__filter input {
-  accent-color: var(--accent);
-}
-
 .graph__legend-item {
   display: inline-flex;
   align-items: center;
@@ -147,12 +124,19 @@
   border-radius: 999px;
   border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  user-select: none;
 }
 
 .graph__legend-swatch {
   width: 10px;
   height: 10px;
   border-radius: 50%;
+}
+
+.graph__legend-item.is-inactive {
+  opacity: 0.45;
+  text-decoration: line-through;
 }
 
 .graph-badge rect {
