@@ -10398,11 +10398,10 @@
         {
           "text": "Continue",
           "effects": {},
-          "next": "ending_gate"
+          "next": "c8_start"
         }
       ]
-    }
-  },
+    },
   "c8_start": {
       "label": "Chapter Eight",
       "title": "The Week That Won’t Sit Still",
@@ -11359,4 +11358,5 @@
         }
       ]
     }
+  }
 }

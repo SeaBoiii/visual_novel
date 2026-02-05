@@ -700,6 +700,7 @@ function renderGraph() {
         title: ending.title || ending.id,
         missing: false,
         isEnding: true,
+        autoEndings: !!ending.autoEndings,
       };
       if (editorState.story.scenes.ending) {
         edges.push({ from: "ending", to: endId, isEndingEdge: true });
