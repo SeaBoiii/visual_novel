@@ -248,7 +248,7 @@
     "backstory_almah": {
       "label": "Prologue",
       "title": "Umrah of Mercy",
-      "text": "It starts with intention, and the silence after prayer.\n\nAlmahirah is Singaporean — a nurse who learned early that care is not sentiment, it’s stamina.\n\nYou met her during Umrah, in a season when you were tired of being clever.\n\nShe moved with quiet discipline: checking on an elderly pilgrim, offering water, adjusting a scarf without making a scene.\n\nShe was one year younger than you, but her steadiness made age feel irrelevant.\n\nWhen you spoke to her, she didn’t romanticize you. She asked one thing instead: ‘What kind of man are you when no one is watching?’\n\nIt landed like a test you couldn’t charm your way out of.\n\nThe scene breaks — not ending, just dissolving — the way memories do when you’re not ready to live in them.",
+      "text": "It starts with intention, and the silence after prayer.\n\nAlmahirah is Singaporean — a nurse who learned early that care is not sentiment, it’s stamina.\n\nBut you didn’t meet her for the first time in Mecca.\n\nTen years ago, back home, she was your first real *almost* — the kind of love that felt simple until life made it complicated. You were younger, hungry, always building the next version of yourself. She was one year younger than you, steady in a way you didn’t yet know how to keep. You dated long enough to learn each other’s rhythms… and ended it the way immature people end good things: with pride, bad timing, and words that never became closure.\n\nAfter that, you didn’t stay friends. You didn’t stay enemies either.\n\nYou just… didn’t stay.\n\nThen fate folds the years and drops you into the same place: Mecca, during Umrah — a season when you were tired of being clever.\n\nYou recognize her before you’re ready to.\n\nShe moves with the same quiet discipline: checking on an elderly pilgrim, offering water, adjusting a scarf without making a scene — like mercy is a job she does well, not a performance she sells.\n\nWhen you speak, she doesn’t romanticize you. She doesn’t ask why you left.\n\nShe asks one thing instead: ‘What kind of man are you when no one is watching?’\n\nIt lands like a test you can’t charm your way out of.\n\nThe scene breaks — not ending, just dissolving — the way memories do when you’re not ready to live in them.",
       "image": "",
       "choices": [
         {
@@ -536,7 +536,7 @@
     "almah_talk": {
       "label": "Chapter One",
       "title": "What Makes You Better",
-      "text": "Almahirah meets you without romance in her eyes — only sincerity.\n\nShe just finished a shift. You can hear the tiredness in the way she breathes.\n\nYet she speaks carefully, like every word is an amanah.\n\n‘People think love is a feeling,’ she says. ‘But love is what you do when your nafs wants the easy thing.’\n\nHer presence feels like accountability. And accountability is strangely intimate.",
+      "text": "Almahirah meets you without romance in her eyes — only sincerity.\n\nShe just finished a shift. You can hear the tiredness in the way she breathes.\n\nAnd it hits you, quietly: you still recognize that breath. Ten years ago, you used to wait for it to settle beside you on late nights, thinking that was what love meant.\n\nYet she speaks carefully now, like every word is an amanah.\n\n‘People think love is a feeling,’ she says. ‘But love is what you do when your nafs wants the easy thing.’\n\nShe doesn’t say “we’ve been here before.”\n\nShe doesn’t have to.\n\nHer presence feels like accountability — and accountability is strangely intimate, especially coming from someone who already knew your worst version.",
       "image": "",
       "choices": [
         {
@@ -1052,7 +1052,7 @@
     "c2_almah_gate": {
       "label": "Chapter Two",
       "title": "Accountability",
-      "text": "Almahirah’s schedule is brutal.\n\nShe offers you a small window: Friday, after class.\n\nYou’re about to agree when you see another message.\n\nDasha: ‘I’m leaving soon.’\n\nTwo different kinds of urgency.\n\nOne is temporary.\n\nOne is principled.",
+      "text": "Almahirah’s schedule is brutal.\n\nShe offers you a small window: Friday, after class.\n\nThe name on your screen feels like an old scar you forgot was still there — not painful, just… present.\n\nYou’re about to agree when you see another message.\n\nDasha: ‘I’m leaving soon.’\n\nTwo different kinds of urgency.\n\nOne is temporary.\n\nOne is principled — because Almahirah isn’t new. She’s the past asking whether you’ve matured.",
       "image": "",
       "choices": [
         {
@@ -1171,7 +1171,7 @@
     "c2_almah_1": {
       "label": "Chapter Two",
       "title": "After Shift, After Prayer",
-      "text": "Almahirah looks tired in a way that feels honest.\n\nNurse fatigue isn’t glamorous. It’s quiet. It’s heavy.\n\nAfter class, she walks with you for a while.\n\n‘I’m one year younger than you,’ she says, like she’s correcting an assumption. ‘But I’m not younger in the ways that matter.’\n\nThen she asks:\n\n‘Do you want love… or do you want distraction?’",
+      "text": "Almahirah looks tired in a way that feels honest.\n\nNurse fatigue isn’t glamorous. It’s quiet. It’s heavy.\n\nAfter class, she walks with you for a while — same pacing as ten years ago, like her body remembers the route even if your life pretends it doesn’t.\n\n‘I’m one year younger than you,’ she says, like she’s correcting an assumption. ‘But I’m not younger in the ways that matter.’\n\nShe pauses, eyes forward, voice soft — the way she used to speak when she didn’t want to start a fight.\n\nThen she asks:\n\n‘Do you want love… or do you want distraction?’\n\nIt isn’t a flirt.\n\nIt’s a reunion test.",
       "image": "",
       "choices": [
         {
@@ -1325,7 +1325,7 @@
     "c2_almah_friday_lock": {
       "label": "Chapter Two",
       "title": "Locking Friday",
-      "text": "You tell Almahirah you’ll be there Friday.\n\nShe doesn’t celebrate.\n\nShe just says, quietly:\n\n‘Then keep your word.’\n\nAfter you send the message, Xin Yi texts.\n\n‘I miss you. But I don’t miss uncertainty.’",
+      "text": "You tell Almahirah you’ll be there Friday.\n\nShe doesn’t celebrate.\n\nShe just says, quietly:\n\n‘Then keep your word.’\n\nIt lands heavier because you didn’t, ten years ago — not in the small ways that mattered.\n\nAfter you send the message, Xin Yi texts.\n\n‘I miss you. But I don’t miss uncertainty.’",
       "image": "",
       "choices": [
         {
@@ -1550,7 +1550,7 @@
     "c2_almah_branch_sincere": {
       "label": "Chapter Two",
       "title": "Intentions",
-      "text": "Almahirah nods once.\n\nNo applause.\n\nJust acknowledgement.\n\n‘Then be the kind of man who doesn’t need perfect conditions to do the right thing,’ she says.\n\nAs you walk her to the station, your phone buzzes.\n\nKira: ‘We need you tonight. Incident.’",
+      "text": "Almahirah nods once.\n\nNo applause.\n\nJust acknowledgement.\n\n‘Then be the kind of man who doesn’t need perfect conditions to do the right thing,’ she says.\n\nYou catch the echo of something older — advice she tried to give you back then, when you were too proud to hear it.\n\nAs you walk her to the station, you notice the small habits: the way she checks her bag strap, the way she scans the crowd like a nurse scans a ward.\n\nYour phone buzzes.\n\nKira: ‘We need you tonight. Incident.’",
       "image": "",
       "choices": [
         {
@@ -1583,7 +1583,7 @@
     "c2_almah_branch_uncertain": {
       "label": "Chapter Two",
       "title": "The Honest ‘I Don’t Know’",
-      "text": "Almahirah doesn’t punish you for uncertainty.\n\nBut she doesn’t romanticize it either.\n\n‘Okay,’ she says. ‘Then don’t borrow someone’s heart while you figure yourself out.’\n\nHer gentleness is firm.\n\nIt makes you want to be better — or leave.\n\nEither would be clearer than hovering.",
+      "text": "Almahirah doesn’t punish you for uncertainty.\n\nBut she doesn’t romanticize it either.\n\n‘Okay,’ she says. ‘Then don’t borrow someone’s heart while you figure yourself out.’\n\nShe says it gently — the way you speak to someone you already know will try to wriggle out of responsibility.\n\nFor a second, you remember how your relationship ended ten years ago: not with betrayal, but with avoidance.\n\nHer eyes hold you steady.\n\n‘If you’re different now,’ she adds, ‘prove it with clarity.’",
       "image": "",
       "choices": [
         {
@@ -2236,7 +2236,7 @@
     "c3_almah_word_start": {
       "label": "Chapter Three",
       "title": "Keep Your Word",
-      "text": "Almahirah doesn’t chase.\n\nShe invites.\n\nThen she watches whether you keep your word.\n\nYou told her you’d show up.\n\nNow it’s Friday.\n\nYou arrive after her class.\n\nShe looks at you, tired but calm.\n\n‘You came,’ she says.\n\nThen, as if to test the foundation:\n\n‘Tell me about the others.’\n\nNo jealousy.\n\nJust sincerity.\n\nAnd sincerity is more dangerous than anger.",
+      "text": "Almahirah doesn’t chase.\n\nShe invites.\n\nThen she watches whether you keep your word.\n\nYou told her you’d show up.\n\nNow it’s Friday.\n\nYou arrive after her class, and for a second the decade folds — the same kind of meeting, the same kind of quiet, except you’re older and the excuses are thinner.\n\nShe looks at you, tired but calm.\n\n‘You came,’ she says.\n\nThen, as if to test the foundation — not just of today, but of what you failed to build ten years ago:\n\n‘Tell me about the others.’\n\nNo jealousy.\n\nJust sincerity.\n\nAnd sincerity is more dangerous than anger, especially from an ex who met you again in Mecca and still chose to be fair.",
       "image": "",
       "choices": [
         {
@@ -2965,7 +2965,7 @@
     "c2_almah_stay": {
       "label": "Chapter Two",
       "title": "Choosing the Human Rhythm",
-      "text": "Almahirah doesn't reward you with sweetness.\n\nShe rewards you with respect.\n\nAnd respect feels rare.",
+      "text": "You stay.\n\nNot to chase romance — to honor the moment.\n\nAlmahirah walks beside you in quiet steps, as if silence is also a language you once shared.\n\n‘Back then,’ she says without looking at you, ‘we had feelings. But we didn’t have discipline.’\n\nShe finally meets your eyes.\n\n‘So tell me the truth. Are you here to fix… or to repeat?’",
       "image": "",
       "choices": [
         {
@@ -2994,7 +2994,7 @@
     "c2_almah_decision_date": {
       "label": "Chapter Two",
       "title": "A Decision Date",
-      "text": "You set a date to stop drifting.\n\nAlmahirah nods once.\n\n'Good,' she says. 'Then live like you mean it.'",
+      "text": "You choose a date.\n\nNot a romantic gesture — a boundary.\n\nAlmahirah watches you like she’s assessing vitals: not your charm, but your follow-through.\n\n‘Good,’ she says. ‘Then don’t make me chase a decision I didn’t ask for.’\n\nShe turns, and the sentence that follows is almost too quiet:\n\n‘We already lost ten years once. Don’t waste another season.’",
       "image": "",
       "choices": [
         {
@@ -3027,7 +3027,7 @@
     "c2_almah_distance": {
       "label": "Chapter Two",
       "title": "No Borrowed Hearts",
-      "text": "Almahirah steps back, not with anger, but with principle.\n\n'When you're ready to be honest,' she says, 'come back.'",
+      "text": "You step back.\n\nYou call it restraint.\n\nBut Almahirah reads it as what it often is: fear dressed as politeness.\n\nShe doesn’t argue. She doesn’t beg.\n\nShe only nods — a closure you didn’t give her a decade ago, returned to you with mercy.\n\n‘Take care,’ she says.\n\nAnd for the first time, you wonder if “taking care” was always the point.",
       "image": "",
       "choices": [
         {
@@ -3335,7 +3335,7 @@
     "c3_almah_accountability_reply": {
       "label": "Chapter Three",
       "title": "Accountability Reply",
-      "text": "You reply Almahirah with something honest.\n\nNot poetic. Not impressive.\n\nJust true.\n\nShe replies: 'Then prove it.'",
+      "text": "You type slowly.\n\nBecause with Almahirah, you’ve learned that quick replies can still be dishonest.\n\nYou tell her the truth: what you kept, what you didn’t, where you failed.\n\nThere’s a pause before her reply comes.\n\n‘Thank you for not lying,’ she says.\n\nThen, softer — a line that feels like Mecca air in your lungs:\n\n‘Fate brought us back. Don’t make me regret that.’",
       "image": "",
       "choices": [
         {
@@ -3365,7 +3365,7 @@
     "c3_almah_full_truth": {
       "label": "Chapter Three",
       "title": "Full Truth",
-      "text": "Almahirah listens as you lay out the mess.\n\nShe doesn't judge the feelings.\n\nShe judges the character.",
+      "text": "You tell the truth fully.\n\nNot to cleanse yourself.\n\nTo respect her.\n\nYou speak about each girl without insulting any of them — and without hiding your own cowardice.\n\nAlmahirah listens, eyes steady, like a nurse listening to symptoms.\n\nWhen you finish, she exhales — not relief, not heartbreak, something older.\n\n‘You know what hurt ten years ago?’ she says quietly. ‘Not that you left. That you left without honesty.’\n\nShe looks at you.\n\n‘If you’ve learned anything since then, prove it here. Don’t make Mecca your reset button and Singapore your relapse.’",
       "image": "",
       "choices": [
         {
@@ -3398,7 +3398,7 @@
     "c3_almah_partial_truth": {
       "label": "Chapter Three",
       "title": "Partial Truth",
-      "text": "You tell Almahirah enough to sound honest—but not enough to be clean.\n\nShe notices.",
+      "text": "You give a partial truth.\n\nEnough to look transparent.\n\nNot enough to be clean.\n\nAlmahirah doesn’t interrupt. She just… watches the gaps.\n\nWhen you stop, she nods slowly.\n\n‘You’re still doing it,’ she says. ‘Managing the story instead of telling the truth.’\n\nHer voice doesn’t rise.\n\nThat makes it worse.\n\n‘Ten years ago, that’s how we ended,’ she adds. ‘I won’t repeat that ending with you.’",
       "image": "",
       "choices": [
         {
@@ -3428,7 +3428,7 @@
     "c3_almah_boundary": {
       "label": "Chapter Three",
       "title": "Boundary of Principle",
-      "text": "Almahirah steps back.\n\n'I'm not here to be your lesson,' she says. 'I'm here to be a person.'",
+      "text": "You set a boundary.\n\n‘I don’t want to discuss them,’ you say.\n\nAlmahirah considers that with surprising calm.\n\n‘A boundary is fine,’ she replies. ‘But hiding is not a boundary.’\n\nShe tilts her head.\n\n‘If you want to be a man of integrity, you don’t get to ask for my peace while keeping your secrets.’\n\nThe old relationship would have turned this into a fight.\n\nThis time, she simply waits — to see who you choose to be.",
       "image": "",
       "choices": [
         {
@@ -5169,7 +5169,7 @@
     "c4_almah_meet": {
       "label": "Chapter Four",
       "title": "Almahirah: After Maghrib",
-      "text": "After Maghrib, the mosque is calmer.\n\nAlmahirah sits on a bench outside, hijab pinned neatly, expression composed.\n\nShe greets you with a small smile.\n\n“You look tired,” she says.\n\nThen, gently: “Are you taking care of yourself — or are you only taking care of your desires?”\n\nShe doesn’t ask like a jealous woman.\n\nShe asks like a nurse of the soul.",
+      "text": "After Maghrib, the mosque is calmer.\n\nAlmahirah sits on a bench outside, hijab pinned neatly, expression composed.\n\nShe greets you with a small smile — familiar, not affectionate.\n\n“You look tired,” she says.\n\nThen, gently: “Are you taking care of yourself — or are you only taking care of your desires?”\n\nShe doesn’t ask like a jealous woman.\n\nShe asks like a nurse of the soul.\n\nAnd because she’s your ex, the question carries a second edge:\n\nShe’s seen what you become when you avoid yourself.",
       "image": "",
       "choices": [
         {
@@ -5204,7 +5204,7 @@
     "c4_almah_truth": {
       "label": "Chapter Four",
       "title": "Almahirah: Integrity Check",
-      "text": "You tell her what you can.\n\nNot everything. But enough that she sees the shape.\n\nAlmahirah listens, eyes steady.\n\nThen she says, “You can love five people and still be selfish.”\n\nA pause.\n\n“Love isn’t a feeling. It’s amanah. Responsibility.”\n\nShe looks at you.\n\n“So tell me: are you representing yourself honestly to all of them?”",
+      "text": "You tell her what you can.\n\nNot everything. But enough that she sees the shape.\n\nAlmahirah listens, eyes steady.\n\nThen she says, “You can love five people and still be selfish.”\n\nA pause.\n\n“Love isn’t a feeling. It’s amanah. Responsibility.”\n\nShe looks at you.\n\n“So tell me: are you representing yourself honestly to all of them?”\n\nHer tone is calm — the same calm that ended your relationship ten years ago without shouting.\n\nIt’s not anger she brings you.\n\nIt’s clarity.",
       "image": "",
       "choices": [
         {
@@ -5242,7 +5242,7 @@
     "c4_almah_guidance": {
       "label": "Chapter Four",
       "title": "Almahirah: Guidance",
-      "text": "You ask for guidance without spilling details.\n\nAlmahirah tilts her head.\n\n“That’s not guidance,” she says softly. “That’s wanting comfort without accountability.”\n\nShe doesn’t scold.\n\nShe offers:\n\n“If you want peace, do the hard thing: be honest, even when it costs you.”\n\nHer phone buzzes — a hospital shift reminder.\n\nShe stands.\n\n“Do you want peace,” she asks, “or do you want permission?”",
+      "text": "You ask for guidance without spilling details.\n\nAlmahirah tilts her head.\n\n“That’s not guidance,” she says softly. “That’s wanting comfort without accountability.”\n\nShe doesn’t scold.\n\nShe offers:\n\n“If you want peace, do the hard thing: be honest, even when it costs you.”\n\nHer phone buzzes — a hospital shift reminder.\n\nShe stands.\n\n“Do you want peace,” she asks, “or do you want permission?”\n\nThen, almost as an afterthought — but it lands like history:\n\n“Ten years ago, you wanted permission. Don’t come back to me unchanged.”",
       "image": "",
       "choices": [
         {
@@ -6801,7 +6801,7 @@
     "c5_almah_guidance": {
       "label": "Chapter Five",
       "title": "Almahirah: Guidance",
-      "text": "Almahirah thinks for a long time.\n\nThen she says:\n\n“Choose the path that makes you more responsible, not more entertained.”\n\nShe watches you.\n\n“And if you can’t choose yet, don’t take more than you can return.”",
+      "text": "Almahirah thinks for a long time.\n\nThen she says:\n\n“Choose the path that makes you more responsible, not more entertained.”\n\nShe watches you.\n\n“And if you can’t choose yet, don’t take more than you can return.”\n\nHer voice softens, just slightly.\n\n“I once trusted your potential. That didn’t end well.”\n\nA pause.\n\n“So if you want me in your life again, don’t sell me the future. Show me the present.”",
       "image": "",
       "choices": [
         {
@@ -6838,7 +6838,7 @@
     "c5_almah_choose_me": {
       "label": "Chapter Five",
       "title": "Almahirah: Choose Me?",
-      "text": "You ask.\n\nAlmahirah doesn’t answer fast.\n\n“If you choose me,” she says, “you don’t get to treat faith like an aesthetic.”\n\nHer voice is gentle.\n\nBut it’s firm.\n\n“I will not be your experiment.”",
+      "text": "You ask.\n\nAlmahirah doesn’t answer fast.\n\n“If you choose me,” she says, “you don’t get to treat faith like an aesthetic.”\n\nHer voice is gentle.\n\nBut it’s firm.\n\n“I will not be your experiment.”\n\nThen she adds the line that makes your chest tighten:\n\n“Ten years ago, I loved you. And you still left like love was optional.”\n\nShe meets your eyes.\n\n“So if you’re choosing me now, choose me like you’ve learned.”",
       "image": "",
       "choices": [
         {
@@ -7327,7 +7327,7 @@
     "c5_almah_deep": {
       "label": "Chapter Five",
       "title": "Almahirah: Deep 1-on-1",
-      "text": "It’s just you and Almahirah.\n\nNo audience.\nNo optimization.\n\nOnly the part where you either grow — or repeat.\n\nYou speak carefully.\n\nAnd Almahirah listens like this matters.",
+      "text": "It’s just you and Almahirah.\n\nNo audience.\nNo optimization.\n\nOnly the part where you either grow — or repeat.\n\nYou speak carefully, because she’s the one person here who can compare who you are now with who you were ten years ago.\n\nAnd Almahirah listens like this matters — not because she wants you back, but because fate already gave you a second meeting in Mecca, and she refuses to let it become meaningless.",
       "image": "",
       "choices": [
         {
@@ -7359,7 +7359,7 @@
     "c5_almah_collision": {
       "label": "Chapter Five",
       "title": "Almahirah: Collision",
-      "text": "Even with a priority chosen, the others don’t freeze.\n\nYour phone buzzes mid-conversation.\n\nYou see another name.\n\nAnd you realize: priorities are proven in collisions.",
+      "text": "Even with a priority chosen, the others don’t freeze.\n\nYour phone buzzes mid-conversation.\n\nYou see another name.\n\nAlmahirah notices the micro-flinch in your thumb — she always noticed your tells.\n\nAnd you realize: priorities are proven in collisions.\n\nNot with speeches.\n\nWith what you do when the past, the present, and temptation all ring at once.",
       "image": "",
       "choices": [
         {
@@ -7580,6 +7580,2822 @@
       "image": "",
       "choices": [
         {
+          "text": "Continue to Chapter Six.",
+          "effects": {},
+          "next": "c6_start"
+        }
+      ]
+    },
+    "c6_start": {
+      "label": "Chapter Six",
+      "title": "Residual Heat",
+      "text": "Monday arrives like a spreadsheet: neat columns hiding messy truths.\n\nYou’re back in Singapore, back to your tech/engineering job—back under Kira’s calm, sharp supervision.\n\nBut your phone still holds five threads, each with its own gravity:\n• Kira — your boss, whose attention feels like a risk you keep touching.\n• Jannah Raudah — a preschool teacher with warmth that never feels performative.\n• Dasha Taran — a Kazakh traveler in Sapa, rare and hard to repeat.\n• Xin Yi — the close friend whose comfort is becoming dangerous.\n• Almahirah — a Singaporean nurse, one year younger than you, whose faith-and-duty steadiness asks for honesty.\n\nThis week isn’t about grand romance.\nIt’s about what you *do* when life is ordinary again.\n\nYour first decision is small.\nWhich is why it matters.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Start with work: stabilize the project with Kira.",
+          "effects": {
+            "tension": {
+              "kira": 1
+            }
+          },
+          "next": "c6_kira_morning"
+        },
+        {
+          "text": "Start with people: clear your inbox before the day drags you.",
+          "effects": {},
+          "next": "c6_inbox"
+        },
+        {
+          "text": "Start with discipline: put your phone away until lunch.",
+          "effects": {
+            "trust": {
+              "kira": 1
+            },
+            "tension": {
+              "kira": -1
+            }
+          },
+          "next": "c6_phone_away"
+        }
+      ]
+    },
+    "c6_phone_away": {
+      "label": "Chapter Six",
+      "title": "Phone Face-Down",
+      "text": "You flip the phone face-down like it’s a temptation.\n\nFor once, you don’t begin the day in five conversations at once.\n\nThe quiet feels clean.\n\nBut clean can also feel lonely.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Hold the boundary until lunch. Focus.",
+          "effects": {
+            "trust": {
+              "kira": 1
+            }
+          },
+          "next": "c6_kira_morning"
+        },
+        {
+          "text": "Break at 10am. Check messages anyway.",
+          "effects": {
+            "tension": {
+              "xinyi": 1
+            }
+          },
+          "next": "c6_inbox"
+        }
+      ]
+    },
+    "c6_inbox": {
+      "label": "Chapter Six",
+      "title": "Five Threads",
+      "text": "Notifications stack like tiny debts.\n\nKira: a meeting invite, short and precise.\n\nJannah: a photo of finger-painted planets. “My kids made Saturn today.”\n\nDasha: a voice note—wind, laughter, a market somewhere in Sapa.\n\nXin Yi: “Coffee later? Don’t dodge.”\n\nAlmahirah: “Shift ends 9pm. If you’re awake, I’ll reply.”\n\nYou can’t answer everyone well.\nBut you can answer someone honestly.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Reply Kira first (professional).",
+          "effects": {
+            "trust": {
+              "kira": 1
+            }
+          },
+          "next": "c6_kira_morning"
+        },
+        {
+          "text": "Reply Jannah first (warm).",
+          "effects": {
+            "affection": {
+              "jannah": 1
+            },
+            "tension": {
+              "jannah": -1
+            }
+          },
+          "next": "c6_jannah_midday"
+        },
+        {
+          "text": "Reply Dasha first (rare connection).",
+          "effects": {
+            "affection": {
+              "dasha": 1
+            }
+          },
+          "next": "c6_dasha_midday"
+        },
+        {
+          "text": "Reply Xin Yi first (close friend).",
+          "effects": {
+            "affection": {
+              "xinyi": 1
+            },
+            "tension": {
+              "xinyi": -1
+            }
+          },
+          "next": "c6_xinyi_midday"
+        },
+        {
+          "text": "Reply Almahirah first (grounded).",
+          "effects": {
+            "trust": {
+              "almah": 1
+            },
+            "tension": {
+              "almah": -1
+            }
+          },
+          "next": "c6_almah_midday"
+        }
+      ]
+    },
+    "c6_kira_morning": {
+      "label": "Chapter Six",
+      "title": "Stand-Up Meeting",
+      "text": "The meeting room smells like coffee and deadlines.\n\nKira stands at the whiteboard, sleeves rolled, expression unreadable.\n\nWhen she looks at you, it’s not warmth.\nIt’s *focus*.\n\n“Status,” she says.\n\nYou explain. You simplify. You don’t joke.\n\nKira nods once.\n\nAfter the meeting, she lingers.\n\n“You’ve been distracted lately,” she says quietly.\n\nNot accusation.\nAssessment.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Own it: admit life’s messy and you’re fixing it.",
+          "effects": {
+            "trust": {
+              "kira": 2
+            }
+          },
+          "next": "c6_kira_own_it"
+        },
+        {
+          "text": "Deflect: say you’re fine and change the topic.",
+          "effects": {
+            "trust": {
+              "kira": -1
+            },
+            "tension": {
+              "kira": 1
+            }
+          },
+          "next": "c6_kira_deflect"
+        },
+        {
+          "text": "Risk it: ask if she’s worried about you—or about performance.",
+          "effects": {
+            "affection": {
+              "kira": 1
+            },
+            "tension": {
+              "kira": 2
+            }
+          },
+          "next": "c6_kira_edge"
+        }
+      ]
+    },
+    "c6_kira_own_it": {
+      "label": "Chapter Six",
+      "title": "No Excuses",
+      "text": "You don’t dress it up.\n\n“I’ve been trying to carry too much,” you say. “It won’t spill into the project again.”\n\nKira’s gaze holds you for a beat.\n\n“Good,” she says.\n\nThen, softer than usual:\n\n“If you need a clean plan, bring it to me. Don’t freestyle under pressure.”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Offer a clean plan for the week (responsible).",
+          "effects": {
+            "trust": {
+              "kira": 2
+            },
+            "tension": {
+              "kira": -1
+            }
+          },
+          "next": "c6_kira_plan"
+        },
+        {
+          "text": "Thank her and keep distance (safe).",
+          "effects": {
+            "trust": {
+              "kira": 1
+            }
+          },
+          "next": "c6_lunch_hub"
+        },
+        {
+          "text": "Ask to talk after hours (dangerous line).",
+          "effects": {
+            "affection": {
+              "kira": 1
+            },
+            "tension": {
+              "kira": 2
+            }
+          },
+          "next": "c6_kira_after_hours_invite"
+        }
+      ]
+    },
+    "c6_kira_deflect": {
+      "label": "Chapter Six",
+      "title": "Professional Mask",
+      "text": "“I’m fine,” you say.\n\nKira doesn’t argue.\n\nShe just studies you like a bug report that hasn’t reproduced yet.\n\n“Fine,” she repeats.\n\nAnd the word feels like a door closing.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Recover: send her the updated timeline by noon.",
+          "effects": {
+            "trust": {
+              "kira": 1
+            }
+          },
+          "next": "c6_lunch_hub"
+        },
+        {
+          "text": "Double down: avoid her for the rest of the day.",
+          "effects": {
+            "tension": {
+              "kira": 1
+            }
+          },
+          "next": "c6_lunch_hub"
+        }
+      ]
+    },
+    "c6_kira_edge": {
+      "label": "Chapter Six",
+      "title": "What Are We Doing?",
+      "text": "You keep your voice low.\n\n“Are you worried about me,” you ask, “or about the work?”\n\nKira’s lips twitch—almost a smile.\n\n“Both,” she says.\n\nThen she steps back.\n\n“Don’t confuse my attention for permission.”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Back off: respect the line.",
+          "effects": {
+            "trust": {
+              "kira": 1
+            },
+            "tension": {
+              "kira": -1
+            }
+          },
+          "next": "c6_lunch_hub"
+        },
+        {
+          "text": "Hold the gaze: “I’m not asking for permission. I’m asking what you want.”",
+          "effects": {
+            "affection": {
+              "kira": 2
+            },
+            "tension": {
+              "kira": 3
+            },
+            "trust": {
+              "kira": -1
+            }
+          },
+          "next": "c6_kira_after_hours_invite"
+        }
+      ]
+    },
+    "c6_kira_plan": {
+      "label": "Chapter Six",
+      "title": "The Plan",
+      "text": "You draft a timeline with buffers and ownership clearly assigned.\n\nKira scans it, then nods.\n\n“This is you,” she says.\n\nIt’s the closest she comes to praise.\n\nAs she turns away, she pauses.\n\n“Also,” she adds, “eat lunch. You get stupid when you skip.”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Do as told. Go to lunch.",
+          "effects": {
+            "trust": {
+              "kira": 1
+            }
+          },
+          "next": "c6_lunch_hub"
+        },
+        {
+          "text": "Joke lightly: “Yes, boss.”",
+          "effects": {
+            "affection": {
+              "kira": 1
+            },
+            "tension": {
+              "kira": 1
+            }
+          },
+          "next": "c6_lunch_hub"
+        }
+      ]
+    },
+    "c6_kira_after_hours_invite": {
+      "label": "Chapter Six",
+      "title": "After Hours",
+      "text": "You ask anyway.\n\nKira’s eyes flick to the glass wall, the office beyond, the risk in fluorescent light.\n\n“Not here,” she says.\n\nA pause.\n\n“Seven. Downstairs. Five minutes.”\n\nIt’s not a date.\n\nWhich is exactly why it feels like one.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Agree—and keep it quiet.",
+          "effects": {
+            "tension": {
+              "kira": 2
+            },
+            "affection": {
+              "kira": 1
+            }
+          },
+          "next": "c6_lunch_hub"
+        },
+        {
+          "text": "Change your mind: keep boundaries.",
+          "effects": {
+            "trust": {
+              "kira": 1
+            },
+            "tension": {
+              "kira": -1
+            }
+          },
+          "next": "c6_lunch_hub"
+        }
+      ]
+    },
+    "c6_lunch_hub": {
+      "label": "Chapter Six",
+      "title": "Lunch Break: The City Keeps Moving",
+      "text": "Lunch arrives like a pause button you don’t deserve.\n\nYour phone vibrates.\n\nSomewhere else, other lives are still happening:\n— a classroom with tiny chairs.\n— a windy hill town in Sapa.\n— a hospital corridor.\n— a café table with your name already remembered.\n\nYou can do one thing well.\n\nChoose.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Meet Xin Yi for coffee (1-on-1).",
+          "effects": {
+            "tension": {
+              "xinyi": 1
+            }
+          },
+          "next": "c6_xinyi_meet"
+        },
+        {
+          "text": "Call Jannah while she’s on break (1-on-1).",
+          "effects": {
+            "affection": {
+              "jannah": 1
+            }
+          },
+          "next": "c6_jannah_call"
+        },
+        {
+          "text": "Listen to Dasha’s voice note and reply properly (1-on-1).",
+          "effects": {
+            "affection": {
+              "dasha": 1
+            },
+            "trust": {
+              "dasha": 1
+            }
+          },
+          "next": "c6_dasha_call"
+        },
+        {
+          "text": "Message Almahirah: ask about her shift and her day (1-on-1).",
+          "effects": {
+            "trust": {
+              "almah": 1
+            }
+          },
+          "next": "c6_almah_text"
+        },
+        {
+          "text": "Stay at your desk. Work. (no romance, just stability).",
+          "effects": {
+            "trust": {
+              "kira": 1
+            }
+          },
+          "next": "c6_afternoon_hub"
+        }
+      ]
+    },
+    "c6_xinyi_midday": {
+      "label": "Chapter Six",
+      "title": "Coffee? Don’t Dodge.",
+      "text": "Xin Yi’s message is simple.\n\nWhich is its own pressure.\n\nYou type, erase, then type again:\n\n“Okay. Lunch.”\n\nThree dots appear.\n\n“Good,” she replies.\n\n“No running.”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Meet her at lunch.",
+          "effects": {
+            "tension": {
+              "xinyi": 1
+            }
+          },
+          "next": "c6_xinyi_meet"
+        }
+      ]
+    },
+    "c6_xinyi_meet": {
+      "label": "Chapter Six",
+      "title": "The Friend Who Knows Your Tells",
+      "text": "Xin Yi is already there when you arrive.\n\nShe doesn’t greet you like a date.\n\nShe greets you like someone who has watched you avoid hard conversations for years.\n\n“Sit,” she says.\n\nYou sit.\n\nHer eyes soften.\n\n“Are you okay?”\n\nIt’s not flirtation.\nIt’s intimacy.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Tell her the real truth: you’re tangled and tired of lying.",
+          "effects": {
+            "trust": {
+              "xinyi": 2
+            },
+            "tension": {
+              "xinyi": -1
+            }
+          },
+          "next": "c6_xinyi_truth"
+        },
+        {
+          "text": "Keep it light: joke, deflect, pretend it’s normal.",
+          "effects": {
+            "trust": {
+              "xinyi": -1
+            },
+            "tension": {
+              "xinyi": 2
+            }
+          },
+          "next": "c6_xinyi_deflect"
+        },
+        {
+          "text": "Cross the line: admit you’ve been thinking of her differently.",
+          "effects": {
+            "affection": {
+              "xinyi": 2
+            },
+            "tension": {
+              "xinyi": 2
+            }
+          },
+          "next": "c6_xinyi_confess"
+        }
+      ]
+    },
+    "c6_xinyi_truth": {
+      "label": "Chapter Six",
+      "title": "Clarity Over Comfort",
+      "text": "You tell her.\n\nNot every detail.\nJust the shape of it:\n\nToo many people.\nToo many half-promises.\n\nXin Yi listens without interrupting.\n\nThen she nods.\n\n“Okay,” she says.\n\n“Then do one thing this week that proves you can be honest.”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Ask her what she needs from you (specifics).",
+          "effects": {
+            "trust": {
+              "xinyi": 1
+            },
+            "affection": {
+              "xinyi": 1
+            }
+          },
+          "next": "c6_xinyi_needs"
+        },
+        {
+          "text": "Promise you’ll choose soon (vague).",
+          "effects": {
+            "trust": {
+              "xinyi": -1
+            },
+            "tension": {
+              "xinyi": 1
+            }
+          },
+          "next": "c6_afternoon_hub"
+        }
+      ]
+    },
+    "c6_xinyi_needs": {
+      "label": "Chapter Six",
+      "title": "What She Needs",
+      "text": "“Don’t make me compete with your silence,” Xin Yi says.\n\n“If you’re with me tonight, be with me.\nIf you’re not, say it.”\n\nIt’s the kind of boundary that makes you respect her more.\n\nAnd fear losing her.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Agree: no more half-presence.",
+          "effects": {
+            "trust": {
+              "xinyi": 2
+            },
+            "tension": {
+              "xinyi": -1
+            }
+          },
+          "next": "c6_afternoon_hub"
+        },
+        {
+          "text": "Hesitate: “I’ll try.”",
+          "effects": {
+            "tension": {
+              "xinyi": 1
+            }
+          },
+          "next": "c6_afternoon_hub"
+        }
+      ]
+    },
+    "c6_xinyi_deflect": {
+      "label": "Chapter Six",
+      "title": "Old Habits",
+      "text": "You smile. You joke.\n\nXin Yi doesn’t laugh.\n\nShe stirs her drink slowly.\n\n“You do this,” she says.\n\n“You turn everything into a bit.\nAnd then you wonder why people stop trusting you.”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Apologize and reset (humble).",
+          "effects": {
+            "trust": {
+              "xinyi": 1
+            }
+          },
+          "next": "c6_xinyi_truth"
+        },
+        {
+          "text": "Get defensive (ego).",
+          "effects": {
+            "trust": {
+              "xinyi": -2
+            },
+            "tension": {
+              "xinyi": 2
+            }
+          },
+          "next": "c6_afternoon_hub"
+        }
+      ]
+    },
+    "c6_xinyi_confess": {
+      "label": "Chapter Six",
+      "title": "The Dangerous Comfort",
+      "text": "You say it softly.\n\nThat she’s been on your mind.\nThat comfort has started to feel like wanting.\n\nXin Yi doesn’t look shocked.\n\nShe looks… sad.\n\n“I’m not a consolation prize,” she says.\n\n“If you choose me, it has to be because you see me.”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Promise: you see her (and you’ll prove it).",
+          "effects": {
+            "affection": {
+              "xinyi": 2
+            },
+            "trust": {
+              "xinyi": 1
+            },
+            "tension": {
+              "kira": 1
+            }
+          },
+          "next": "c6_afternoon_hub"
+        },
+        {
+          "text": "Back off: keep it friendship for now.",
+          "effects": {
+            "trust": {
+              "xinyi": 1
+            },
+            "tension": {
+              "xinyi": -1
+            }
+          },
+          "next": "c6_afternoon_hub"
+        }
+      ]
+    },
+    "c6_jannah_midday": {
+      "label": "Chapter Six",
+      "title": "Saturn in Finger Paint",
+      "text": "You reply to Jannah: something gentle, something real.\n\nShe replies fast.\n\n“They keep asking if planets can have feelings,” she texts.\n\n“I told them yes, because humans do, and we’re basically stardust.”\n\nYou laugh out loud, alone at your desk.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Call her at lunch.",
+          "effects": {
+            "affection": {
+              "jannah": 1
+            },
+            "tension": {
+              "jannah": -1
+            }
+          },
+          "next": "c6_jannah_call"
+        }
+      ]
+    },
+    "c6_jannah_call": {
+      "label": "Chapter Six",
+      "title": "Break Time",
+      "text": "Jannah answers with background noise—tiny voices, a teacher’s patience.\n\n“Hi,” she says, like she’s been waiting.\n\nYou hear a child yell her name.\n\n“Give me one minute,” she tells them, then returns to you.\n\n“How are you really?”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Be honest: you’re overwhelmed and ashamed of it.",
+          "effects": {
+            "trust": {
+              "jannah": 2
+            },
+            "tension": {
+              "jannah": -1
+            }
+          },
+          "next": "c6_jannah_honest"
+        },
+        {
+          "text": "Be sweet: tell her you missed her voice.",
+          "effects": {
+            "affection": {
+              "jannah": 2
+            },
+            "tension": {
+              "jannah": -1
+            }
+          },
+          "next": "c6_jannah_sweet"
+        },
+        {
+          "text": "Be vague: keep it light.",
+          "effects": {
+            "trust": {
+              "jannah": -1
+            },
+            "tension": {
+              "jannah": 1
+            }
+          },
+          "next": "c6_afternoon_hub"
+        }
+      ]
+    },
+    "c6_jannah_honest": {
+      "label": "Chapter Six",
+      "title": "Soft Doesn’t Mean Weak",
+      "text": "You tell her you’ve been trying to keep too many people happy.\n\nJannah doesn’t scold.\n\nShe breathes.\n\n“You don’t have to earn care by suffering,” she says.\n\n“But you do have to be fair.”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Ask to meet her after work (1-on-1).",
+          "effects": {
+            "affection": {
+              "jannah": 1
+            },
+            "trust": {
+              "jannah": 1
+            }
+          },
+          "next": "c6_jannah_evening_meet"
+        },
+        {
+          "text": "Thank her and promise a clear talk soon.",
+          "effects": {
+            "trust": {
+              "jannah": 1
+            }
+          },
+          "next": "c6_afternoon_hub"
+        }
+      ]
+    },
+    "c6_jannah_sweet": {
+      "label": "Chapter Six",
+      "title": "The Kind of Love That Feeds You",
+      "text": "“I missed you,” you admit.\n\nJannah goes quiet.\n\nThen she laughs, small.\n\n“Okay,” she says. “That makes today better.”\n\nYou can almost picture her smile—gentle, tired, still bright.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Ask to meet her after work (1-on-1).",
+          "effects": {
+            "affection": {
+              "jannah": 2
+            },
+            "tension": {
+              "jannah": -1
+            }
+          },
+          "next": "c6_jannah_evening_meet"
+        },
+        {
+          "text": "Keep it to calls for now.",
+          "effects": {
+            "trust": {
+              "jannah": 1
+            }
+          },
+          "next": "c6_afternoon_hub"
+        }
+      ]
+    },
+    "c6_jannah_evening_meet": {
+      "label": "Chapter Six",
+      "title": "After School, After Noise",
+      "text": "You meet Jannah near a quiet park.\n\nShe’s in simple clothes, hair tied back, still carrying that teacher calm.\n\nYou walk side by side.\n\nNo rush.\n\nJannah looks up at you.\n\n“If you’re choosing,” she says, “choose with kindness. Not with guilt.”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Hold her hand and ask for a chance to do this properly.",
+          "effects": {
+            "affection": {
+              "jannah": 2
+            },
+            "trust": {
+              "jannah": 1
+            },
+            "tension": {
+              "xinyi": 1
+            }
+          },
+          "next": "c6_collision_hospital_ping"
+        },
+        {
+          "text": "Keep space: “I want to, but I’m not ready.”",
+          "effects": {
+            "trust": {
+              "jannah": 1
+            },
+            "tension": {
+              "jannah": 1
+            }
+          },
+          "next": "c6_collision_hospital_ping"
+        }
+      ]
+    },
+    "c6_dasha_midday": {
+      "label": "Chapter Six",
+      "title": "Wind in Sapa",
+      "text": "You press play.\n\nDasha’s voice note is half laughter, half breath.\n\n“I found the best grilled corn,” she says.\n\nThen: “You’d like it here.\nBut you’d also get cold.\nYou’re a city boy.”\n\nYou find yourself smiling like an idiot.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Call her when you can.",
+          "effects": {
+            "affection": {
+              "dasha": 1
+            }
+          },
+          "next": "c6_dasha_call"
+        }
+      ]
+    },
+    "c6_dasha_call": {
+      "label": "Chapter Six",
+      "title": "Time Zones and Temptation",
+      "text": "Dasha picks up on the third ring.\n\nHer camera is shaky; fog behind her, a street of lanterns.\n\n“Singapore?” she teases.\n\n“Boring?”\n\nYou tell her about work.\n\nShe listens, eyes bright.\n\n“You are always building,” she says.\n\n“When do you live?”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Admit: you don’t know. Ask her what she’s running from.",
+          "effects": {
+            "trust": {
+              "dasha": 2
+            },
+            "tension": {
+              "dasha": -1
+            }
+          },
+          "next": "c6_dasha_depth"
+        },
+        {
+          "text": "Flirt: tell her you’d live if she was here.",
+          "effects": {
+            "affection": {
+              "dasha": 2
+            },
+            "tension": {
+              "dasha": 2
+            }
+          },
+          "next": "c6_dasha_flirt"
+        },
+        {
+          "text": "Keep it casual: let it be a nice call.",
+          "effects": {
+            "trust": {
+              "dasha": 1
+            }
+          },
+          "next": "c6_afternoon_hub"
+        }
+      ]
+    },
+    "c6_dasha_depth": {
+      "label": "Chapter Six",
+      "title": "The Thing Behind Her Smile",
+      "text": "Dasha’s grin fades into something quieter.\n\n“Maybe I’m not running,” she says.\n\n“Maybe I’m just… allergic to staying.”\n\nShe looks at you.\n\n“If you come to Sapa, don’t come as a tourist.\nCome as someone who means it.”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Say you’ll plan a real trip (commitment).",
+          "effects": {
+            "affection": {
+              "dasha": 2
+            },
+            "trust": {
+              "dasha": 1
+            },
+            "tension": {
+              "kira": 1
+            }
+          },
+          "next": "c6_afternoon_hub"
+        },
+        {
+          "text": "Stay honest: you can’t promise yet.",
+          "effects": {
+            "trust": {
+              "dasha": 1
+            },
+            "tension": {
+              "dasha": 1
+            }
+          },
+          "next": "c6_afternoon_hub"
+        }
+      ]
+    },
+    "c6_dasha_flirt": {
+      "label": "Chapter Six",
+      "title": "Heat Through a Screen",
+      "text": "Dasha laughs.\n\n“Careful,” she says.\n\n“Words are cheap.\nFlights are not.”\n\nHer eyes narrow, playful.\n\n“So—are you buying?”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Play back: “Give me a date.”",
+          "effects": {
+            "affection": {
+              "dasha": 2
+            },
+            "tension": {
+              "dasha": 2
+            }
+          },
+          "next": "c6_afternoon_hub"
+        },
+        {
+          "text": "Pull back: keep it grounded.",
+          "effects": {
+            "trust": {
+              "dasha": 1
+            },
+            "tension": {
+              "dasha": -1
+            }
+          },
+          "next": "c6_afternoon_hub"
+        }
+      ]
+    },
+    "c6_almah_midday": {
+      "label": "Chapter Six",
+      "title": "Hospital Light",
+      "text": "Almahirah replies between tasks.\n\nShort, tidy messages.\n\n“Busy. But okay.”\n\nThen:\n\n“How are you holding up?”\n\nYou can feel her discipline in every word—like she refuses to waste what little time she has.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Tell her the truth and ask to see her after her shift.",
+          "effects": {
+            "trust": {
+              "almah": 2
+            },
+            "tension": {
+              "almah": -1
+            }
+          },
+          "next": "c6_almah_text"
+        },
+        {
+          "text": "Keep it simple: wish her a good shift.",
+          "effects": {
+            "trust": {
+              "almah": 1
+            }
+          },
+          "next": "c6_afternoon_hub"
+        }
+      ]
+    },
+    "c6_almah_text": {
+      "label": "Chapter Six",
+      "title": "After Shift?",
+      "text": "You tell Almahirah you’re proud of her work.\n\nShe doesn’t flirt.\n\nShe just says:\n\n“Don’t romanticize me. I’m tired.”\n\nA pause.\n\n“But… if you want to talk, 9:30. Hospital café.”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Be there. On time. (1-on-1)",
+          "effects": {
+            "trust": {
+              "almah": 2
+            },
+            "affection": {
+              "almah": 1
+            }
+          },
+          "next": "c6_almah_cafe"
+        },
+        {
+          "text": "Admit you might be late because of work.",
+          "effects": {
+            "trust": {
+              "almah": -1
+            },
+            "tension": {
+              "almah": 1
+            }
+          },
+          "next": "c6_almah_warning"
+        }
+      ]
+    },
+    "c6_almah_warning": {
+      "label": "Chapter Six",
+      "title": "No More Half-Presence",
+      "text": "Almahirah’s reply is immediate.\n\n“Then don’t come.”\n\n“I’m not collecting apologies this week.”\n\nYou stare at the message.\n\nIt feels unfair.\n\nAnd also… fair.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Recommit: tell her you’ll make it, no excuses.",
+          "effects": {
+            "trust": {
+              "almah": 2
+            },
+            "tension": {
+              "almah": -1
+            }
+          },
+          "next": "c6_almah_cafe"
+        },
+        {
+          "text": "Respect it: don’t go. Let it be.",
+          "effects": {
+            "trust": {
+              "almah": -1
+            }
+          },
+          "next": "c6_afternoon_hub"
+        }
+      ]
+    },
+    "c6_almah_cafe": {
+      "label": "Chapter Six",
+      "title": "Hospital Café (Quiet, Real)",
+      "text": "The hospital café is too bright for secrets.\n\nAlmahirah sits with a cup of tea, hair tied back, eyes tired but clear.\n\n“I’m one year younger than you,” she says suddenly.\n\n“But I feel older than most men I meet.”\n\nShe watches you.\n\n“So tell me—are you serious about anyone? Or are you just lonely?”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Serious: admit you want something real, and you’re learning how.",
+          "effects": {
+            "trust": {
+              "almah": 2
+            },
+            "affection": {
+              "almah": 1
+            },
+            "tension": {
+              "xinyi": 1
+            }
+          },
+          "next": "c6_collision_hospital_ping"
+        },
+        {
+          "text": "Lonely: admit you’ve been using attention as anesthesia.",
+          "effects": {
+            "trust": {
+              "almah": 2
+            },
+            "tension": {
+              "almah": -1
+            }
+          },
+          "next": "c6_almah_hard_truth"
+        },
+        {
+          "text": "Defensive: say it’s none of her business.",
+          "effects": {
+            "trust": {
+              "almah": -2
+            },
+            "tension": {
+              "almah": 2
+            }
+          },
+          "next": "c6_collision_hospital_ping"
+        }
+      ]
+    },
+    "c6_almah_hard_truth": {
+      "label": "Chapter Six",
+      "title": "Anesthesia",
+      "text": "Almahirah nods like she already knew.\n\n“Then stop,” she says.\n\n“Loneliness is not a reason to take someone’s future.”\n\nHer voice isn’t cruel.\n\nIt’s kind in a way that refuses to lie to you.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Thank her. Ask what accountability looks like.",
+          "effects": {
+            "trust": {
+              "almah": 1
+            }
+          },
+          "next": "c6_afternoon_hub"
+        },
+        {
+          "text": "Shrink away from it. Change the topic.",
+          "effects": {
+            "tension": {
+              "almah": 1
+            }
+          },
+          "next": "c6_afternoon_hub"
+        }
+      ]
+    },
+    "c6_afternoon_hub": {
+      "label": "Chapter Six",
+      "title": "Afternoon: Collisions Don’t Ask Permission",
+      "text": "The day drags.\n\nWork pings. Messages wait. People have their own schedules.\n\nTonight, you will not get a perfect stage.\n\nYou will get life.\n\nAnd life sometimes throws two names into the same moment.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Go to the 7pm downstairs talk with Kira (if you set it).",
+          "effects": {
+            "tension": {
+              "kira": 1
+            }
+          },
+          "next": "c6_kira_downstairs"
+        },
+        {
+          "text": "Go meet Xin Yi again (she asked for no half-presence).",
+          "effects": {
+            "tension": {
+              "xinyi": 1
+            }
+          },
+          "next": "c6_xinyi_evening"
+        },
+        {
+          "text": "Go to the park with Jannah (if arranged).",
+          "effects": {
+            "affection": {
+              "jannah": 1
+            }
+          },
+          "next": "c6_jannah_evening"
+        },
+        {
+          "text": "Go to the hospital café for Almahirah’s post-shift talk.",
+          "effects": {
+            "trust": {
+              "almah": 1
+            }
+          },
+          "next": "c6_almah_evening"
+        },
+        {
+          "text": "Stay home and call Dasha (distance night).",
+          "effects": {
+            "affection": {
+              "dasha": 1
+            }
+          },
+          "next": "c6_dasha_night"
+        }
+      ]
+    },
+    "c6_kira_downstairs": {
+      "label": "Chapter Six",
+      "title": "Five Minutes",
+      "text": "Downstairs, the city hums.\n\nKira appears exactly at seven.\n\nNo perfume. No softness.\nJust her presence—controlled, dangerous.\n\n“Talk,” she says.\n\nYou feel the line between work and want like a wire.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Keep it about stability: ask for mentorship and clearer expectations.",
+          "effects": {
+            "trust": {
+              "kira": 2
+            },
+            "tension": {
+              "kira": -1
+            }
+          },
+          "next": "c6_collision_lift"
+        },
+        {
+          "text": "Make it personal: admit she’s become part of your thinking.",
+          "effects": {
+            "affection": {
+              "kira": 2
+            },
+            "tension": {
+              "kira": 3
+            },
+            "trust": {
+              "kira": -1
+            }
+          },
+          "next": "c6_collision_lift"
+        },
+        {
+          "text": "Abort: thank her and leave before it gets messy.",
+          "effects": {
+            "trust": {
+              "kira": 1
+            }
+          },
+          "next": "c6_crossroads"
+        }
+      ]
+    },
+    "c6_xinyi_evening": {
+      "label": "Chapter Six",
+      "title": "Second Meeting",
+      "text": "Xin Yi texts:\n\n“Are you coming?”\n\nNo emojis.\nNo cushioning.\n\nYou meet her at a quiet café.\n\nShe doesn’t ask how your day was.\n\nShe asks:\n\n“Am I part of your life, or part of your convenience?”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Choose her for tonight: be fully present.",
+          "effects": {
+            "affection": {
+              "xinyi": 2
+            },
+            "trust": {
+              "xinyi": 1
+            },
+            "tension": {
+              "jannah": 1
+            }
+          },
+          "next": "c6_crossroads"
+        },
+        {
+          "text": "Ask for time again (risky).",
+          "effects": {
+            "trust": {
+              "xinyi": -2
+            },
+            "tension": {
+              "xinyi": 3
+            }
+          },
+          "next": "c6_crossroads"
+        },
+        {
+          "text": "Set friendship boundary to protect both of you.",
+          "effects": {
+            "trust": {
+              "xinyi": 1
+            },
+            "tension": {
+              "xinyi": -1
+            }
+          },
+          "next": "c6_crossroads"
+        }
+      ]
+    },
+    "c6_jannah_evening": {
+      "label": "Chapter Six",
+      "title": "Park Lights",
+      "text": "Jannah meets you under streetlights.\n\nShe looks tired.\n\nStill gentle.\n\nYou walk slowly.\n\nAt one point she stops.\n\n“You don’t have to choose me,” she says.\n\n“But don’t keep me as an option you soothe yourself with.”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Reassure her with action: plan a proper date this weekend.",
+          "effects": {
+            "affection": {
+              "jannah": 2
+            },
+            "trust": {
+              "jannah": 1
+            },
+            "tension": {
+              "dasha": 1
+            }
+          },
+          "next": "c6_crossroads"
+        },
+        {
+          "text": "Be honest: you can’t promise yet.",
+          "effects": {
+            "trust": {
+              "jannah": 1
+            },
+            "tension": {
+              "jannah": 1
+            }
+          },
+          "next": "c6_crossroads"
+        },
+        {
+          "text": "Pull away to protect her feelings.",
+          "effects": {
+            "trust": {
+              "jannah": -1
+            },
+            "tension": {
+              "jannah": 1
+            }
+          },
+          "next": "c6_crossroads"
+        }
+      ]
+    },
+    "c6_almah_evening": {
+      "label": "Chapter Six",
+      "title": "Post-Shift Gravity",
+      "text": "Almahirah arrives in scrubs under a hoodie.\n\nShe sits, exhales.\n\n“Today was rough,” she says.\n\nThen she looks at you.\n\n“Tell me something true.”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Tell her you’re scared of being the kind of man who hurts good women.",
+          "effects": {
+            "trust": {
+              "almah": 2
+            },
+            "tension": {
+              "almah": -1
+            }
+          },
+          "next": "c6_crossroads"
+        },
+        {
+          "text": "Tell her you want her, but you’re afraid of what it demands.",
+          "effects": {
+            "affection": {
+              "almah": 2
+            },
+            "tension": {
+              "almah": 2
+            },
+            "trust": {
+              "almah": 1
+            }
+          },
+          "next": "c6_crossroads"
+        },
+        {
+          "text": "Stay surface-level (she notices).",
+          "effects": {
+            "trust": {
+              "almah": -1
+            },
+            "tension": {
+              "almah": 1
+            }
+          },
+          "next": "c6_crossroads"
+        }
+      ]
+    },
+    "c6_dasha_night": {
+      "label": "Chapter Six",
+      "title": "Distance Night",
+      "text": "You call Dasha from your room.\n\nShe answers from a balcony in Sapa.\n\nFog makes the world look softer.\n\n“If I stay long enough,” she says, “the town will start to feel like mine.”\n\nShe looks at you.\n\n“Would you ever stay for someone?”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Say yes—and mean it. Ask when she’s back in Singapore.",
+          "effects": {
+            "affection": {
+              "dasha": 2
+            },
+            "trust": {
+              "dasha": 1
+            },
+            "tension": {
+              "xinyi": 1
+            }
+          },
+          "next": "c6_crossroads"
+        },
+        {
+          "text": "Say you don’t know. Be honest.",
+          "effects": {
+            "trust": {
+              "dasha": 1
+            },
+            "tension": {
+              "dasha": 1
+            }
+          },
+          "next": "c6_crossroads"
+        },
+        {
+          "text": "Turn it into flirting (fun, risky).",
+          "effects": {
+            "affection": {
+              "dasha": 2
+            },
+            "tension": {
+              "dasha": 2
+            }
+          },
+          "next": "c6_crossroads"
+        }
+      ]
+    },
+    "c6_collision_lift": {
+      "label": "Chapter Six",
+      "title": "Collision: The Lift Doors",
+      "text": "You walk back toward the lift with Kira.\n\nThe doors open.\n\nXin Yi is inside.\n\nFor a half-second, all three of you understand the same thing.\n\nXin Yi’s gaze flicks to Kira.\nTo you.\n\nKira’s expression doesn’t change.\n\nBut the air does.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Step out with Xin Yi (honor personal promise).",
+          "effects": {
+            "trust": {
+              "xinyi": 2
+            },
+            "tension": {
+              "xinyi": -1
+            }
+          },
+          "next": "c6_crossroads"
+        },
+        {
+          "text": "Stay with Kira (risk work boundary).",
+          "effects": {
+            "affection": {
+              "kira": 1
+            },
+            "tension": {
+              "xinyi": 2
+            }
+          },
+          "next": "c6_crossroads"
+        },
+        {
+          "text": "Defuse: say goodbye to both and leave alone.",
+          "effects": {
+            "trust": {
+              "kira": 1,
+              "xinyi": 1
+            },
+            "tension": {
+              "kira": -1
+            }
+          },
+          "next": "c6_crossroads"
+        }
+      ]
+    },
+    "c6_collision_hospital_ping": {
+      "label": "Chapter Six",
+      "title": "Collision: A Notification at the Wrong Time",
+      "text": "While you’re with one person, another message arrives.\n\nTonight, it’s always badly timed.\n\nA single ping can raise suspicion.\n\nOr demand honesty.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Show the phone and explain (integrity, high risk).",
+          "effects": {
+            "trust": {
+              "jannah": 1,
+              "almah": 1,
+              "xinyi": 1
+            },
+            "tension": {
+              "kira": 1
+            }
+          },
+          "next": "c6_crossroads"
+        },
+        {
+          "text": "Hide it (short-term peace, long-term damage).",
+          "effects": {
+            "trust": {
+              "jannah": -1,
+              "almah": -1,
+              "xinyi": -1
+            },
+            "tension": {
+              "jannah": 2,
+              "almah": 2,
+              "xinyi": 2
+            }
+          },
+          "next": "c6_crossroads"
+        },
+        {
+          "text": "Silence it and stay present (boundary).",
+          "effects": {
+            "trust": {
+              "jannah": 1,
+              "almah": 1,
+              "xinyi": 1
+            },
+            "tension": {
+              "jannah": -1,
+              "almah": -1,
+              "xinyi": -1
+            }
+          },
+          "next": "c6_crossroads"
+        }
+      ]
+    },
+    "c6_crossroads": {
+      "label": "Chapter Six",
+      "title": "Crossroads: Proof",
+      "text": "By the end of the day, you realize something painful:\n\nWords don’t move the meters as much as *proof*.\n\nProof looks like showing up.\nLike staying present.\nLike choosing boundaries even when you want the opposite.\n\nTonight, you pick one concrete action for tomorrow.\nNot a confession.\nA *behavior*.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Schedule a clear 1-on-1 date with Jannah (slow, steady).",
+          "effects": {
+            "affection": {
+              "jannah": 2
+            },
+            "trust": {
+              "jannah": 1
+            }
+          },
+          "next": "c6_end"
+        },
+        {
+          "text": "Set a strict work boundary with Kira (protect both of you).",
+          "effects": {
+            "trust": {
+              "kira": 2
+            },
+            "tension": {
+              "kira": -2
+            }
+          },
+          "next": "c6_end"
+        },
+        {
+          "text": "Book (or at least price) a Sapa trip to see Dasha (commitment).",
+          "effects": {
+            "affection": {
+              "dasha": 2
+            },
+            "trust": {
+              "dasha": 1
+            },
+            "tension": {
+              "kira": 1
+            }
+          },
+          "next": "c6_end"
+        },
+        {
+          "text": "Tell Xin Yi your availability and keep it (no half-presence).",
+          "effects": {
+            "trust": {
+              "xinyi": 2
+            },
+            "tension": {
+              "xinyi": -1
+            }
+          },
+          "next": "c6_end"
+        },
+        {
+          "text": "Offer Almahirah a serious conversation about future and faith (accountability).",
+          "effects": {
+            "trust": {
+              "almah": 2
+            },
+            "affection": {
+              "almah": 1
+            }
+          },
+          "next": "c6_end"
+        }
+      ]
+    },
+    "c6_end": {
+      "label": "Chapter Six",
+      "title": "End of Chapter Six",
+      "text": "Chapter Six doesn’t end with a grand decision.\n\nIt ends with the smallest thing you can’t fake:\n\nWhat you do next.\n\nContinue when you’re ready.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Continue (for now, go to Finale gate).",
+          "effects": {},
+          "next": "c7_start"
+        }
+      ]
+    },
+    "c7_start": {
+      "label": "Chapter Seven",
+      "title": "Interference",
+      "text": "The week after Chapter Six is worse — not because anything explodes, but because everything *almost* does.\n\nYour life is now a set of overlapping notifications:\n• Kira’s deadlines.\n• Jannah’s exhaustion.\n• Dasha’s distance.\n• Xin Yi’s patience running out.\n• Almahirah’s quiet accountability.\n\nThe dangerous part isn’t the big choices.\n\nIt’s the small, unnecessary ones — the ones you make when you’re tired, proud, or craving attention.\n\nTonight, you choose where to begin.\n\nAnd the rest of the week will react.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Start the week with WORK: Kira requests a late meeting (just the two of you).",
+          "effects": {
+            "tension": {
+              "kira": 1
+            },
+            "trust": {
+              "kira": 1
+            }
+          },
+          "next": "c7_kira_1on1"
+        },
+        {
+          "text": "Start the week with KINDNESS: Jannah asks to see you after a rough day.",
+          "effects": {
+            "tension": {
+              "jannah": 1
+            },
+            "trust": {
+              "jannah": 1
+            }
+          },
+          "next": "c7_jannah_1on1"
+        },
+        {
+          "text": "Start the week with CLARITY: Xin Yi wants a real answer, not comfort.",
+          "effects": {
+            "tension": {
+              "xinyi": 1
+            },
+            "trust": {
+              "xinyi": 1
+            }
+          },
+          "next": "c7_xinyi_1on1"
+        },
+        {
+          "text": "Start the week with INTENTION: Almahirah has a short break after her shift.",
+          "effects": {
+            "tension": {
+              "almah": 1
+            },
+            "trust": {
+              "almah": 1
+            }
+          },
+          "next": "c7_almah_1on1"
+        },
+        {
+          "text": "Start the week with DISTANCE: Dasha calls from abroad — and dares you to be real.",
+          "effects": {
+            "tension": {
+              "dasha": 1
+            },
+            "trust": {
+              "dasha": 1
+            }
+          },
+          "next": "c7_dasha_1on1"
+        }
+      ]
+    },
+    "c7_kira_1on1": {
+      "label": "Chapter Seven",
+      "title": "Late Room, Bright Screens",
+      "text": "Kira keeps you after hours.\n\nIt’s just the two of you in a meeting room with the lights dimmed to spare the eyes — dashboards glowing like a second city.\n\nShe hands you a printed timeline.\n\n‘Your write-up was clean,’ she says. ‘I want you leading the next rollout.’\n\nThen she pauses.\n\n‘And I want to know if you’re stable.’\n\nNot emotionally.\n\nOperationally.\n\nHer gaze flicks to your phone on the table.\nA message preview slides in.\n\nFrom Xin Yi: ‘Are you free?’\n\nKira doesn’t comment.\n\nBut she *saw it*.\n\nAnd you can either reduce risk — or create it.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Keep it clean: flip your phone face-down and stay present with Kira.",
+          "effects": {
+            "trust": {
+              "kira": 5
+            },
+            "tension": {
+              "xinyi": 1
+            }
+          },
+          "next": "c7_kira_clean"
+        },
+        {
+          "text": "Create unnecessary tension: leave the phone visible on purpose (a silent statement).",
+          "effects": {
+            "tension": {
+              "kira": 5,
+              "xinyi": 3
+            },
+            "trust": {
+              "kira": -1
+            }
+          },
+          "next": "c7_kira_unnecessary_tension"
+        },
+        {
+          "text": "Be brave: excuse yourself and text Xin Yi honestly that you’re stuck at work (no excuses, just truth).",
+          "effects": {
+            "trust": {
+              "xinyi": 4,
+              "kira": 2
+            },
+            "tension": {
+              "kira": 1
+            }
+          },
+          "next": "c7_kira_honest_text"
+        }
+      ]
+    },
+    "c7_kira_clean": {
+      "label": "Chapter Seven",
+      "title": "Stability",
+      "text": "You flip the phone face-down.\n\nKira’s eyes soften — barely.\n\nShe doesn’t reward you with warmth.\n\nShe rewards you with inclusion.\n\n‘Tell me what you’d change about the rollout,’ she says.\n\nFor the next hour, you work like a pair that fits.\n\nWhen you finish, she gathers her things and hesitates by the door.\n\n‘If you ever decide to complicate your life,’ she says quietly, ‘do it with intent. Not carelessness.’\n\nIt lands like advice.\n\nOr an invitation.\n\nOutside, your missed messages wait like consequences.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Call Xin Yi after (repair the delay).",
+          "effects": {
+            "trust": {
+              "xinyi": 4
+            },
+            "tension": {
+              "xinyi": -1
+            }
+          },
+          "next": "c7_week_hub"
+        },
+        {
+          "text": "Text Jannah to check in (small kindness).",
+          "effects": {
+            "trust": {
+              "jannah": 3
+            },
+            "affection": {
+              "jannah": 2
+            }
+          },
+          "next": "c7_week_hub"
+        },
+        {
+          "text": "Do nothing tonight (avoidance).",
+          "effects": {
+            "tension": {
+              "xinyi": 2,
+              "jannah": 1
+            }
+          },
+          "next": "c7_week_hub"
+        }
+      ]
+    },
+    "c7_kira_unnecessary_tension": {
+      "label": "Chapter Seven",
+      "title": "The Silent Flex",
+      "text": "You leave your phone where it is.\n\nNot because you forgot.\n\nBecause you want Kira to see that someone else wants you.\n\nKira stares at the screen for half a second.\n\nThen she smiles — the kind of smile that never means comfort.\n\n‘Understood,’ she says.\n\nHer tone becomes colder.\n\nYou still finish the work.\n\nBut the room has changed.\n\nLater, Xin Yi texts again:\n\n‘So you’re with her.’\n\nYou didn’t say that.\n\nYour silence did.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Double down: ignore Xin Yi tonight (pride).",
+          "effects": {
+            "trust": {
+              "xinyi": -4
+            },
+            "tension": {
+              "kira": 2
+            }
+          },
+          "next": "c7_week_hub"
+        },
+        {
+          "text": "Repair: message Xin Yi immediately with the truth (work, not romance).",
+          "effects": {
+            "trust": {
+              "xinyi": 3
+            },
+            "tension": {
+              "kira": 2
+            }
+          },
+          "next": "c7_week_hub"
+        },
+        {
+          "text": "Worse choice: reply vaguely and let her imagine (cheap power).",
+          "effects": {
+            "affection": {
+              "xinyi": 1
+            },
+            "trust": {
+              "xinyi": -3
+            },
+            "tension": {
+              "xinyi": 7
+            }
+          },
+          "next": "c7_week_hub"
+        }
+      ]
+    },
+    "c7_kira_honest_text": {
+      "label": "Chapter Seven",
+      "title": "No Excuses",
+      "text": "You step out.\n\nYou don’t over-explain.\n\nYou text Xin Yi: ‘Still at work. Kira kept me. I’ll call you after. If you’re willing.’\n\nWhen you return, Kira’s watching you.\n\n‘You told the truth,’ she says.\n\nIt isn’t praise.\n\nIt’s assessment.\n\nShe slides the timeline back toward you.\n\n‘Good. Then we can work.’\n\nYou realize something:\n\nIn Kira’s world, honesty is not romance.\n\nIt’s reliability.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Keep the night professional and finish strong.",
+          "effects": {
+            "trust": {
+              "kira": 4
+            },
+            "tension": {
+              "kira": -1
+            }
+          },
+          "next": "c7_week_hub"
+        },
+        {
+          "text": "Ask Kira directly if she’s warning you… or protecting you.",
+          "effects": {
+            "affection": {
+              "kira": 3
+            },
+            "tension": {
+              "kira": 3
+            }
+          },
+          "next": "c7_kira_edge_choice"
+        }
+      ]
+    },
+    "c7_kira_edge_choice": {
+      "label": "Chapter Seven",
+      "title": "Edge Question",
+      "text": "Kira holds your gaze.\n\n‘I’m protecting the team,’ she says.\n\nThen, a beat later:\n\n‘And maybe I’m protecting you.’\n\nIt’s the closest thing to tenderness she’s ever offered without a disguise.\n\nYour phone buzzes again.\n\nJannah: ‘Can we talk later?’\n\nYou can take the tenderness.\n\nOr you can create damage with it.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Accept the tenderness quietly (no theatrics).",
+          "effects": {
+            "affection": {
+              "kira": 4
+            },
+            "trust": {
+              "kira": 2
+            },
+            "tension": {
+              "kira": 1
+            }
+          },
+          "next": "c7_week_hub"
+        },
+        {
+          "text": "Create unnecessary tension: send Jannah a selfie of you with Kira’s coffee in frame (attention-seeking).",
+          "effects": {
+            "tension": {
+              "jannah": 6,
+              "kira": 2
+            },
+            "trust": {
+              "jannah": -2
+            }
+          },
+          "next": "c7_week_hub"
+        },
+        {
+          "text": "Stay clean: reply Jannah normally and keep this moment private.",
+          "effects": {
+            "trust": {
+              "jannah": 3
+            },
+            "tension": {
+              "jannah": -1
+            }
+          },
+          "next": "c7_week_hub"
+        }
+      ]
+    },
+    "c7_jannah_1on1": {
+      "label": "Chapter Seven",
+      "title": "After the Children Leave",
+      "text": "You meet Jannah outside her preschool.\n\nThe day is already gone, but she still moves like she’s carrying the leftover noise.\n\nShe exhales when she sees you.\n\n‘Can we just walk?’ she asks.\n\nNo performance.\nNo flirting.\n\nJust two people and an ordinary street.\n\nHalfway through, your phone lights up.\n\nDasha is calling.\n\nJannah glances at the screen.\n\nShe doesn’t tell you what to do.\n\nThat’s what makes it heavy.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Decline the call and stay with Jannah (presence).",
+          "effects": {
+            "trust": {
+              "jannah": 6
+            },
+            "affection": {
+              "jannah": 3
+            },
+            "tension": {
+              "dasha": 3
+            }
+          },
+          "next": "c7_jannah_presence"
+        },
+        {
+          "text": "Answer Dasha while walking (half-present, risky).",
+          "effects": {
+            "trust": {
+              "dasha": 2
+            },
+            "tension": {
+              "jannah": 5
+            },
+            "affection": {
+              "dasha": 2
+            }
+          },
+          "next": "c7_jannah_half_present"
+        },
+        {
+          "text": "Create unnecessary tension: answer Dasha and step away without explanation (making Jannah wait).",
+          "effects": {
+            "tension": {
+              "dasha": 1
+            },
+            "trust": {
+              "jannah": -4
+            }
+          },
+          "next": "c7_jannah_unnecessary_tension"
+        }
+      ]
+    },
+    "c7_jannah_presence": {
+      "label": "Chapter Seven",
+      "title": "Just Walking",
+      "text": "You let the call ring out.\n\nJannah doesn’t smile.\n\nShe just relaxes — like a knot finally loosened.\n\n‘Thank you,’ she says, so softly you almost miss it.\n\nYou walk past a convenience store, past an old playground.\n\nShe tells you about a child who cried today because a parent forgot pickup.\n\n‘Sometimes I feel like I’m holding everyone together with my bare hands,’ she admits.\n\nYou want to say something that fixes it.\n\nBut all you can do is stay.\n\nAnd staying is its own kind of love.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Offer something real: ‘Let me be part of your support, not just a visitor.’",
+          "effects": {
+            "affection": {
+              "jannah": 5
+            },
+            "trust": {
+              "jannah": 4
+            },
+            "tension": {
+              "jannah": -1
+            }
+          },
+          "next": "c7_week_hub"
+        },
+        {
+          "text": "Keep it lighter: make her laugh and change the topic (safe).",
+          "effects": {
+            "affection": {
+              "jannah": 3
+            },
+            "trust": {
+              "jannah": 1
+            }
+          },
+          "next": "c7_week_hub"
+        },
+        {
+          "text": "Unnecessary tension: mention you were just with Xin Yi earlier (no reason, just honesty-as-a-weapon).",
+          "effects": {
+            "tension": {
+              "jannah": 5,
+              "xinyi": 2
+            },
+            "trust": {
+              "jannah": -1
+            }
+          },
+          "next": "c7_week_hub"
+        }
+      ]
+    },
+    "c7_jannah_half_present": {
+      "label": "Chapter Seven",
+      "title": "Two Voices, One Body",
+      "text": "You answer Dasha.\n\nHer voice is crisp with distance.\n\n‘I’m not calling to beg,’ she says. ‘I’m calling to see if you’re still the same man.’\n\nYou glance at Jannah.\n\nShe’s walking slower now.\n\nNot angry.\n\nJust… withdrawing.\n\nDasha continues: ‘If you were here, you’d understand.’\n\nYou’re in Singapore.\n\nAnd suddenly you feel like you’re failing both worlds at once.",
+      "image": "",
+      "choices": [
+        {
+          "text": "End the call quickly and return to Jannah (repair).",
+          "effects": {
+            "trust": {
+              "jannah": 3
+            },
+            "tension": {
+              "dasha": 2
+            }
+          },
+          "next": "c7_week_hub"
+        },
+        {
+          "text": "Stay on the call longer (choose Dasha’s intensity).",
+          "effects": {
+            "trust": {
+              "dasha": 4
+            },
+            "affection": {
+              "dasha": 3
+            },
+            "tension": {
+              "jannah": 6
+            }
+          },
+          "next": "c7_week_hub"
+        },
+        {
+          "text": "Unnecessary tension: tell Dasha you’re ‘with someone’ (vague) and let her react.",
+          "effects": {
+            "tension": {
+              "dasha": 7,
+              "jannah": 3
+            },
+            "trust": {
+              "dasha": -2
+            }
+          },
+          "next": "c7_week_hub"
+        }
+      ]
+    },
+    "c7_jannah_unnecessary_tension": {
+      "label": "Chapter Seven",
+      "title": "Making Her Wait",
+      "text": "You step away without explaining.\n\nJannah stands still on the pavement, hands folded, looking suddenly like a person who regrets asking for anything.\n\nDasha’s voice on the phone is warm and sharp at once.\n\n‘So you’re busy,’ she says.\n\nWhen you return, Jannah’s expression is polite.\n\nPolite is what people do when they stop trusting you.\n\nYou realize:\n\nYou created this tension.\n\nFor nothing.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Apologize properly (no excuses) and ask to restart the walk.",
+          "effects": {
+            "trust": {
+              "jannah": 3
+            },
+            "tension": {
+              "jannah": -1
+            }
+          },
+          "next": "c7_week_hub"
+        },
+        {
+          "text": "Pretend nothing happened (cowardice).",
+          "effects": {
+            "trust": {
+              "jannah": -3
+            },
+            "tension": {
+              "jannah": 5
+            }
+          },
+          "next": "c7_week_hub"
+        }
+      ]
+    },
+    "c7_xinyi_1on1": {
+      "label": "Chapter Seven",
+      "title": "The Room Where You Can’t Hide",
+      "text": "Xin Yi meets you in a quiet place — not romantic, not dramatic.\n\nJust somewhere you can’t blame noise for your avoidance.\n\nShe speaks first.\n\n‘I’m not competing,’ she says. ‘I’m observing.’\n\nHer eyes don’t ask for compliments.\n\nThey ask for direction.\n\nThen she adds, casually, like a trap:\n\n‘Show me your notifications.’",
+      "image": "",
+      "choices": [
+        {
+          "text": "Give her your phone (radical honesty).",
+          "effects": {
+            "trust": {
+              "xinyi": 7
+            },
+            "tension": {
+              "kira": 1,
+              "jannah": 1,
+              "dasha": 1,
+              "almah": 1
+            }
+          },
+          "next": "c7_xinyi_phone_honesty"
+        },
+        {
+          "text": "Refuse politely (boundary, but suspicious).",
+          "effects": {
+            "trust": {
+              "xinyi": 1
+            },
+            "tension": {
+              "xinyi": 4
+            }
+          },
+          "next": "c7_xinyi_boundary"
+        },
+        {
+          "text": "Create unnecessary tension: show her selectively (weaponized ‘truth’).",
+          "effects": {
+            "trust": {
+              "xinyi": -2
+            },
+            "tension": {
+              "xinyi": 6
+            }
+          },
+          "next": "c7_xinyi_weaponized_truth"
+        }
+      ]
+    },
+    "c7_xinyi_phone_honesty": {
+      "label": "Chapter Seven",
+      "title": "Radical Honesty",
+      "text": "You hand her the phone.\n\nXin Yi scrolls slowly.\n\nShe doesn’t flinch.\n\nThen she sets it down.\n\n‘Okay,’ she says. ‘So the question isn’t whether you have options.’\n\nShe leans forward.\n\n‘The question is whether you are safe to love.’\n\nHer voice softens.\n\n‘I can handle competition.’\n\n‘I can’t handle confusion.’",
+      "image": "",
+      "choices": [
+        {
+          "text": "Offer clarity: propose one month of exclusivity with Xin Yi.",
+          "effects": {
+            "affection": {
+              "xinyi": 8
+            },
+            "trust": {
+              "xinyi": 6
+            },
+            "tension": {
+              "kira": 2,
+              "jannah": 3,
+              "dasha": 2,
+              "almah": 2
+            }
+          },
+          "next": "c7_week_hub"
+        },
+        {
+          "text": "Stay honest: admit you’re not ready (risk her leaving).",
+          "effects": {
+            "trust": {
+              "xinyi": 2
+            },
+            "tension": {
+              "xinyi": 4
+            },
+            "affection": {
+              "xinyi": -1
+            }
+          },
+          "next": "c7_week_hub"
+        },
+        {
+          "text": "Unnecessary tension: ask her ‘What if I choose Kira?’ to test her reaction.",
+          "effects": {
+            "tension": {
+              "xinyi": 7,
+              "kira": 2
+            },
+            "trust": {
+              "xinyi": -2
+            }
+          },
+          "next": "c7_week_hub"
+        }
+      ]
+    },
+    "c7_xinyi_boundary": {
+      "label": "Chapter Seven",
+      "title": "If You Won’t Show Me",
+      "text": "You refuse.\n\nXin Yi nods like she expected it.\n\n‘That’s okay,’ she says.\n\nBut her tone shifts.\n\n‘Just understand what it means.’\n\nShe stands.\n\n‘I’m not asking for your privacy. I’m asking whether you’re hiding because you’re kind… or hiding because you’re guilty.’\n\nWhen she turns to leave, you feel panic.\n\nNot because you love her most.\n\nBecause she’s the one who knows you too well.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Stop her: show the phone now (late honesty).",
+          "effects": {
+            "trust": {
+              "xinyi": 4
+            },
+            "tension": {
+              "xinyi": -1
+            }
+          },
+          "next": "c7_xinyi_phone_honesty"
+        },
+        {
+          "text": "Let her go (pride).",
+          "effects": {
+            "trust": {
+              "xinyi": -4
+            },
+            "tension": {
+              "xinyi": 6
+            }
+          },
+          "next": "c7_week_hub"
+        }
+      ]
+    },
+    "c7_xinyi_weaponized_truth": {
+      "label": "Chapter Seven",
+      "title": "Selective Honesty",
+      "text": "You tilt the screen just enough.\n\nYou show the messages that make you look wanted.\n\nYou hide the ones that make you look unreliable.\n\nXin Yi watches, expression unreadable.\n\nThen she says:\n\n‘Okay.’\n\nJust that.\n\nBut the ‘okay’ is different.\n\nIt’s not agreement.\n\nIt’s a record.\n\nAnd you realize you didn’t protect yourself.\n\nYou taught her not to trust you.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Repair immediately: confess you were selective and hand her the phone properly.",
+          "effects": {
+            "trust": {
+              "xinyi": 3
+            },
+            "tension": {
+              "xinyi": -1
+            }
+          },
+          "next": "c7_xinyi_phone_honesty"
+        },
+        {
+          "text": "Double down: pretend that was ‘enough’ (damage).",
+          "effects": {
+            "trust": {
+              "xinyi": -5
+            },
+            "tension": {
+              "xinyi": 8
+            }
+          },
+          "next": "c7_week_hub"
+        }
+      ]
+    },
+    "c7_almah_1on1": {
+      "label": "Chapter Seven",
+      "title": "Hospital Corridor Light",
+      "text": "You meet Almahirah outside the hospital during her short break.\n\nShe looks tired in a way that isn’t asking for pity.\n\nShe offers you a bottle of water like it’s an act of worship.\n\n‘How are you?’ she asks.\n\nAnd you know she means: How is your integrity?\n\nA message pops up from Kira:\n\n‘Need you tomorrow. Early.’\n\nAlmahirah doesn’t look at the phone.\n\nShe waits.\n\nBecause waiting is her test.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Tell Almahirah the truth about your week (no performance).",
+          "effects": {
+            "trust": {
+              "almah": 7
+            },
+            "affection": {
+              "almah": 3
+            },
+            "tension": {
+              "almah": -1
+            }
+          },
+          "next": "c7_almah_truth"
+        },
+        {
+          "text": "Keep it vague (avoid accountability).",
+          "effects": {
+            "trust": {
+              "almah": -1
+            },
+            "tension": {
+              "almah": 4
+            }
+          },
+          "next": "c7_almah_vague"
+        },
+        {
+          "text": "Create unnecessary tension: mention you were out late with Kira (to see if Almahirah gets jealous).",
+          "effects": {
+            "tension": {
+              "almah": 7,
+              "kira": 1
+            },
+            "trust": {
+              "almah": -2
+            }
+          },
+          "next": "c7_almah_test_jealousy"
+        }
+      ]
+    },
+    "c7_almah_truth": {
+      "label": "Chapter Seven",
+      "title": "Plain Speech",
+      "text": "You tell her what happened.\n\nNot the highlights.\n\nThe weak parts.\n\nThe moments you wanted attention more than honesty.\n\nAlmahirah listens quietly.\n\nThen she says:\n\n‘It’s not haram to be tempted.’\n\n‘It’s haram to be careless with other people’s hearts.’\n\nYou feel the words settle.\n\nNot like scolding.\n\nLike guidance.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Ask her for a concrete rule to follow this week (discipline).",
+          "effects": {
+            "trust": {
+              "almah": 6
+            },
+            "affection": {
+              "almah": 2
+            },
+            "tension": {
+              "almah": -1
+            }
+          },
+          "next": "c7_week_hub"
+        },
+        {
+          "text": "Promise change without specifics (weak promise).",
+          "effects": {
+            "trust": {
+              "almah": 1
+            },
+            "tension": {
+              "almah": 2
+            }
+          },
+          "next": "c7_week_hub"
+        },
+        {
+          "text": "Unnecessary tension: admit you like being wanted by multiple people (confession as flex).",
+          "effects": {
+            "tension": {
+              "almah": 6
+            },
+            "trust": {
+              "almah": -2
+            }
+          },
+          "next": "c7_week_hub"
+        }
+      ]
+    },
+    "c7_almah_vague": {
+      "label": "Chapter Seven",
+      "title": "Vague Answers",
+      "text": "You give her a safe summary.\n\nWork is busy.\nLife is complicated.\n\nAlmahirah nods, but her eyes sharpen.\n\n‘Okay,’ she says.\n\nThen, quietly:\n\n‘If you can’t speak plainly to me, it means you’re not living plainly.’\n\nShe checks her watch.\n\nBreak is over.\n\nAnd you feel the distance grow before it becomes official.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Correct yourself: call her back and speak plainly before she leaves.",
+          "effects": {
+            "trust": {
+              "almah": 4
+            },
+            "tension": {
+              "almah": -1
+            }
+          },
+          "next": "c7_almah_truth"
+        },
+        {
+          "text": "Let her go (avoid accountability).",
+          "effects": {
+            "trust": {
+              "almah": -3
+            },
+            "tension": {
+              "almah": 5
+            }
+          },
+          "next": "c7_week_hub"
+        }
+      ]
+    },
+    "c7_almah_test_jealousy": {
+      "label": "Chapter Seven",
+      "title": "Testing the Wrong Thing",
+      "text": "You mention Kira.\n\nJust enough.\n\nNot to be honest.\n\nTo see Almahirah react.\n\nShe doesn’t.\n\nNot outwardly.\n\nShe simply looks at you for a long moment.\n\n‘Do you want to be loved,’ she asks, ‘or do you want to feel powerful?’\n\nThe question is gentle.\n\nThat’s what makes it cut.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Apologize immediately (own the manipulation).",
+          "effects": {
+            "trust": {
+              "almah": 3
+            },
+            "tension": {
+              "almah": -1
+            }
+          },
+          "next": "c7_almah_truth"
+        },
+        {
+          "text": "Defend yourself (make it worse).",
+          "effects": {
+            "trust": {
+              "almah": -4
+            },
+            "tension": {
+              "almah": 7
+            }
+          },
+          "next": "c7_week_hub"
+        }
+      ]
+    },
+    "c7_dasha_1on1": {
+      "label": "Chapter Seven",
+      "title": "Voice Across Borders",
+      "text": "Dasha’s video call opens on a hotel window somewhere abroad.\n\nCity lights. A suitcase half-open.\n\nShe looks at you like she’s measuring your courage.\n\n‘Tell me something true,’ she says.\n\nThen she smiles.\n\n‘And don’t give me Singapore-politeness.’\n\nYour phone buzzes mid-call.\n\nXin Yi.\n\nA single line:\n\n‘Don’t lie to me tonight.’",
+      "image": "",
+      "choices": [
+        {
+          "text": "Tell Dasha the truth about your situation (and accept how it sounds).",
+          "effects": {
+            "trust": {
+              "dasha": 6
+            },
+            "affection": {
+              "dasha": 3
+            },
+            "tension": {
+              "dasha": 1
+            }
+          },
+          "next": "c7_dasha_truth"
+        },
+        {
+          "text": "Keep it romantic and avoid specifics (pretty lies).",
+          "effects": {
+            "affection": {
+              "dasha": 4
+            },
+            "trust": {
+              "dasha": -1
+            },
+            "tension": {
+              "dasha": 4
+            }
+          },
+          "next": "c7_dasha_pretty_lie"
+        },
+        {
+          "text": "Create unnecessary tension: let Xin Yi’s message sit visible on screen (so Dasha sees).",
+          "effects": {
+            "tension": {
+              "dasha": 6,
+              "xinyi": 4
+            },
+            "trust": {
+              "dasha": -2
+            }
+          },
+          "next": "c7_dasha_unnecessary_tension"
+        }
+      ]
+    },
+    "c7_dasha_truth": {
+      "label": "Chapter Seven",
+      "title": "Truth Without Romance",
+      "text": "You tell her.\n\nNot the version that makes you look heroic.\n\nThe version that makes you look human.\n\nDasha listens.\n\nThen she exhales.\n\n‘Good,’ she says. ‘Now I know what I’m dealing with.’\n\nShe leans closer to the camera.\n\n‘If you want me, don’t chase me when you’re bored. Chase me when it’s inconvenient.’\n\nThe call ends.\n\nAnd your room feels too quiet.\n\nBecause she didn’t ask for love.\n\nShe asked for proof.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Text Xin Yi honestly after the call (no secrets).",
+          "effects": {
+            "trust": {
+              "xinyi": 4
+            },
+            "tension": {
+              "xinyi": -1
+            }
+          },
+          "next": "c7_week_hub"
+        },
+        {
+          "text": "Text Kira to confirm tomorrow’s plan (work stability).",
+          "effects": {
+            "trust": {
+              "kira": 3
+            },
+            "tension": {
+              "kira": -1
+            }
+          },
+          "next": "c7_week_hub"
+        },
+        {
+          "text": "Do nothing (avoidance).",
+          "effects": {
+            "tension": {
+              "xinyi": 2,
+              "dasha": 1
+            }
+          },
+          "next": "c7_week_hub"
+        }
+      ]
+    },
+    "c7_dasha_pretty_lie": {
+      "label": "Chapter Seven",
+      "title": "Pretty, Shallow",
+      "text": "You flirt.\n\nYou keep it light.\n\nYou make her laugh.\n\nBut you feel the hollowness of it.\n\nDasha’s eyes narrow slightly.\n\n‘You’re charming,’ she says.\n\n‘But I don’t think you’re brave.’\n\nThat sentence stays after the call ends.\n\nBecause she said it like a fact — not an insult.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Repair: message her something true after the call (late courage).",
+          "effects": {
+            "trust": {
+              "dasha": 4
+            },
+            "tension": {
+              "dasha": -1
+            }
+          },
+          "next": "c7_week_hub"
+        },
+        {
+          "text": "Protect pride: say nothing (distance).",
+          "effects": {
+            "trust": {
+              "dasha": -3
+            },
+            "tension": {
+              "dasha": 5
+            }
+          },
+          "next": "c7_week_hub"
+        }
+      ]
+    },
+    "c7_dasha_unnecessary_tension": {
+      "label": "Chapter Seven",
+      "title": "Showing Off",
+      "text": "Xin Yi’s message stays visible.\n\nDasha notices.\n\nShe smiles — not warmly.\n\n‘You like being wanted,’ she says.\n\nYou try to laugh it off.\n\nBut she continues:\n\n‘Be careful. If you make women compete for you, you will eventually end up alone — because no one respects a man who needs a crowd to feel valuable.’",
+      "image": "",
+      "choices": [
+        {
+          "text": "Apologize and redirect: ‘You’re right. I’m sorry. I won’t do that.’",
+          "effects": {
+            "trust": {
+              "dasha": 3
+            },
+            "tension": {
+              "dasha": -1
+            }
+          },
+          "next": "c7_week_hub"
+        },
+        {
+          "text": "Defend it: ‘It’s not that deep’ (immature).",
+          "effects": {
+            "trust": {
+              "dasha": -4
+            },
+            "tension": {
+              "dasha": 7
+            }
+          },
+          "next": "c7_week_hub"
+        }
+      ]
+    },
+    "c7_week_hub": {
+      "label": "Chapter Seven",
+      "title": "Week Map",
+      "text": "The week doesn’t move in a straight line.\n\nPick what you do next.\n\n(You don’t have to see everyone. You *can’t* see everyone. And if you try, you’ll start lying.)",
+      "image": "",
+      "choices": [
+        {
+          "text": "1-on-1 with Kira again (work + proximity).",
+          "effects": {},
+          "next": "c7_kira_second"
+        },
+        {
+          "text": "1-on-1 with Jannah (repair or deepen).",
+          "effects": {},
+          "next": "c7_jannah_second"
+        },
+        {
+          "text": "1-on-1 with Xin Yi (direction pressure).",
+          "effects": {},
+          "next": "c7_xinyi_second"
+        },
+        {
+          "text": "1-on-1 with Almahirah (accountability).",
+          "effects": {},
+          "next": "c7_almah_second"
+        },
+        {
+          "text": "1-on-1 with Dasha (distance test).",
+          "effects": {},
+          "next": "c7_dasha_second"
+        },
+        {
+          "text": "Skip meetings and post a vague Instagram story (unnecessary tension factory).",
+          "effects": {
+            "tension": {
+              "kira": 3,
+              "jannah": 3,
+              "dasha": 3,
+              "xinyi": 3,
+              "almah": 3
+            }
+          },
+          "next": "c7_instagram_vague"
+        }
+      ]
+    },
+    "c7_instagram_vague": {
+      "label": "Chapter Seven",
+      "title": "A Story With No Name",
+      "text": "It’s just a photo.\n\nA coffee.\nA city light.\nA hand at the edge of frame.\n\nYou don’t tag anyone.\n\nYou don’t need to.\n\nPeople infer.\n\nWithin minutes:\n• Xin Yi asks, ‘Who is that?’\n• Jannah goes quiet.\n• Kira says nothing — which is never nothing.\n• Dasha reacts with a laughing emoji.\n• Almahirah leaves you on read.\n\nYou created a fire.\n\nAnd now you have to choose whether you put it out — or enjoy the warmth.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Put it out: clarify privately to the person most affected (choose who).",
+          "effects": {},
+          "next": "c7_fire_control_picker"
+        },
+        {
+          "text": "Enjoy it: say nothing and let everyone spiral (damage).",
+          "effects": {
+            "tension": {
+              "kira": 4,
+              "jannah": 4,
+              "dasha": 2,
+              "xinyi": 6,
+              "almah": 4
+            },
+            "trust": {
+              "xinyi": -3,
+              "jannah": -2,
+              "almah": -2
+            }
+          },
+          "next": "c7_crossroads"
+        }
+      ]
+    },
+    "c7_fire_control_picker": {
+      "label": "Chapter Seven",
+      "title": "Fire Control",
+      "text": "You can’t soothe everyone at once.\n\nPick one person to clarify to — properly, directly, without vague reassurance.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Clarify to Xin Yi (she hates uncertainty).",
+          "effects": {
+            "trust": {
+              "xinyi": 4
+            },
+            "tension": {
+              "xinyi": -2
+            }
+          },
+          "next": "c7_crossroads"
+        },
+        {
+          "text": "Clarify to Jannah (she withdraws when hurt).",
+          "effects": {
+            "trust": {
+              "jannah": 4
+            },
+            "tension": {
+              "jannah": -2
+            }
+          },
+          "next": "c7_crossroads"
+        },
+        {
+          "text": "Clarify to Kira (work optics).",
+          "effects": {
+            "trust": {
+              "kira": 4
+            },
+            "tension": {
+              "kira": -2
+            }
+          },
+          "next": "c7_crossroads"
+        },
+        {
+          "text": "Clarify to Dasha (she respects honesty).",
+          "effects": {
+            "trust": {
+              "dasha": 4
+            },
+            "tension": {
+              "dasha": -2
+            }
+          },
+          "next": "c7_crossroads"
+        },
+        {
+          "text": "Clarify to Almahirah (integrity).",
+          "effects": {
+            "trust": {
+              "almah": 4
+            },
+            "tension": {
+              "almah": -2
+            }
+          },
+          "next": "c7_crossroads"
+        }
+      ]
+    },
+    "c7_kira_second": {
+      "label": "Chapter Seven",
+      "title": "The Elevator Mirror",
+      "text": "Kira walks beside you in silence after a client call.\n\nIn the elevator mirror, you see both of you — close enough to invite rumors.\n\nShe speaks without looking at you:\n\n‘If people talk, I won’t protect you.’\n\nThen, after a beat:\n\n‘Unless you’re worth protecting.’",
+      "image": "",
+      "choices": [
+        {
+          "text": "Stay professional: ‘I won’t make you carry risk for me.’",
+          "effects": {
+            "trust": {
+              "kira": 5
+            },
+            "tension": {
+              "kira": -1
+            }
+          },
+          "next": "c7_crossroads"
+        },
+        {
+          "text": "Unnecessary tension: joke about which girl she thinks you should pick (bad idea).",
+          "effects": {
+            "tension": {
+              "kira": 5
+            },
+            "trust": {
+              "kira": -2
+            }
+          },
+          "next": "c7_crossroads"
+        },
+        {
+          "text": "Soft honesty: ‘I don’t want rumors. I want intent.’",
+          "effects": {
+            "affection": {
+              "kira": 4
+            },
+            "tension": {
+              "kira": 2
+            },
+            "trust": {
+              "kira": 1
+            }
+          },
+          "next": "c7_crossroads"
+        }
+      ]
+    },
+    "c7_jannah_second": {
+      "label": "Chapter Seven",
+      "title": "Home Doorway",
+      "text": "Jannah invites you to her doorstep, just for tea.\n\nNo romance.\n\nJust a quiet room.\n\nShe says, softly:\n\n‘I don’t need to be chosen first.\n\nI just need to know I’m not being used as a rest stop.’",
+      "image": "",
+      "choices": [
+        {
+          "text": "Reassure with action: set a specific day to see her again (and keep it).",
+          "effects": {
+            "trust": {
+              "jannah": 6
+            },
+            "affection": {
+              "jannah": 3
+            },
+            "tension": {
+              "jannah": -1
+            }
+          },
+          "next": "c7_crossroads"
+        },
+        {
+          "text": "Unnecessary tension: tell her you’re ‘seeing where things go’ with someone else.",
+          "effects": {
+            "tension": {
+              "jannah": 6
+            },
+            "trust": {
+              "jannah": -2
+            }
+          },
+          "next": "c7_crossroads"
+        },
+        {
+          "text": "Be honest: ‘I’m scared of hurting you, but I want to try properly.’",
+          "effects": {
+            "trust": {
+              "jannah": 4
+            },
+            "affection": {
+              "jannah": 4
+            }
+          },
+          "next": "c7_crossroads"
+        }
+      ]
+    },
+    "c7_xinyi_second": {
+      "label": "Chapter Seven",
+      "title": "The Question She Repeats",
+      "text": "Xin Yi doesn’t raise her voice.\n\nShe repeats the same question until you answer it:\n\n‘Are you safe?’\n\nShe’s not asking if you love her.\n\nShe’s asking if you will damage her slowly while calling it ‘complicated.’",
+      "image": "",
+      "choices": [
+        {
+          "text": "Choose safety: commit to exclusivity for a month (again, but real).",
+          "effects": {
+            "trust": {
+              "xinyi": 7
+            },
+            "affection": {
+              "xinyi": 4
+            },
+            "tension": {
+              "kira": 2,
+              "jannah": 2,
+              "dasha": 2,
+              "almah": 2
+            }
+          },
+          "next": "c7_crossroads"
+        },
+        {
+          "text": "Unnecessary tension: accuse her of controlling you (deflection).",
+          "effects": {
+            "tension": {
+              "xinyi": 7
+            },
+            "trust": {
+              "xinyi": -3
+            }
+          },
+          "next": "c7_crossroads"
+        },
+        {
+          "text": "Admit weakness: ‘I don’t know how to choose without losing someone.’",
+          "effects": {
+            "trust": {
+              "xinyi": 3
+            },
+            "tension": {
+              "xinyi": 2
+            }
+          },
+          "next": "c7_crossroads"
+        }
+      ]
+    },
+    "c7_almah_second": {
+      "label": "Chapter Seven",
+      "title": "The Rule",
+      "text": "Almahirah messages you one rule.\n\n‘No ambiguous comfort.’\n\nWhen you ask what it means, she replies:\n\n‘Don’t touch hearts you won’t protect.’\n\nIt’s simple.\n\nWhich makes it impossible to hide behind complexity.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Accept the rule and apply it this week (discipline).",
+          "effects": {
+            "trust": {
+              "almah": 6
+            },
+            "tension": {
+              "almah": -1
+            }
+          },
+          "next": "c7_crossroads"
+        },
+        {
+          "text": "Unnecessary tension: argue that life isn’t black and white (avoid responsibility).",
+          "effects": {
+            "tension": {
+              "almah": 6
+            },
+            "trust": {
+              "almah": -2
+            }
+          },
+          "next": "c7_crossroads"
+        },
+        {
+          "text": "Ask her to hold you accountable (invite her into your life).",
+          "effects": {
+            "affection": {
+              "almah": 3
+            },
+            "trust": {
+              "almah": 4
+            }
+          },
+          "next": "c7_crossroads"
+        }
+      ]
+    },
+    "c7_dasha_second": {
+      "label": "Chapter Seven",
+      "title": "The Dare, Again",
+      "text": "Dasha sends a photo: a boarding gate.\n\nCaption: ‘Last call.’\n\nThen she texts:\n\n‘If I mattered, you’d move.’\n\nIt’s unfair.\n\nAnd it’s honest.\n\nYou can call her out.\n\nOr you can admit she’s touching a truth you avoid.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Be honest: tell her you can’t chase every time, but you won’t lie about wanting her.",
+          "effects": {
+            "trust": {
+              "dasha": 6
+            },
+            "affection": {
+              "dasha": 3
+            },
+            "tension": {
+              "dasha": -1
+            }
+          },
+          "next": "c7_crossroads"
+        },
+        {
+          "text": "Unnecessary tension: say ‘Fine, I’ll come’ then don’t commit (cheap drama).",
+          "effects": {
+            "tension": {
+              "dasha": 7
+            },
+            "trust": {
+              "dasha": -4
+            }
+          },
+          "next": "c7_crossroads"
+        },
+        {
+          "text": "Call her out: ‘Don’t test me with ultimatums’ (boundary, risky).",
+          "effects": {
+            "tension": {
+              "dasha": 4
+            },
+            "trust": {
+              "dasha": 1
+            }
+          },
+          "next": "c7_crossroads"
+        }
+      ]
+    },
+    "c7_crossroads": {
+      "label": "Chapter Seven",
+      "title": "Crossroads: Attention vs Intention",
+      "text": "Chapter Seven ends with the simplest diagnosis:\n\nYou don’t only hurt people when you choose the wrong person.\n\nYou hurt people when you create unnecessary tension just to feel wanted.\n\nIf you want a good ending, you’ll need balance:\n• Affection without trust collapses.\n• Trust without affection becomes quiet regret.\n• High tension poisons everything.\n\nChapter Eight will force consequences — not because the world is cruel, but because people learn.\n\nThey stop waiting for the man you *might* become.",
+      "image": "",
+      "choices": [
+        {
           "text": "Continue (for now, go to Finale gate).",
           "effects": {},
           "next": "ending_gate"
@@ -7587,334 +10403,145 @@
       ]
     }
   },
-  "endings": [
-    {
-      "id": "chaos",
-      "title": "Chaos Ending — Lines Crossed",
-      "text": "High tension collapses the night. Someone walks away first, and the rest follows. You learn what not to repeat.",
-      "conditions": [
-        {
-          "type": "max_ge",
-          "meter": "tension",
-          "value": 65
-        }
-      ]
-    },
-    {
-      "id": "true_partner_kira",
-      "title": "True Partner Ending — Kira",
-      "text": "You choose with clarity. Kira lets you in—steady, equal, earned. The relationship survives pressure, not just feelings.",
-      "conditions": [
-        {
-          "type": "min",
-          "meter": "affection",
-          "character": "kira",
-          "value": 75
-        },
-        {
-          "type": "min",
-          "meter": "trust",
-          "character": "kira",
-          "value": 70
-        },
-        {
-          "type": "max_le",
-          "meter": "tension",
-          "character": "kira",
-          "value": 35
-        },
-        {
-          "type": "top_is",
-          "meter": "affection",
-          "character": "kira"
-        },
-        {
-          "type": "top_diff_gte",
-          "meter": "affection",
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": "true_partner_jannah",
-      "title": "True Partner Ending — Jannah",
-      "text": "You choose with clarity. Jannah stays—warm, grounded, and real. It becomes a life you can actually live in.",
-      "conditions": [
-        {
-          "type": "min",
-          "meter": "affection",
-          "character": "jannah",
-          "value": 75
-        },
-        {
-          "type": "min",
-          "meter": "trust",
-          "character": "jannah",
-          "value": 70
-        },
-        {
-          "type": "max_le",
-          "meter": "tension",
-          "character": "jannah",
-          "value": 35
-        },
-        {
-          "type": "top_is",
-          "meter": "affection",
-          "character": "jannah"
-        },
-        {
-          "type": "top_diff_gte",
-          "meter": "affection",
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": "true_partner_dasha",
-      "title": "True Partner Ending — Dasha",
-      "text": "You choose with clarity. Dasha stops running. The love is quiet, brave, and finally unafraid of staying.",
-      "conditions": [
-        {
-          "type": "min",
-          "meter": "affection",
-          "character": "dasha",
-          "value": 75
-        },
-        {
-          "type": "min",
-          "meter": "trust",
-          "character": "dasha",
-          "value": 70
-        },
-        {
-          "type": "max_le",
-          "meter": "tension",
-          "character": "dasha",
-          "value": 35
-        },
-        {
-          "type": "top_is",
-          "meter": "affection",
-          "character": "dasha"
-        },
-        {
-          "type": "top_diff_gte",
-          "meter": "affection",
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": "true_partner_xinyi",
-      "title": "True Partner Ending — Xin Yi",
-      "text": "You choose with clarity. Xin Yi becomes home on purpose. Not a comfort you assumed—one you protect.",
-      "conditions": [
-        {
-          "type": "min",
-          "meter": "affection",
-          "character": "xinyi",
-          "value": 75
-        },
-        {
-          "type": "min",
-          "meter": "trust",
-          "character": "xinyi",
-          "value": 70
-        },
-        {
-          "type": "max_le",
-          "meter": "tension",
-          "character": "xinyi",
-          "value": 35
-        },
-        {
-          "type": "top_is",
-          "meter": "affection",
-          "character": "xinyi"
-        },
-        {
-          "type": "top_diff_gte",
-          "meter": "affection",
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": "true_partner_almah",
-      "title": "True Partner Ending — Almahirah",
-      "text": "You choose with sincerity. Almahirah chooses you back—love as discipline, mercy, and consistency.",
-      "conditions": [
-        {
-          "type": "min",
-          "meter": "affection",
-          "character": "almah",
-          "value": 75
-        },
-        {
-          "type": "min",
-          "meter": "trust",
-          "character": "almah",
-          "value": 70
-        },
-        {
-          "type": "max_le",
-          "meter": "tension",
-          "character": "almah",
-          "value": 35
-        },
-        {
-          "type": "top_is",
-          "meter": "affection",
-          "character": "almah"
-        },
-        {
-          "type": "top_diff_gte",
-          "meter": "affection",
-          "value": 10
-        }
-      ]
-    },
-    {
-      "id": "hot_but_unstable",
-      "title": "High Affection, Low Trust — The Break",
-      "text": "You got closeness without safety. The romance burns fast—but cracks under doubt, secrecy, or mixed signals.",
-      "conditions": [
-        {
-          "type": "max_ge",
-          "meter": "affection",
-          "value": 75
-        },
-        {
-          "type": "max_le",
-          "meter": "trust",
-          "value": 54
-        }
-      ]
-    },
-    {
-      "id": "trusted_not_chosen",
-      "title": "High Trust, Not Chosen — The Quiet Goodbye",
-      "text": "Someone trusts you deeply—but you don’t choose her. She leaves with dignity, and you feel it for a long time.",
-      "conditions": [
-        {
-          "type": "max_ge",
-          "meter": "trust",
-          "value": 75
-        },
-        {
-          "type": "top_diff_lte",
-          "meter": "affection",
-          "value": 9
-        }
-      ]
-    },
-    {
-      "id": "harem",
-      "title": "Harem Ending — The Balance Holds (For Now)",
-      "text": "Against the odds, every bond stays warm and stable. It’s fragile, but you’re honest enough to keep it from rotting.",
-      "conditions": [
-        {
-          "type": "min",
-          "meter": "affection",
-          "character": "kira",
-          "value": 60
-        },
-        {
-          "type": "min",
-          "meter": "affection",
-          "character": "jannah",
-          "value": 60
-        },
-        {
-          "type": "min",
-          "meter": "affection",
-          "character": "dasha",
-          "value": 60
-        },
-        {
-          "type": "min",
-          "meter": "affection",
-          "character": "xinyi",
-          "value": 60
-        },
-        {
-          "type": "min",
-          "meter": "affection",
-          "character": "almah",
-          "value": 60
-        },
-        {
-          "type": "min",
-          "meter": "trust",
-          "character": "kira",
-          "value": 55
-        },
-        {
-          "type": "min",
-          "meter": "trust",
-          "character": "jannah",
-          "value": 55
-        },
-        {
-          "type": "min",
-          "meter": "trust",
-          "character": "dasha",
-          "value": 55
-        },
-        {
-          "type": "min",
-          "meter": "trust",
-          "character": "xinyi",
-          "value": 55
-        },
-        {
-          "type": "min",
-          "meter": "trust",
-          "character": "almah",
-          "value": 55
-        },
-        {
-          "type": "max_le",
-          "meter": "tension",
-          "value": 40
-        }
-      ]
-    },
-    {
-      "id": "bittersweet",
-      "title": "Bittersweet Ending — Almost",
-      "text": "A choice is made, but the gap between hearts was too small to close cleanly. Love remains, with a quiet ache.",
-      "conditions": [
-        {
-          "type": "max_ge",
-          "meter": "affection",
-          "value": 60
-        },
-        {
-          "type": "top_diff_lte",
-          "meter": "affection",
-          "value": 9
-        }
-      ]
-    },
-    {
-      "id": "lonely",
-      "title": "Lonely Ending — No Anchor",
-      "text": "The night ends without a clear anchor. You keep your freedom, but something remains unfinished.",
-      "conditions": [
-        {
-          "type": "max_le",
-          "meter": "affection",
-          "value": 49
-        }
-      ]
-    },
-    {
-      "id": "default",
-      "title": "Default Ending — The Corridor Continues",
-      "text": "Nothing ends cleanly. Not yet. You walk away still choosing—because you never learned to stop.",
-      "conditions": []
-    }
-  ]
+"endings": [
+  {
+    "id": "chaos",
+    "title": "Chaos Ending — Lines Crossed",
+    "text": "High tension collapses the night. Someone walks away first, and the rest follows. You learn what not to repeat.",
+    "autoEndings": true,
+    "conditions": [
+      { "type": "max_ge", "meter": "tension", "value": 65 }
+    ]
+  },
+
+  {
+    "id": "true_partner_kira",
+    "title": "True Partner Ending — Kira",
+    "text": "You choose with clarity. Kira lets you in—steady, equal, earned. The relationship survives pressure, not just feelings.",
+    "conditions": [
+      { "type": "min", "meter": "affection", "character": "kira", "value": 75 },
+      { "type": "min", "meter": "trust",     "character": "kira", "value": 70 },
+      { "type": "max_le", "meter": "tension","character": "kira", "value": 35 },
+      { "type": "top_is", "meter": "affection", "character": "kira" },
+      { "type": "top_diff_gte", "meter": "affection", "value": 10 }
+    ]
+  },
+  {
+    "id": "true_partner_jannah",
+    "title": "True Partner Ending — Jannah",
+    "text": "You choose with clarity. Jannah stays—warm, grounded, and real. It becomes a life you can actually live in.",
+    "conditions": [
+      { "type": "min", "meter": "affection", "character": "jannah", "value": 75 },
+      { "type": "min", "meter": "trust",     "character": "jannah", "value": 70 },
+      { "type": "max_le", "meter": "tension","character": "jannah", "value": 35 },
+      { "type": "top_is", "meter": "affection", "character": "jannah" },
+      { "type": "top_diff_gte", "meter": "affection", "value": 10 }
+    ]
+  },
+  {
+    "id": "true_partner_dasha",
+    "title": "True Partner Ending — Dasha",
+    "text": "You choose with clarity. Dasha stops running. The love is quiet, brave, and finally unafraid of staying.",
+    "conditions": [
+      { "type": "min", "meter": "affection", "character": "dasha", "value": 75 },
+      { "type": "min", "meter": "trust",     "character": "dasha", "value": 70 },
+      { "type": "max_le", "meter": "tension","character": "dasha", "value": 35 },
+      { "type": "top_is", "meter": "affection", "character": "dasha" },
+      { "type": "top_diff_gte", "meter": "affection", "value": 10 }
+    ]
+  },
+  {
+    "id": "true_partner_xinyi",
+    "title": "True Partner Ending — Xin Yi",
+    "text": "You choose with clarity. Xin Yi becomes home on purpose. Not a comfort you assumed—one you protect.",
+    "conditions": [
+      { "type": "min", "meter": "affection", "character": "xinyi", "value": 75 },
+      { "type": "min", "meter": "trust",     "character": "xinyi", "value": 70 },
+      { "type": "max_le", "meter": "tension","character": "xinyi", "value": 35 },
+      { "type": "top_is", "meter": "affection", "character": "xinyi" },
+      { "type": "top_diff_gte", "meter": "affection", "value": 10 }
+    ]
+  },
+  {
+    "id": "true_partner_almah",
+    "title": "True Partner Ending — Almahirah",
+    "text": "You choose with sincerity. Almahirah chooses you back—love as discipline, mercy, and consistency.",
+    "conditions": [
+      { "type": "min", "meter": "affection", "character": "almah", "value": 75 },
+      { "type": "min", "meter": "trust",     "character": "almah", "value": 70 },
+      { "type": "max_le", "meter": "tension","character": "almah", "value": 35 },
+      { "type": "top_is", "meter": "affection", "character": "almah" },
+      { "type": "top_diff_gte", "meter": "affection", "value": 10 }
+    ]
+  },
+
+
+  {
+    "id": "hot_but_unstable",
+    "title": "High Affection, Low Trust — The Break",
+    "text": "You got closeness without safety. The romance burns fast—but cracks under doubt, secrecy, or mixed signals.",
+    "conditions": [
+      { "type": "max_ge", "meter": "affection", "value": 75 },
+      { "type": "max_le", "meter": "trust", "value": 54 }
+    ]
+  },
+
+  {
+    "id": "trusted_not_chosen",
+    "title": "High Trust, Not Chosen — The Quiet Goodbye",
+    "text": "Someone trusts you deeply—but you don’t choose her. She leaves with dignity, and you feel it for a long time.",
+    "conditions": [
+      { "type": "max_ge", "meter": "trust", "value": 75 },
+      { "type": "top_diff_lte", "meter": "affection", "value": 9 }
+    ]
+  },
+
+
+  {
+    "id": "harem",
+    "title": "Harem Ending — The Balance Holds (For Now)",
+    "text": "Against the odds, every bond stays warm and stable. It’s fragile, but you’re honest enough to keep it from rotting.",
+    "conditions": [
+      { "type": "min", "meter": "affection", "character": "kira",   "value": 60 },
+      { "type": "min", "meter": "affection", "character": "jannah", "value": 60 },
+      { "type": "min", "meter": "affection", "character": "dasha",  "value": 60 },
+      { "type": "min", "meter": "affection", "character": "xinyi",  "value": 60 },
+      { "type": "min", "meter": "affection", "character": "almah",  "value": 60 },
+
+      { "type": "min", "meter": "trust", "character": "kira",   "value": 55 },
+      { "type": "min", "meter": "trust", "character": "jannah", "value": 55 },
+      { "type": "min", "meter": "trust", "character": "dasha",  "value": 55 },
+      { "type": "min", "meter": "trust", "character": "xinyi",  "value": 55 },
+      { "type": "min", "meter": "trust", "character": "almah",  "value": 55 },
+
+      { "type": "max_le", "meter": "tension", "value": 40 }
+    ]
+  },
+
+  {
+    "id": "bittersweet",
+    "title": "Bittersweet Ending — Almost",
+    "text": "A choice is made, but the gap between hearts was too small to close cleanly. Love remains, with a quiet ache.",
+    "conditions": [
+      { "type": "max_ge", "meter": "affection", "value": 60 },
+      { "type": "top_diff_lte", "meter": "affection", "value": 9 }
+    ]
+  },
+
+
+  {
+    "id": "lonely",
+    "title": "Lonely Ending — No Anchor",
+    "text": "The night ends without a clear anchor. You keep your freedom, but something remains unfinished.",
+    "conditions": [
+      { "type": "max_le", "meter": "affection", "value": 49 }
+    ]
+  },
+  {
+    "id": "default",
+    "title": "Default Ending — The Corridor Continues",
+    "text": "Nothing ends cleanly. Not yet. You walk away still choosing—because you never learned to stop.",
+    "conditions": []
+  }
+]
 }
