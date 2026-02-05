@@ -10402,7 +10402,7 @@
         }
       ]
     },
-  "c8_start": {
+    "c8_start": {
       "label": "Chapter Eight",
       "title": "The Week That Won’t Sit Still",
       "text": "Monday returns, but nothing in you is routine anymore.\n\nYour calendar is full. Your inbox is fuller. And your heart is a place people keep knocking on—sometimes gently, sometimes like they own the door.\n\nYou tell yourself you’ll be fair.\nFair like a spreadsheet.\nFair like an engineer.\n\nBut people aren’t metrics.\n\nSomewhere between a morning stand-up and a late-night call, you realize this is the week that decides what Chapter Nine will *have to* be.\n\nWhere do you start?",
@@ -11349,6 +11349,1324 @@
       "label": "Chapter Eight",
       "title": "End of Chapter Eight",
       "text": "Chapter Eight ends with weight.\n\nNot a decision yet—just the shape of one.\n\nThe lanterns are closer than you think.\n\nContinue when you’re ready.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Continue to the Finale gate.",
+          "effects": {},
+          "next": "c9_start"
+        }
+      ]
+    },
+    "c9_start": {
+      "label": "Chapter Nine",
+      "title": "Mercy Night (Non-Linear Week)",
+      "text": "Thursday arrives like a knot you can’t untie with logic.\n\nA fundraiser invite lands in your inbox: **Mercy Night** — a hospital charity event in Singapore.\n\nThe universe, as usual, stacks the same hour with five separate meanings:\n\n• Kira wants you there as the company’s technical face — sponsorship, optics, control.\n• Jannah says her preschool is contributing handmade gratitude cards.\n• Xin Yi says your close friend group is going, ‘so no vanishing.’\n• Almahirah is on shift at that very hospital.\n• Dasha texts from transit: ‘Layover in Singapore. Don’t laugh. Just… are you free?’\n\nYou already know what happens next.\n\nNot a single clean route.\n\nCollisions.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Meet Kira before the event (1-on-1: work + boundaries).",
+          "effects": {},
+          "next": "c9_kira_pre"
+        },
+        {
+          "text": "Help Jannah prepare the kids’ cards (1-on-1: soft world, real weight).",
+          "effects": {},
+          "next": "c9_jannah_pre"
+        },
+        {
+          "text": "Meet Xin Yi first — no excuses, no audience (1-on-1: the friend who knows you).",
+          "effects": {},
+          "next": "c9_xinyi_pre"
+        },
+        {
+          "text": "Go to the airport for Dasha’s layover (1-on-1: the rare window).",
+          "effects": {},
+          "next": "c9_dasha_pre"
+        },
+        {
+          "text": "Visit Almahirah at the hospital before the crowd arrives (1-on-1: accountability).",
+          "effects": {},
+          "next": "c9_almah_pre"
+        }
+      ]
+    },
+    "c9_kira_pre": {
+      "label": "Chapter Nine",
+      "title": "Pre-Event Briefing",
+      "text": "Kira meets you in a quiet café near the venue, laptop already open.\n\nShe talks in bullet points: sponsor expectations, possible media questions, your role.\n\nThen, without looking up, she says:\n\n‘If someone tries to make my name a headline, I will end it.’\n\nIt isn’t jealousy.\n\nIt’s control — and a warning that she cares enough to be careful.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Promise discretion and competence. Keep the boundary intact.",
+          "effects": {
+            "affection": {
+              "kira": 4
+            },
+            "trust": {
+              "kira": 5
+            },
+            "tension": {
+              "kira": -1
+            }
+          },
+          "next": "c9_event_arrival"
+        },
+        {
+          "text": "Ask what she’s afraid of losing (personal question, risky timing).",
+          "effects": {
+            "affection": {
+              "kira": 3
+            },
+            "trust": {
+              "kira": 1
+            },
+            "tension": {
+              "kira": 3
+            }
+          },
+          "next": "c9_kira_pre_edge"
+        }
+      ]
+    },
+    "c9_kira_pre_edge": {
+      "label": "Chapter Nine",
+      "title": "The One Sentence That Slips",
+      "text": "Kira’s fingers pause on the trackpad.\n\nFor a second, she looks younger — not softer, just unguarded.\n\n‘I’m afraid,’ she says quietly, ‘of being reduced.’\n\nThen she closes her laptop like the confession never happened.\n\n‘Let’s go.’",
+      "image": "",
+      "choices": [
+        {
+          "text": "Don’t push further. Respect what she offered.",
+          "effects": {
+            "affection": {
+              "kira": 2
+            },
+            "trust": {
+              "kira": 3
+            },
+            "tension": {
+              "kira": -1
+            }
+          },
+          "next": "c9_event_arrival"
+        },
+        {
+          "text": "Push anyway: tell her she’s more than her job (tender, but could irritate).",
+          "effects": {
+            "affection": {
+              "kira": 3
+            },
+            "trust": {
+              "kira": -1
+            },
+            "tension": {
+              "kira": 2
+            }
+          },
+          "next": "c9_event_arrival"
+        }
+      ]
+    },
+    "c9_jannah_pre": {
+      "label": "Chapter Nine",
+      "title": "Glitter, Glue, and Gratitude",
+      "text": "Jannah’s classroom smells like paper and sweet milk.\n\nShe’s surrounded by tiny hands making ‘thank you’ cards for nurses and doctors.\n\nWhen you show up, she doesn’t say ‘you came.’\n\nShe just hands you a stack of stickers like you’ve always belonged here.\n\nLater, in a lull, she murmurs:\n\n‘You’re good with pressure. But I wonder if you’re good with staying.’",
+      "image": "",
+      "choices": [
+        {
+          "text": "Tell her you’re trying to learn staying — not just showing up.",
+          "effects": {
+            "affection": {
+              "jannah": 5
+            },
+            "trust": {
+              "jannah": 4
+            },
+            "tension": {
+              "jannah": -1
+            }
+          },
+          "next": "c9_event_arrival"
+        },
+        {
+          "text": "Joke it off and change the subject (safe, but costs something).",
+          "effects": {
+            "affection": {
+              "jannah": 2
+            },
+            "trust": {
+              "jannah": -2
+            },
+            "tension": {
+              "jannah": 3
+            }
+          },
+          "next": "c9_event_arrival"
+        }
+      ]
+    },
+    "c9_xinyi_pre": {
+      "label": "Chapter Nine",
+      "title": "No Audience, No Escape",
+      "text": "Xin Yi chooses a quiet supper spot — somewhere the noise can’t hide you.\n\nShe doesn’t interrogate.\n\nShe observes.\n\n‘I don’t need to win,’ she says. ‘I need to know I’m not being used as a resting place between your storms.’\n\nHer voice stays calm, but the sentence lands like a blade with a velvet handle.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Be specific: name a plan for tonight, and for after tonight.",
+          "effects": {
+            "affection": {
+              "xinyi": 4
+            },
+            "trust": {
+              "xinyi": 5
+            },
+            "tension": {
+              "xinyi": -1
+            }
+          },
+          "next": "c9_event_arrival"
+        },
+        {
+          "text": "Ask her to just ‘be patient’ (a request that sounds like entitlement).",
+          "effects": {
+            "affection": {
+              "xinyi": 1
+            },
+            "trust": {
+              "xinyi": -3
+            },
+            "tension": {
+              "xinyi": 5
+            }
+          },
+          "next": "c9_event_arrival"
+        }
+      ]
+    },
+    "c9_dasha_pre": {
+      "label": "Chapter Nine",
+      "title": "Layover Light",
+      "text": "Changi feels like a city that never sleeps.\n\nDasha meets you by a glass wall, suitcase at her feet, hair slightly damp from travel.\n\nShe grins like she’s pretending this is casual.\n\n‘I’m not Vietnamese,’ she reminds you again, amused. ‘Kazakhstan. Still Kazakhstan.’\n\nThen she tilts her head.\n\n‘Tell me the truth. Do you miss me — or do you miss being brave?’",
+      "image": "",
+      "choices": [
+        {
+          "text": "Tell her you miss her specifically — the person, not the adrenaline.",
+          "effects": {
+            "affection": {
+              "dasha": 5
+            },
+            "trust": {
+              "dasha": 4
+            },
+            "tension": {
+              "dasha": -1
+            }
+          },
+          "next": "c9_event_arrival"
+        },
+        {
+          "text": "Keep it poetic but vague (pretty words, low clarity).",
+          "effects": {
+            "affection": {
+              "dasha": 3
+            },
+            "trust": {
+              "dasha": -1
+            },
+            "tension": {
+              "dasha": 3
+            }
+          },
+          "next": "c9_event_arrival"
+        }
+      ]
+    },
+    "c9_almah_pre": {
+      "label": "Chapter Nine",
+      "title": "Before the Crowd",
+      "text": "Hospitals at dusk feel like a different kind of city.\n\nAlmahirah steps out for five minutes — not more. Her lanyard swings, her eyes steady.\n\nShe looks at you the way she looked ten years ago when she already knew the answer.\n\n‘Don’t make tonight a performance,’ she says. ‘If you care, care with discipline.’\n\nThen, softer:\n\n‘And don’t make other women pay for mistakes you made with me.’",
+      "image": "",
+      "choices": [
+        {
+          "text": "Agree — and ask what ‘discipline’ looks like in practice.",
+          "effects": {
+            "affection": {
+              "almah": 3
+            },
+            "trust": {
+              "almah": 5
+            },
+            "tension": {
+              "almah": -1
+            }
+          },
+          "next": "c9_almah_pre_detail"
+        },
+        {
+          "text": "Get defensive (pride reflex).",
+          "effects": {
+            "trust": {
+              "almah": -2
+            },
+            "tension": {
+              "almah": 4
+            }
+          },
+          "next": "c9_event_arrival"
+        }
+      ]
+    },
+    "c9_almah_pre_detail": {
+      "label": "Chapter Nine",
+      "title": "Discipline",
+      "text": "Almahirah doesn’t raise her voice.\n\nShe lists it like a care plan:\n\n• Don’t lie to make life easier.\n• Don’t flirt to collect comfort.\n• Don’t promise what you won’t keep.\n\n‘You’re older now,’ she says. ‘Act like it.’\n\nThen she nods once and returns to the ward — mercy done quietly, without applause.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Let it humble you. Walk into the night more careful than you were.",
+          "effects": {
+            "affection": {
+              "almah": 2
+            },
+            "trust": {
+              "almah": 3
+            },
+            "tension": {
+              "almah": -1
+            }
+          },
+          "next": "c9_event_arrival"
+        },
+        {
+          "text": "Tell yourself she’s being unfair (and carry that irritation into the event).",
+          "effects": {
+            "tension": {
+              "almah": 3
+            }
+          },
+          "next": "c9_event_arrival"
+        }
+      ]
+    },
+    "c9_event_arrival": {
+      "label": "Chapter Nine",
+      "title": "Mercy Night: Same Room",
+      "text": "The venue is inside the hospital’s fundraiser hall — soft lighting, polite laughter, donation screens.\n\nYou enter and immediately feel it:\n\nKira near the sponsor backdrop, posture perfect.\nJannah guiding her preschool team with a box of handmade cards.\nXin Yi with your close friend group, watching the room like she’s mapping risk.\nAlmahirah moving through staff corridors, visible only in glimpses.\nAnd Dasha — unexpectedly here — a green dot on your phone that says she made it past immigration.\n\nThere is no way to be everywhere.\n\nSo the question becomes: who do you stand beside first — when it’s public?",
+      "image": "",
+      "choices": [
+        {
+          "text": "Go to Kira at the sponsor wall (public alignment).",
+          "effects": {
+            "trust": {
+              "kira": 2
+            },
+            "tension": {
+              "kira": -1
+            }
+          },
+          "next": "c9_event_kira_wall"
+        },
+        {
+          "text": "Help Jannah with the kids’ cards (service first).",
+          "effects": {
+            "affection": {
+              "jannah": 2
+            },
+            "trust": {
+              "jannah": 2
+            }
+          },
+          "next": "c9_event_jannah_cards"
+        },
+        {
+          "text": "Join Xin Yi and your friend group (belonging + optics).",
+          "effects": {
+            "trust": {
+              "xinyi": 2
+            }
+          },
+          "next": "c9_event_xinyi_group"
+        },
+        {
+          "text": "Slip outside to greet Dasha (rare window, risky timing).",
+          "effects": {
+            "affection": {
+              "dasha": 2
+            },
+            "tension": {
+              "kira": 1,
+              "xinyi": 1,
+              "jannah": 1
+            }
+          },
+          "next": "c9_event_dasha_arrival"
+        },
+        {
+          "text": "Find Almahirah in the staff corridor (private accountability).",
+          "effects": {
+            "trust": {
+              "almah": 2
+            },
+            "tension": {
+              "almah": -1
+            }
+          },
+          "next": "c9_event_almah_corridor"
+        }
+      ]
+    },
+    "c9_event_kira_wall": {
+      "label": "Chapter Nine",
+      "title": "Sponsor Backdrop",
+      "text": "Kira turns as you approach.\n\nHer gaze flicks over your outfit — approving, assessing.\n\nA camera flash pops.\n\nThen Xin Yi appears from your friend group’s side, pausing like she didn’t expect this angle.\n\nShe doesn’t interrupt.\n\nShe just watches.\n\nKira, without looking away from the lens, murmurs:\n\n‘If you’re going to stand here, stand properly.’",
+      "image": "",
+      "choices": [
+        {
+          "text": "Introduce Xin Yi to Kira openly (no hiding).",
+          "effects": {
+            "trust": {
+              "xinyi": 3,
+              "kira": 2
+            },
+            "tension": {
+              "xinyi": -1
+            }
+          },
+          "next": "c9_event_kira_xinyi_intro"
+        },
+        {
+          "text": "Pretend you didn’t see Xin Yi (avoidance becomes visible).",
+          "effects": {
+            "affection": {
+              "kira": 2
+            },
+            "trust": {
+              "xinyi": -2
+            },
+            "tension": {
+              "xinyi": 5
+            }
+          },
+          "next": "c9_event_kira_avoid"
+        },
+        {
+          "text": "Excuse yourself to check on Jannah’s group (balance, but looks like retreat).",
+          "effects": {
+            "trust": {
+              "jannah": 1
+            },
+            "tension": {
+              "kira": 1
+            }
+          },
+          "next": "c9_event_jannah_cards"
+        }
+      ]
+    },
+    "c9_event_kira_xinyi_intro": {
+      "label": "Chapter Nine",
+      "title": "Two Worlds Shaking Hands",
+      "text": "You bring Xin Yi over.\n\nKira’s smile is polite, professional.\n\nXin Yi’s is warm, controlled.\n\nThey exchange names, roles, harmless facts.\n\nBut the subtext is clear:\n\nOne is your boss.\n\nOne is your home.\n\nAnd you are the unstable bridge.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Stay with Kira for the sponsor segment (commit to the optics you started).",
+          "effects": {
+            "affection": {
+              "kira": 3
+            },
+            "trust": {
+              "kira": 2
+            },
+            "tension": {
+              "xinyi": 2
+            }
+          },
+          "next": "c9_mid_hub"
+        },
+        {
+          "text": "Step away with Xin Yi to decompress (repair her nerves).",
+          "effects": {
+            "affection": {
+              "xinyi": 2
+            },
+            "trust": {
+              "xinyi": 4
+            },
+            "tension": {
+              "kira": 2
+            }
+          },
+          "next": "c9_xinyi_sidehall"
+        }
+      ]
+    },
+    "c9_event_kira_avoid": {
+      "label": "Chapter Nine",
+      "title": "The Avoidance She Can See",
+      "text": "You keep your body angled toward the sponsor wall.\n\nYou pretend you didn’t notice Xin Yi.\n\nBut silence is a sound.\n\nWhen the flash fades, Kira says quietly:\n\n‘You’re distracted.’\n\nAnd behind her, Xin Yi turns away like she’s finally tired of being reasonable.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Chase Xin Yi immediately (repair first).",
+          "effects": {
+            "affection": {
+              "xinyi": 1
+            },
+            "trust": {
+              "xinyi": 4
+            },
+            "tension": {
+              "kira": 1
+            }
+          },
+          "next": "c9_xinyi_sidehall"
+        },
+        {
+          "text": "Stay with Kira and finish the sponsor segment (don’t make a bigger mess).",
+          "effects": {
+            "affection": {
+              "kira": 2
+            },
+            "trust": {
+              "kira": 3
+            },
+            "tension": {
+              "xinyi": 4
+            }
+          },
+          "next": "c9_mid_hub"
+        }
+      ]
+    },
+    "c9_event_jannah_cards": {
+      "label": "Chapter Nine",
+      "title": "The Card Table",
+      "text": "Jannah is kneeling to help a child write ‘thank you’ in shaky letters.\n\nYou take the box and start sorting cards by ward.\n\nShe looks up — relief again, the quiet kind.\n\nThen Dasha appears at the edge of the hall, scanning for you.\n\nShe spots you with Jannah.\n\nHer smile doesn’t drop.\n\nIt sharpens.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Introduce Dasha to Jannah (honest, brave).",
+          "effects": {
+            "trust": {
+              "jannah": 2,
+              "dasha": 2
+            },
+            "tension": {
+              "dasha": -1
+            }
+          },
+          "next": "c9_jannah_dasha_intro"
+        },
+        {
+          "text": "Ask Dasha to wait outside (postpone collision).",
+          "effects": {
+            "affection": {
+              "jannah": 2
+            },
+            "trust": {
+              "dasha": -2
+            },
+            "tension": {
+              "dasha": 4
+            }
+          },
+          "next": "c9_dasha_outside_wait"
+        },
+        {
+          "text": "Stay focused on the kids and ignore the tension (service as escape).",
+          "effects": {
+            "affection": {
+              "jannah": 2
+            },
+            "trust": {
+              "jannah": 3
+            },
+            "tension": {
+              "dasha": 2
+            }
+          },
+          "next": "c9_mid_hub"
+        }
+      ]
+    },
+    "c9_jannah_dasha_intro": {
+      "label": "Chapter Nine",
+      "title": "Mist Meets Warmth",
+      "text": "Dasha shakes Jannah’s hand.\n\nJannah’s smile is gracious.\n\nDasha’s is curious.\n\nThey exchange a few sentences — travel, work, Singapore humidity.\n\nThen Dasha turns to you and says, softly:\n\n‘So this is who you feel safe with.’\n\nJannah hears it.\n\nShe doesn’t react.\n\nBut her eyes do.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Defuse it: praise both of them without comparing (careful language).",
+          "effects": {
+            "trust": {
+              "jannah": 2,
+              "dasha": 2
+            },
+            "tension": {
+              "jannah": -1,
+              "dasha": -1
+            }
+          },
+          "next": "c9_mid_hub"
+        },
+        {
+          "text": "Let the tension hang (you’re tired of managing).",
+          "effects": {
+            "tension": {
+              "jannah": 3,
+              "dasha": 3
+            }
+          },
+          "next": "c9_mid_hub"
+        }
+      ]
+    },
+    "c9_dasha_outside_wait": {
+      "label": "Chapter Nine",
+      "title": "Outside the Hall",
+      "text": "You step out to find Dasha near the glass doors.\n\nShe’s smiling, but it doesn’t reach her eyes.\n\n‘You asked me to wait,’ she says. ‘Like I’m a secret.’\n\nHer tone is light.\n\nThe meaning isn’t.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Apologize properly and bring her back in (undo the ‘secret’ feeling).",
+          "effects": {
+            "trust": {
+              "dasha": 3
+            },
+            "tension": {
+              "dasha": -1,
+              "jannah": 1
+            }
+          },
+          "next": "c9_event_jannah_cards"
+        },
+        {
+          "text": "Double down: keep it separate for tonight (control, but hurts).",
+          "effects": {
+            "trust": {
+              "dasha": -3
+            },
+            "tension": {
+              "dasha": 5
+            }
+          },
+          "next": "c9_mid_hub"
+        }
+      ]
+    },
+    "c9_event_xinyi_group": {
+      "label": "Chapter Nine",
+      "title": "Friend Group Gravity",
+      "text": "Xin Yi stands with your close friends, laughing at something you half-missed.\n\nIt feels normal.\n\nNormal is dangerous.\n\nBecause normal is where you’re most tempted to stop being deliberate.\n\nHalfway through the conversation, Kira approaches — sponsor badge, professional smile.\n\nShe greets your group like it’s part of her job.\n\nXin Yi’s posture tightens a fraction.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Introduce Kira as your boss, cleanly (no weirdness).",
+          "effects": {
+            "trust": {
+              "xinyi": 2,
+              "kira": 2
+            },
+            "tension": {
+              "xinyi": -1
+            }
+          },
+          "next": "c9_xinyi_kira_clean_intro"
+        },
+        {
+          "text": "Overcompensate with jokes (makes it feel suspicious).",
+          "effects": {
+            "trust": {
+              "xinyi": -1
+            },
+            "tension": {
+              "xinyi": 3,
+              "kira": 1
+            }
+          },
+          "next": "c9_xinyi_kira_joke"
+        },
+        {
+          "text": "Excuse yourself to help Jannah (escape the triangle).",
+          "effects": {
+            "trust": {
+              "jannah": 1
+            },
+            "tension": {
+              "xinyi": 2
+            }
+          },
+          "next": "c9_event_jannah_cards"
+        }
+      ]
+    },
+    "c9_xinyi_kira_clean_intro": {
+      "label": "Chapter Nine",
+      "title": "Clean Lines",
+      "text": "You keep it simple.\n\nBoss. Team. Work.\n\nKira nods like she respects clarity.\n\nXin Yi watches like she’s checking whether your honesty is consistent.\n\nThen a volunteer announces the donation tally.\n\nApplause.\n\nNoise.\n\nAnd in the noise, your phone buzzes — Almahirah: *‘Ward 7 needs extra hands. Five minutes.’*",
+      "image": "",
+      "choices": [
+        {
+          "text": "Go help Almahirah (service in private).",
+          "effects": {
+            "trust": {
+              "almah": 3
+            },
+            "tension": {
+              "xinyi": 1,
+              "kira": 1
+            }
+          },
+          "next": "c9_event_almah_corridor"
+        },
+        {
+          "text": "Stay with Xin Yi through the program (choose the personal over duty).",
+          "effects": {
+            "affection": {
+              "xinyi": 2
+            },
+            "trust": {
+              "xinyi": 3
+            },
+            "tension": {
+              "almah": 2
+            }
+          },
+          "next": "c9_mid_hub"
+        }
+      ]
+    },
+    "c9_xinyi_kira_joke": {
+      "label": "Chapter Nine",
+      "title": "Jokes That Smell Like Smoke",
+      "text": "You make a joke.\n\nIt lands.\n\nBut jokes are not neutral.\n\nXin Yi smiles — politely.\n\nKira’s eyes narrow — slightly.\n\nYou feel it: both of them sensing you’re trying to manage perception instead of telling the truth.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Correct yourself: stop joking and clarify, properly.",
+          "effects": {
+            "trust": {
+              "xinyi": 2,
+              "kira": 1
+            },
+            "tension": {
+              "xinyi": -1
+            }
+          },
+          "next": "c9_mid_hub"
+        },
+        {
+          "text": "Keep joking (avoid discomfort; create quiet damage).",
+          "effects": {
+            "trust": {
+              "xinyi": -2
+            },
+            "tension": {
+              "xinyi": 4,
+              "kira": 2
+            }
+          },
+          "next": "c9_mid_hub"
+        }
+      ]
+    },
+    "c9_event_dasha_arrival": {
+      "label": "Chapter Nine",
+      "title": "Transit Woman",
+      "text": "You find Dasha outside the hall.\n\nShe’s holding a small paper cup of water like it’s a travel ritual.\n\n‘Singapore again,’ she says. ‘Your city likes to test people.’\n\nFrom the glass doors, you can see the sponsor backdrop.\n\nKira is there.\n\nXin Yi is there.\n\nDasha follows your gaze and says, lightly:\n\n‘You live a complicated life for someone who pretends he hates drama.’",
+      "image": "",
+      "choices": [
+        {
+          "text": "Bring Dasha inside and introduce her (honest, chaotic).",
+          "effects": {
+            "trust": {
+              "dasha": 3
+            },
+            "tension": {
+              "kira": 2,
+              "xinyi": 2
+            }
+          },
+          "next": "c9_event_dasha_inside"
+        },
+        {
+          "text": "Keep Dasha outside for a private talk (1-on-1, but secrecy risk).",
+          "effects": {
+            "affection": {
+              "dasha": 4
+            },
+            "trust": {
+              "dasha": 2
+            },
+            "tension": {
+              "dasha": -1
+            }
+          },
+          "next": "c9_dasha_private_talk"
+        }
+      ]
+    },
+    "c9_event_dasha_inside": {
+      "label": "Chapter Nine",
+      "title": "The Introduction You Can’t Unmake",
+      "text": "You bring Dasha in.\n\nHer presence changes the room — not loud, just different.\n\nXin Yi clocks it immediately.\n\nKira clocks it because she clocks everything.\n\nJannah looks up from the card table and offers a smile that’s kind enough to hurt.\n\nFor one second, you feel like you’re holding five fragile plates with one hand.\n\nAnd the night hasn’t even reached the speeches.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Stand near Jannah and the kids (choose gentleness; signal priorities).",
+          "effects": {
+            "trust": {
+              "jannah": 2
+            },
+            "tension": {
+              "dasha": 1,
+              "xinyi": 1,
+              "kira": 1
+            }
+          },
+          "next": "c9_mid_hub"
+        },
+        {
+          "text": "Return to Kira’s sponsor area (control the optics).",
+          "effects": {
+            "affection": {
+              "kira": 1
+            },
+            "trust": {
+              "kira": 2
+            },
+            "tension": {
+              "xinyi": 2,
+              "dasha": 1
+            }
+          },
+          "next": "c9_mid_hub"
+        },
+        {
+          "text": "Stay with Xin Yi’s group (repair the closest thread).",
+          "effects": {
+            "affection": {
+              "xinyi": 1
+            },
+            "trust": {
+              "xinyi": 2
+            },
+            "tension": {
+              "dasha": 1,
+              "kira": 1
+            }
+          },
+          "next": "c9_mid_hub"
+        }
+      ]
+    },
+    "c9_dasha_private_talk": {
+      "label": "Chapter Nine",
+      "title": "Five Minutes of Truth",
+      "text": "You and Dasha stand near the quiet corridor where the air-conditioning hums.\n\nShe asks about your life.\n\nNot the ‘what do you do’ version.\n\nThe ‘who are you becoming’ version.\n\nAnd when you answer, you realize you’re answering yourself too.\n\nThen, through the glass, you see Xin Yi glance outside.\n\nShe sees you.\n\nHer expression changes — not anger.\n\nRecognition.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Go to Xin Yi immediately and explain (repair the optics).",
+          "effects": {
+            "trust": {
+              "xinyi": 3
+            },
+            "tension": {
+              "dasha": 1
+            }
+          },
+          "next": "c9_xinyi_sidehall"
+        },
+        {
+          "text": "Stay with Dasha until she has to go (choose the rare window).",
+          "effects": {
+            "affection": {
+              "dasha": 4
+            },
+            "trust": {
+              "dasha": 2
+            },
+            "tension": {
+              "xinyi": 4
+            }
+          },
+          "next": "c9_mid_hub"
+        }
+      ]
+    },
+    "c9_event_almah_corridor": {
+      "label": "Chapter Nine",
+      "title": "Staff Corridor",
+      "text": "You find Almahirah near the staff corridor.\n\nNo makeup. No performance. Just fatigue and focus.\n\nShe hands you gloves.\n\n‘Five minutes,’ she says. ‘Then go back to your life.’\n\nYou help settle something small — water, a blanket, a calm voice.\n\nWhen you’re done, she looks at you and says:\n\n‘This is who you are when no one is clapping.’\n\nIt sounds like praise.\n\nIt also sounds like a test.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Stay a little longer (risk the event; choose service).",
+          "effects": {
+            "affection": {
+              "almah": 2
+            },
+            "trust": {
+              "almah": 4
+            },
+            "tension": {
+              "kira": 1,
+              "xinyi": 1
+            }
+          },
+          "next": "c9_almah_longer"
+        },
+        {
+          "text": "Return to the hall immediately (balance duty + optics).",
+          "effects": {
+            "trust": {
+              "almah": 2
+            },
+            "tension": {
+              "almah": -1
+            }
+          },
+          "next": "c9_mid_hub"
+        }
+      ]
+    },
+    "c9_almah_longer": {
+      "label": "Chapter Nine",
+      "title": "Quiet Work",
+      "text": "You stay.\n\nIt’s not romantic.\n\nIt’s just real.\n\nWhen Almahirah finally nods you out, you pass the glass doors and see the sponsor wall again.\n\nA photo is being taken.\n\nKira glances toward you.\n\nXin Yi’s friend group is watching.\n\nAnd you realize: choosing mercy has consequences too.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Return to Kira’s side (repair the sponsor optics).",
+          "effects": {
+            "trust": {
+              "kira": 2
+            },
+            "tension": {
+              "kira": 1
+            }
+          },
+          "next": "c9_event_kira_wall"
+        },
+        {
+          "text": "Find Xin Yi and be transparent (repair the personal optics).",
+          "effects": {
+            "trust": {
+              "xinyi": 3
+            },
+            "tension": {
+              "xinyi": -1
+            }
+          },
+          "next": "c9_xinyi_sidehall"
+        },
+        {
+          "text": "Go back to Jannah’s table and help (choose softness again).",
+          "effects": {
+            "trust": {
+              "jannah": 2
+            },
+            "tension": {
+              "jannah": -1
+            }
+          },
+          "next": "c9_event_jannah_cards"
+        }
+      ]
+    },
+    "c9_xinyi_sidehall": {
+      "label": "Chapter Nine",
+      "title": "Side Hall Conversation",
+      "text": "Xin Yi doesn’t raise her voice.\n\nShe doesn’t need to.\n\n‘I’m watching you,’ she says. ‘Not to police you — to decide if your honesty is real or seasonal.’\n\nShe takes a breath.\n\n‘Tell me now: do you want me, or do you want my comfort?’",
+      "image": "",
+      "choices": [
+        {
+          "text": "Choose honesty with cost: admit you want her, but you’ve been afraid of committing.",
+          "effects": {
+            "affection": {
+              "xinyi": 4
+            },
+            "trust": {
+              "xinyi": 4
+            },
+            "tension": {
+              "xinyi": 1
+            }
+          },
+          "next": "c9_mid_hub"
+        },
+        {
+          "text": "Choose control: keep it vague and ‘safe’ (she will feel it).",
+          "effects": {
+            "trust": {
+              "xinyi": -3
+            },
+            "tension": {
+              "xinyi": 5
+            }
+          },
+          "next": "c9_mid_hub"
+        },
+        {
+          "text": "Choose discipline: tell her you won’t flirt with anyone else tonight (temporary boundary).",
+          "effects": {
+            "trust": {
+              "xinyi": 3
+            },
+            "tension": {
+              "kira": 2,
+              "dasha": 2,
+              "jannah": 1,
+              "almah": 1
+            }
+          },
+          "next": "c9_mid_hub"
+        }
+      ]
+    },
+    "c9_mid_hub": {
+      "label": "Chapter Nine",
+      "title": "After the Speeches",
+      "text": "The speeches end.\n\nDonation numbers rise.\n\nPeople clap.\n\nAnd somewhere between applause and polite smiles, you realize the night is not about money.\n\nIt’s about exposure.\n\nEveryone has seen enough to start forming conclusions.\n\nNow you get one more move — not public.\n\nPrivate.\n\nOne-on-one.\n\nAnd the way you choose will echo into the endings.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Find Kira for a quiet talk about boundaries and what this costs both of you.",
+          "effects": {},
+          "next": "c9_kira_private"
+        },
+        {
+          "text": "Walk Jannah to her car and let the softness become honest.",
+          "effects": {},
+          "next": "c9_jannah_private"
+        },
+        {
+          "text": "Sit with Xin Yi and your friend group — show consistency in the place that feels like home.",
+          "effects": {},
+          "next": "c9_xinyi_private"
+        },
+        {
+          "text": "Give Dasha the goodbye she deserves before her next flight.",
+          "effects": {},
+          "next": "c9_dasha_private"
+        },
+        {
+          "text": "Check on Almahirah after her shift and face the ten-year scar properly.",
+          "effects": {},
+          "next": "c9_almah_private"
+        },
+        {
+          "text": "Do something reckless: try to keep everyone close (creates unnecessary tension).",
+          "effects": {
+            "tension": {
+              "kira": 3,
+              "jannah": 3,
+              "dasha": 3,
+              "xinyi": 3,
+              "almah": 3
+            }
+          },
+          "next": "c9_reckless_choice"
+        }
+      ],
+      "hideChosenChoicesOnReturn": true
+    },
+    "c9_kira_private": {
+      "label": "Chapter Nine",
+      "title": "Kira: The Cost of Being Seen",
+      "text": "You find Kira near the service corridor, away from cameras.\n\nShe exhales like she’s been holding breath for hours.\n\n‘Tonight is not romantic,’ she says.\n\nThen she looks at you.\n\n‘So don’t make it cheap.’\n\nIn her language, that is a confession.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Answer in her language: promise discretion and long-term consistency.",
+          "effects": {
+            "affection": {
+              "kira": 4
+            },
+            "trust": {
+              "kira": 5
+            },
+            "tension": {
+              "kira": -1
+            }
+          },
+          "next": "c9_end"
+        },
+        {
+          "text": "Cross the line: reach for her hand in a place with risk (thrill, but dangerous).",
+          "effects": {
+            "affection": {
+              "kira": 5
+            },
+            "trust": {
+              "kira": -1
+            },
+            "tension": {
+              "kira": 5
+            }
+          },
+          "next": "c9_end"
+        },
+        {
+          "text": "Step back: keep it strictly professional (safety over intimacy).",
+          "effects": {
+            "affection": {
+              "kira": 1
+            },
+            "trust": {
+              "kira": 3
+            },
+            "tension": {
+              "kira": 1
+            }
+          },
+          "next": "c9_end"
+        }
+      ]
+    },
+    "c9_jannah_private": {
+      "label": "Chapter Nine",
+      "title": "Jannah: The Slow Home",
+      "text": "Outside, the air is warm and damp.\n\nJannah carries the leftover cards like they’re fragile.\n\nShe pauses by her car and finally says:\n\n‘I don’t need grand gestures.\nI need you to stop making me guess where I stand.’\n\nHer eyes are gentle.\n\nHer request is not.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Tell her she’s not an option — she’s a direction (brave clarity).",
+          "effects": {
+            "affection": {
+              "jannah": 5
+            },
+            "trust": {
+              "jannah": 5
+            },
+            "tension": {
+              "jannah": -1
+            }
+          },
+          "next": "c9_end"
+        },
+        {
+          "text": "Ask for time again (repeating an old pattern).",
+          "effects": {
+            "affection": {
+              "jannah": 1
+            },
+            "trust": {
+              "jannah": -3
+            },
+            "tension": {
+              "jannah": 5
+            }
+          },
+          "next": "c9_end"
+        },
+        {
+          "text": "Be honest without romance: say you care deeply, but you’re not ready to promise (respectful, still painful).",
+          "effects": {
+            "trust": {
+              "jannah": 2
+            },
+            "tension": {
+              "jannah": 2
+            }
+          },
+          "next": "c9_end"
+        }
+      ]
+    },
+    "c9_xinyi_private": {
+      "label": "Chapter Nine",
+      "title": "Xin Yi: The Place You Return To",
+      "text": "You sit with Xin Yi and your close friend group.\n\nThis is where you usually hide — laughter, normal conversation, the illusion that life is simple.\n\nXin Yi leans in and whispers:\n\n‘If you want me, you can’t keep me as your ‘default’ while you audition other lives.’\n\nThe sentence is quiet.\n\nIt cuts anyway.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Commit to a defined season: ask her for one month exclusive, with clear rules.",
+          "effects": {
+            "affection": {
+              "xinyi": 5
+            },
+            "trust": {
+              "xinyi": 5
+            },
+            "tension": {
+              "kira": 2,
+              "jannah": 2,
+              "dasha": 2,
+              "almah": 2
+            }
+          },
+          "next": "c9_end"
+        },
+        {
+          "text": "Confess fear: you want her but you’re scared of losing the friendship if it fails.",
+          "effects": {
+            "affection": {
+              "xinyi": 4
+            },
+            "trust": {
+              "xinyi": 3
+            },
+            "tension": {
+              "xinyi": 1
+            }
+          },
+          "next": "c9_end"
+        },
+        {
+          "text": "Avoid direction (she will hear it).",
+          "effects": {
+            "trust": {
+              "xinyi": -3
+            },
+            "tension": {
+              "xinyi": 5
+            }
+          },
+          "next": "c9_end"
+        }
+      ]
+    },
+    "c9_dasha_private": {
+      "label": "Chapter Nine",
+      "title": "Dasha: The Goodbye That Matters",
+      "text": "Dasha checks her phone.\n\nBoarding time.\n\nShe smiles like she’s practiced leaving.\n\n‘I don’t want to be a souvenir,’ she says.\n\n‘If you want me, want me like you want a real life — not like you want a story to tell.’",
+      "image": "",
+      "choices": [
+        {
+          "text": "Give her honesty: tell her you’ll visit Sapa again, with a date — not a fantasy.",
+          "effects": {
+            "affection": {
+              "dasha": 5
+            },
+            "trust": {
+              "dasha": 4
+            },
+            "tension": {
+              "dasha": -1
+            }
+          },
+          "next": "c9_end"
+        },
+        {
+          "text": "Give her romance without commitment (beautiful, hollow).",
+          "effects": {
+            "affection": {
+              "dasha": 4
+            },
+            "trust": {
+              "dasha": -2
+            },
+            "tension": {
+              "dasha": 4
+            }
+          },
+          "next": "c9_end"
+        },
+        {
+          "text": "Let her go with respect: thank her for the courage she pulled out of you.",
+          "effects": {
+            "trust": {
+              "dasha": 3
+            },
+            "tension": {
+              "dasha": 1
+            }
+          },
+          "next": "c9_end"
+        }
+      ]
+    },
+    "c9_almah_private": {
+      "label": "Chapter Nine",
+      "title": "Almahirah: Ten Years in One Conversation",
+      "text": "Almahirah’s shift ends late.\n\nShe washes her hands, then meets you by a quiet bench outside the staff exit.\n\nShe doesn’t ask if you missed her.\n\nShe asks:\n\n‘Are you still the man who runs when things get serious?’\n\nThe question isn’t cruel.\n\nIt’s necessary.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Own the past: apologize specifically for how you ended it ten years ago.",
+          "effects": {
+            "affection": {
+              "almah": 4
+            },
+            "trust": {
+              "almah": 6
+            },
+            "tension": {
+              "almah": -1
+            }
+          },
+          "next": "c9_end"
+        },
+        {
+          "text": "Try to rewrite history (minimize your fault).",
+          "effects": {
+            "trust": {
+              "almah": -3
+            },
+            "tension": {
+              "almah": 5
+            }
+          },
+          "next": "c9_end"
+        },
+        {
+          "text": "Ask for a second chance carefully — not a romance, but a conversation that continues.",
+          "effects": {
+            "affection": {
+              "almah": 5
+            },
+            "trust": {
+              "almah": 4
+            },
+            "tension": {
+              "almah": 1
+            }
+          },
+          "next": "c9_end"
+        }
+      ]
+    },
+    "c9_reckless_choice": {
+      "label": "Chapter Nine",
+      "title": "Unnecessary Tension",
+      "text": "You do something you know is stupid.\n\nYou try to keep everyone close.\n\nA half-truth here.\nA reassuring line there.\n\nIt works for five minutes — and then it starts to fail.\n\nKira notices the inconsistencies.\n\nXin Yi notices the emotional math.\n\nJannah notices the way you look tired of being honest.\n\nDasha notices because she’s a traveller — she can smell exits.\n\nAlmahirah notices because she’s a nurse — she can smell denial.\n\nThe night becomes sharper.\n\nNot because they’re fighting.\n\nBecause they’re deciding.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Stop. Choose one person to be honest with tonight (and accept the others will feel it).",
+          "effects": {},
+          "next": "c9_mid_hub"
+        },
+        {
+          "text": "Keep juggling (further tension, small ‘wins’ that cost trust).",
+          "effects": {
+            "trust": {
+              "kira": -2,
+              "xinyi": -2,
+              "jannah": -2,
+              "dasha": -2,
+              "almah": -2
+            },
+            "tension": {
+              "kira": 4,
+              "xinyi": 4,
+              "jannah": 4,
+              "dasha": 4,
+              "almah": 4
+            }
+          },
+          "next": "c9_end"
+        }
+      ],
+      "hideChosenChoicesOnReturn": true
+    },
+    "c9_end": {
+      "label": "Chapter Nine",
+      "title": "End of Chapter Nine",
+      "text": "By the time the hall empties, you understand something you avoided for months:\n\nChoosing isn’t about intensity.\n\nIt’s about consistency.\n\nThe endings won’t ask who you *wanted*.\n\nThey’ll ask who you were brave enough to be.",
       "image": "",
       "choices": [
         {
