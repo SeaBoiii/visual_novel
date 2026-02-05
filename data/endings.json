@@ -1,333 +1,664 @@
 ﻿[
-    {
-        "id":  "chaos",
-        "title":  "Chaos Ending — Lines Crossed",
-        "text":  "High tension collapses the night. Someone walks away first, and the rest follows. You learn what not to repeat.",
-        "autoEndings": true,
-        "conditions":  [
-                           {
-                               "type":  "max_ge",
-                               "meter":  "tension",
-                               "value":  65
-                           }
-                       ]
-    },
-    {
-        "id":  "true_partner_kira",
-        "title":  "True Partner Ending — Kira",
-        "text":  "You choose with clarity. Kira lets you in—steady, equal, earned. The relationship survives pressure, not just feelings.",
-        "conditions":  [
-                           {
-                               "type":  "min",
-                               "meter":  "affection",
-                               "character":  "kira",
-                               "value":  75
-                           },
-                           {
-                               "type":  "min",
-                               "meter":  "trust",
-                               "character":  "kira",
-                               "value":  70
-                           },
-                           {
-                               "type":  "max_le",
-                               "meter":  "tension",
-                               "character":  "kira",
-                               "value":  35
-                           },
-                           {
-                               "type":  "top_is",
-                               "meter":  "affection",
-                               "character":  "kira"
-                           },
-                           {
-                               "type":  "top_diff_gte",
-                               "meter":  "affection",
-                               "value":  10
-                           }
-                       ]
-    },
-    {
-        "id":  "true_partner_jannah",
-        "title":  "True Partner Ending — Jannah",
-        "text":  "You choose with clarity. Jannah stays—warm, grounded, and real. It becomes a life you can actually live in.",
-        "conditions":  [
-                           {
-                               "type":  "min",
-                               "meter":  "affection",
-                               "character":  "jannah",
-                               "value":  75
-                           },
-                           {
-                               "type":  "min",
-                               "meter":  "trust",
-                               "character":  "jannah",
-                               "value":  70
-                           },
-                           {
-                               "type":  "max_le",
-                               "meter":  "tension",
-                               "character":  "jannah",
-                               "value":  35
-                           },
-                           {
-                               "type":  "top_is",
-                               "meter":  "affection",
-                               "character":  "jannah"
-                           },
-                           {
-                               "type":  "top_diff_gte",
-                               "meter":  "affection",
-                               "value":  10
-                           }
-                       ]
-    },
-    {
-        "id":  "true_partner_dasha",
-        "title":  "True Partner Ending — Dasha",
-        "text":  "You choose with clarity. Dasha stops running. The love is quiet, brave, and finally unafraid of staying.",
-        "conditions":  [
-                           {
-                               "type":  "min",
-                               "meter":  "affection",
-                               "character":  "dasha",
-                               "value":  75
-                           },
-                           {
-                               "type":  "min",
-                               "meter":  "trust",
-                               "character":  "dasha",
-                               "value":  70
-                           },
-                           {
-                               "type":  "max_le",
-                               "meter":  "tension",
-                               "character":  "dasha",
-                               "value":  35
-                           },
-                           {
-                               "type":  "top_is",
-                               "meter":  "affection",
-                               "character":  "dasha"
-                           },
-                           {
-                               "type":  "top_diff_gte",
-                               "meter":  "affection",
-                               "value":  10
-                           }
-                       ]
-    },
-    {
-        "id":  "true_partner_xinyi",
-        "title":  "True Partner Ending — Xin Yi",
-        "text":  "You choose with clarity. Xin Yi becomes home on purpose. Not a comfort you assumed—one you protect.",
-        "conditions":  [
-                           {
-                               "type":  "min",
-                               "meter":  "affection",
-                               "character":  "xinyi",
-                               "value":  75
-                           },
-                           {
-                               "type":  "min",
-                               "meter":  "trust",
-                               "character":  "xinyi",
-                               "value":  70
-                           },
-                           {
-                               "type":  "max_le",
-                               "meter":  "tension",
-                               "character":  "xinyi",
-                               "value":  35
-                           },
-                           {
-                               "type":  "top_is",
-                               "meter":  "affection",
-                               "character":  "xinyi"
-                           },
-                           {
-                               "type":  "top_diff_gte",
-                               "meter":  "affection",
-                               "value":  10
-                           }
-                       ]
-    },
-    {
-        "id":  "true_partner_almah",
-        "title":  "True Partner Ending — Almahirah",
-        "text":  "You choose with sincerity. Almahirah chooses you back—love as discipline, mercy, and consistency.",
-        "conditions":  [
-                           {
-                               "type":  "min",
-                               "meter":  "affection",
-                               "character":  "almah",
-                               "value":  75
-                           },
-                           {
-                               "type":  "min",
-                               "meter":  "trust",
-                               "character":  "almah",
-                               "value":  70
-                           },
-                           {
-                               "type":  "max_le",
-                               "meter":  "tension",
-                               "character":  "almah",
-                               "value":  35
-                           },
-                           {
-                               "type":  "top_is",
-                               "meter":  "affection",
-                               "character":  "almah"
-                           },
-                           {
-                               "type":  "top_diff_gte",
-                               "meter":  "affection",
-                               "value":  10
-                           }
-                       ]
-    },
-    {
-        "id":  "hot_but_unstable",
-        "title":  "High Affection, Low Trust — The Break",
-        "text":  "You got closeness without safety. The romance burns fast—but cracks under doubt, secrecy, or mixed signals.",
-        "conditions":  [
-                           {
-                               "type":  "max_ge",
-                               "meter":  "affection",
-                               "value":  75
-                           },
-                           {
-                               "type":  "max_le",
-                               "meter":  "trust",
-                               "value":  54
-                           }
-                       ]
-    },
-    {
-        "id":  "trusted_not_chosen",
-        "title":  "High Trust, Not Chosen — The Quiet Goodbye",
-        "text":  "Someone trusts you deeply—but you don’t choose her. She leaves with dignity, and you feel it for a long time.",
-        "conditions":  [
-                           {
-                               "type":  "max_ge",
-                               "meter":  "trust",
-                               "value":  75
-                           },
-                           {
-                               "type":  "top_diff_lte",
-                               "meter":  "affection",
-                               "value":  9
-                           }
-                       ]
-    },
-    {
-        "id":  "harem",
-        "title":  "Harem Ending — The Balance Holds (For Now)",
-        "text":  "Against the odds, every bond stays warm and stable. It’s fragile, but you’re honest enough to keep it from rotting.",
-        "conditions":  [
-                           {
-                               "type":  "min",
-                               "meter":  "affection",
-                               "character":  "kira",
-                               "value":  60
-                           },
-                           {
-                               "type":  "min",
-                               "meter":  "affection",
-                               "character":  "jannah",
-                               "value":  60
-                           },
-                           {
-                               "type":  "min",
-                               "meter":  "affection",
-                               "character":  "dasha",
-                               "value":  60
-                           },
-                           {
-                               "type":  "min",
-                               "meter":  "affection",
-                               "character":  "xinyi",
-                               "value":  60
-                           },
-                           {
-                               "type":  "min",
-                               "meter":  "affection",
-                               "character":  "almah",
-                               "value":  60
-                           },
-                           {
-                               "type":  "min",
-                               "meter":  "trust",
-                               "character":  "kira",
-                               "value":  55
-                           },
-                           {
-                               "type":  "min",
-                               "meter":  "trust",
-                               "character":  "jannah",
-                               "value":  55
-                           },
-                           {
-                               "type":  "min",
-                               "meter":  "trust",
-                               "character":  "dasha",
-                               "value":  55
-                           },
-                           {
-                               "type":  "min",
-                               "meter":  "trust",
-                               "character":  "xinyi",
-                               "value":  55
-                           },
-                           {
-                               "type":  "min",
-                               "meter":  "trust",
-                               "character":  "almah",
-                               "value":  55
-                           },
-                           {
-                               "type":  "max_le",
-                               "meter":  "tension",
-                               "value":  40
-                           }
-                       ]
-    },
-    {
-        "id":  "bittersweet",
-        "title":  "Bittersweet Ending — Almost",
-        "text":  "A choice is made, but the gap between hearts was too small to close cleanly. Love remains, with a quiet ache.",
-        "conditions":  [
-                           {
-                               "type":  "max_ge",
-                               "meter":  "affection",
-                               "value":  60
-                           },
-                           {
-                               "type":  "top_diff_lte",
-                               "meter":  "affection",
-                               "value":  9
-                           }
-                       ]
-    },
-    {
-        "id":  "lonely",
-        "title":  "Lonely Ending — No Anchor",
-        "text":  "The night ends without a clear anchor. You keep your freedom, but something remains unfinished.",
-        "conditions":  [
-                           {
-                               "type":  "max_le",
-                               "meter":  "affection",
-                               "value":  49
-                           }
-                       ]
-    },
-    {
-        "id":  "default",
-        "title":  "Default Ending — The Corridor Continues",
-        "text":  "Nothing ends cleanly. Not yet. You walk away still choosing—because you never learned to stop.",
-        "conditions":  [
-
-                       ]
-    }
+  {
+    "id": "chaos",
+    "title": "Chaos Ending — Lines Crossed",
+    "text": "Tension finally outruns every good intention. The night turns sharp—someone leaves first, and the rest follows. Your last memory is not love, but the sound of a door closing.",
+    "autoEndings": true,
+    "conditions": [
+      {
+        "type": "max_ge",
+        "meter": "tension",
+        "value": 65
+      }
+    ]
+  },
+  {
+    "id": "kira_hr_fallout",
+    "title": "Career Fallout — Kira Sees the Risk",
+    "text": "Work becomes collateral damage. A boundary is crossed in the wrong direction, and the consequences arrive faster than feelings can explain.",
+    "autoEndings": true,
+    "conditions": [
+      {
+        "type": "max_ge",
+        "meter": "tension",
+        "character": "kira",
+        "value": 70
+      },
+      {
+        "type": "max_le",
+        "meter": "trust",
+        "character": "kira",
+        "value": 40
+      }
+    ]
+  },
+  {
+    "id": "xinyi_cut_off",
+    "title": "Cut Off — Xin Yi Stops Waiting",
+    "text": "Xin Yi stops replying. Not as punishment—as self-respect. You realize too late that comfort doesn’t survive neglect.",
+    "autoEndings": true,
+    "conditions": [
+      {
+        "type": "max_ge",
+        "meter": "tension",
+        "character": "xinyi",
+        "value": 70
+      },
+      {
+        "type": "max_le",
+        "meter": "trust",
+        "character": "xinyi",
+        "value": 40
+      }
+    ]
+  },
+  {
+    "id": "jannah_wall",
+    "title": "The Wall — Jannah Goes Quiet",
+    "text": "Jannah doesn’t fight. She just becomes polite, distant, and unreachable—like someone who learned your pattern and chose peace.",
+    "autoEndings": true,
+    "conditions": [
+      {
+        "type": "max_ge",
+        "meter": "tension",
+        "character": "jannah",
+        "value": 70
+      },
+      {
+        "type": "max_le",
+        "meter": "trust",
+        "character": "jannah",
+        "value": 40
+      }
+    ]
+  },
+  {
+    "id": "dasha_disappears",
+    "title": "Vanishing Point — Dasha Leaves",
+    "text": "Dasha disappears the way horizons do—no grand exit, just distance. You’re left holding a message you should have answered differently.",
+    "autoEndings": true,
+    "conditions": [
+      {
+        "type": "max_ge",
+        "meter": "tension",
+        "character": "dasha",
+        "value": 70
+      },
+      {
+        "type": "max_le",
+        "meter": "trust",
+        "character": "dasha",
+        "value": 40
+      }
+    ]
+  },
+  {
+    "id": "almah_closed_door",
+    "title": "Closed Door — Almahirah Refuses a Relapse",
+    "text": "Almahirah chooses mercy—with boundaries. The past doesn’t get a third chance, and Mecca stays sacred instead of turning into drama.",
+    "autoEndings": true,
+    "conditions": [
+      {
+        "type": "max_ge",
+        "meter": "tension",
+        "character": "almah",
+        "value": 70
+      },
+      {
+        "type": "max_le",
+        "meter": "trust",
+        "character": "almah",
+        "value": 40
+      }
+    ]
+  },
+  {
+    "id": "true_partner_kira",
+    "title": "True Partner Ending — Kira",
+    "text": "You choose with clarity. Kira doesn’t give softness for free—she gives trust, earned. The line between work and love becomes a boundary you both protect, and the relationship survives pressure, not just feelings.",
+    "conditions": [
+      {
+        "type": "min",
+        "meter": "affection",
+        "character": "kira",
+        "value": 78
+      },
+      {
+        "type": "min",
+        "meter": "trust",
+        "character": "kira",
+        "value": 72
+      },
+      {
+        "type": "max_le",
+        "meter": "tension",
+        "character": "kira",
+        "value": 28
+      },
+      {
+        "type": "top_is",
+        "meter": "affection",
+        "character": "kira"
+      },
+      {
+        "type": "top_diff_gte",
+        "meter": "affection",
+        "value": 12
+      }
+    ],
+    "autoEndings": true
+  },
+  {
+    "id": "true_partner_jannah",
+    "title": "True Partner Ending — Jannah",
+    "text": "You choose with clarity. Jannah stays—warm, grounded, and real. The love that grows isn’t loud; it shows up, again and again, until your life finally feels livable.",
+    "conditions": [
+      {
+        "type": "min",
+        "meter": "affection",
+        "character": "jannah",
+        "value": 78
+      },
+      {
+        "type": "min",
+        "meter": "trust",
+        "character": "jannah",
+        "value": 72
+      },
+      {
+        "type": "max_le",
+        "meter": "tension",
+        "character": "jannah",
+        "value": 28
+      },
+      {
+        "type": "top_is",
+        "meter": "affection",
+        "character": "jannah"
+      },
+      {
+        "type": "top_diff_gte",
+        "meter": "affection",
+        "value": 12
+      }
+    ],
+    "autoEndings": true
+  },
+  {
+    "id": "true_partner_dasha",
+    "title": "True Partner Ending — Dasha",
+    "text": "You choose with clarity. Dasha stops running. The love is brave enough to stay even when the horizon keeps moving—no more ‘one night only,’ just honest days.",
+    "conditions": [
+      {
+        "type": "min",
+        "meter": "affection",
+        "character": "dasha",
+        "value": 78
+      },
+      {
+        "type": "min",
+        "meter": "trust",
+        "character": "dasha",
+        "value": 72
+      },
+      {
+        "type": "max_le",
+        "meter": "tension",
+        "character": "dasha",
+        "value": 28
+      },
+      {
+        "type": "top_is",
+        "meter": "affection",
+        "character": "dasha"
+      },
+      {
+        "type": "top_diff_gte",
+        "meter": "affection",
+        "value": 12
+      }
+    ],
+    "autoEndings": true
+  },
+  {
+    "id": "true_partner_xinyi",
+    "title": "True Partner Ending — Xin Yi",
+    "text": "You choose with clarity. Xin Yi becomes home on purpose—no more comfort-lies, no more half-doors. You protect what you used to assume would wait for you.",
+    "conditions": [
+      {
+        "type": "min",
+        "meter": "affection",
+        "character": "xinyi",
+        "value": 78
+      },
+      {
+        "type": "min",
+        "meter": "trust",
+        "character": "xinyi",
+        "value": 72
+      },
+      {
+        "type": "max_le",
+        "meter": "tension",
+        "character": "xinyi",
+        "value": 28
+      },
+      {
+        "type": "top_is",
+        "meter": "affection",
+        "character": "xinyi"
+      },
+      {
+        "type": "top_diff_gte",
+        "meter": "affection",
+        "value": 12
+      }
+    ],
+    "autoEndings": true
+  },
+  {
+    "id": "true_partner_almah",
+    "title": "True Partner Ending — Almahirah",
+    "text": "You choose with sincerity. Almahirah chooses you back—love as discipline, mercy, and consistency. The past stays in the past, and the reunion becomes a covenant instead of a relapse.",
+    "conditions": [
+      {
+        "type": "min",
+        "meter": "affection",
+        "character": "almah",
+        "value": 78
+      },
+      {
+        "type": "min",
+        "meter": "trust",
+        "character": "almah",
+        "value": 72
+      },
+      {
+        "type": "max_le",
+        "meter": "tension",
+        "character": "almah",
+        "value": 28
+      },
+      {
+        "type": "top_is",
+        "meter": "affection",
+        "character": "almah"
+      },
+      {
+        "type": "top_diff_gte",
+        "meter": "affection",
+        "value": 12
+      }
+    ],
+    "autoEndings": true
+  },
+  {
+    "id": "lock_in_kira",
+    "title": "Locked In — Kira",
+    "text": "You commit before the world is ready to bless it. Kira doesn’t call it love yet—she calls it a boundary you both keep. It ends early because you’ve stopped drifting, even if life hasn’t tested you fully.",
+    "autoEndings": true,
+    "conditions": [
+      {
+        "type": "min",
+        "meter": "affection",
+        "character": "kira",
+        "value": 68
+      },
+      {
+        "type": "min",
+        "meter": "trust",
+        "character": "kira",
+        "value": 60
+      },
+      {
+        "type": "max_le",
+        "meter": "tension",
+        "character": "kira",
+        "value": 35
+      },
+      {
+        "type": "top_is",
+        "meter": "affection",
+        "character": "kira"
+      },
+      {
+        "type": "top_diff_gte",
+        "meter": "affection",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "lock_in_jannah",
+    "title": "Locked In — Jannah",
+    "text": "You commit quietly. Jannah doesn’t ask for grand gestures—just consistency. It ends early because you finally show up like you mean it, even if the future hasn’t asked the hardest questions yet.",
+    "autoEndings": true,
+    "conditions": [
+      {
+        "type": "min",
+        "meter": "affection",
+        "character": "jannah",
+        "value": 68
+      },
+      {
+        "type": "min",
+        "meter": "trust",
+        "character": "jannah",
+        "value": 60
+      },
+      {
+        "type": "max_le",
+        "meter": "tension",
+        "character": "jannah",
+        "value": 35
+      },
+      {
+        "type": "top_is",
+        "meter": "affection",
+        "character": "jannah"
+      },
+      {
+        "type": "top_diff_gte",
+        "meter": "affection",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "lock_in_dasha",
+    "title": "Locked In — Dasha",
+    "text": "You commit while the horizon is still moving. Dasha doesn’t promise forever—she promises to stop running. It ends early because you choose her with your actions, even before the story can prove you right.",
+    "autoEndings": true,
+    "conditions": [
+      {
+        "type": "min",
+        "meter": "affection",
+        "character": "dasha",
+        "value": 68
+      },
+      {
+        "type": "min",
+        "meter": "trust",
+        "character": "dasha",
+        "value": 60
+      },
+      {
+        "type": "max_le",
+        "meter": "tension",
+        "character": "dasha",
+        "value": 35
+      },
+      {
+        "type": "top_is",
+        "meter": "affection",
+        "character": "dasha"
+      },
+      {
+        "type": "top_diff_gte",
+        "meter": "affection",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "lock_in_xinyi",
+    "title": "Locked In — Xinyi",
+    "text": "You commit to home. Xin Yi stops bracing for disappointment and starts believing again. It ends early because you close the half-door—before the world gets a chance to tempt you.",
+    "autoEndings": true,
+    "conditions": [
+      {
+        "type": "min",
+        "meter": "affection",
+        "character": "xinyi",
+        "value": 68
+      },
+      {
+        "type": "min",
+        "meter": "trust",
+        "character": "xinyi",
+        "value": 60
+      },
+      {
+        "type": "max_le",
+        "meter": "tension",
+        "character": "xinyi",
+        "value": 35
+      },
+      {
+        "type": "top_is",
+        "meter": "affection",
+        "character": "xinyi"
+      },
+      {
+        "type": "top_diff_gte",
+        "meter": "affection",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "lock_in_almah",
+    "title": "Locked In — Almahirah",
+    "text": "You commit with reverence, not nostalgia. Almahirah lets the past stay where it belongs. It ends early because you choose a covenant now—before time can prove whether you can keep it.",
+    "autoEndings": true,
+    "conditions": [
+      {
+        "type": "min",
+        "meter": "affection",
+        "character": "almah",
+        "value": 68
+      },
+      {
+        "type": "min",
+        "meter": "trust",
+        "character": "almah",
+        "value": 60
+      },
+      {
+        "type": "max_le",
+        "meter": "tension",
+        "character": "almah",
+        "value": 35
+      },
+      {
+        "type": "top_is",
+        "meter": "affection",
+        "character": "almah"
+      },
+      {
+        "type": "top_diff_gte",
+        "meter": "affection",
+        "value": 10
+      }
+    ]
+  },
+  {
+    "id": "peaceful_stalemate",
+    "title": "Peaceful Stalemate — No One Gets Hurt (Much)",
+    "text": "You keep everything calm and almost fair. No fires, no explosions—just a quiet truth: you protected peace more than you pursued love.",
+    "autoEndings": true,
+    "conditions": [
+      {
+        "type": "min",
+        "meter": "trust",
+        "character": "kira",
+        "value": 60
+      },
+      {
+        "type": "min",
+        "meter": "trust",
+        "character": "jannah",
+        "value": 60
+      },
+      {
+        "type": "min",
+        "meter": "trust",
+        "character": "dasha",
+        "value": 60
+      },
+      {
+        "type": "min",
+        "meter": "trust",
+        "character": "xinyi",
+        "value": 60
+      },
+      {
+        "type": "min",
+        "meter": "trust",
+        "character": "almah",
+        "value": 60
+      },
+      {
+        "type": "max_le",
+        "meter": "tension",
+        "value": 28
+      },
+      {
+        "type": "top_diff_lte",
+        "meter": "affection",
+        "value": 8
+      }
+    ]
+  },
+  {
+    "id": "hot_but_unstable",
+    "title": "High Affection, Low Trust — The Break",
+    "text": "You get closeness without safety. The romance burns fast—but cracks under doubt, secrecy, and mixed signals. It ends the way it began: intense, then suddenly quiet.",
+    "conditions": [
+      {
+        "type": "max_ge",
+        "meter": "affection",
+        "value": 75
+      },
+      {
+        "type": "max_le",
+        "meter": "trust",
+        "value": 54
+      }
+    ]
+  },
+  {
+    "id": "trusted_not_chosen",
+    "title": "High Trust, Not Chosen — The Quiet Goodbye",
+    "text": "Someone trusts you deeply—but you don’t choose her. She leaves with dignity, and you learn that being ‘good’ isn’t the same as being brave.",
+    "conditions": [
+      {
+        "type": "max_ge",
+        "meter": "trust",
+        "value": 75
+      },
+      {
+        "type": "top_diff_lte",
+        "meter": "affection",
+        "value": 9
+      }
+    ]
+  },
+  {
+    "id": "harem",
+    "title": "Harem Ending — The Balance Holds (For Now)",
+    "text": "Against the odds, every bond stays warm and stable. It’s fragile, but you’re honest enough to keep it from rotting—at least for now.",
+    "conditions": [
+      {
+        "type": "min",
+        "meter": "affection",
+        "character": "kira",
+        "value": 60
+      },
+      {
+        "type": "min",
+        "meter": "affection",
+        "character": "jannah",
+        "value": 60
+      },
+      {
+        "type": "min",
+        "meter": "affection",
+        "character": "dasha",
+        "value": 60
+      },
+      {
+        "type": "min",
+        "meter": "affection",
+        "character": "xinyi",
+        "value": 60
+      },
+      {
+        "type": "min",
+        "meter": "affection",
+        "character": "almah",
+        "value": 60
+      },
+      {
+        "type": "min",
+        "meter": "trust",
+        "character": "kira",
+        "value": 55
+      },
+      {
+        "type": "min",
+        "meter": "trust",
+        "character": "jannah",
+        "value": 55
+      },
+      {
+        "type": "min",
+        "meter": "trust",
+        "character": "dasha",
+        "value": 55
+      },
+      {
+        "type": "min",
+        "meter": "trust",
+        "character": "xinyi",
+        "value": 55
+      },
+      {
+        "type": "min",
+        "meter": "trust",
+        "character": "almah",
+        "value": 55
+      },
+      {
+        "type": "max_le",
+        "meter": "tension",
+        "value": 40
+      }
+    ]
+  },
+  {
+    "id": "bittersweet",
+    "title": "Bittersweet Ending — Almost",
+    "text": "A choice is made, but the gap between hearts was too small to close cleanly. Love remains—warm, unfinished, and quietly painful.",
+    "conditions": [
+      {
+        "type": "max_ge",
+        "meter": "affection",
+        "value": 60
+      },
+      {
+        "type": "top_diff_lte",
+        "meter": "affection",
+        "value": 9
+      }
+    ]
+  },
+  {
+    "id": "lonely",
+    "title": "Lonely Ending — No Anchor",
+    "text": "The night ends without an anchor. You keep your freedom, but you also keep the emptiness—the part of you that never learned to choose.",
+    "conditions": [
+      {
+        "type": "max_le",
+        "meter": "affection",
+        "value": 49
+      }
+    ]
+  },
+  {
+    "id": "default",
+    "title": "Default Ending — The Corridor Continues",
+    "text": "Nothing ends cleanly. Not yet. You walk away still choosing—because you never learned to stop.",
+    "conditions": []
+  }
 ]
