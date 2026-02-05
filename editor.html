@@ -39,6 +39,26 @@
         <div id="graphCanvas" class="graph__canvas"></div>
       </section>
 
+      <section class="preview" id="preview">
+        <div class="preview__header">
+          <div>
+            <h3>Live Preview</h3>
+            <p class="preview__hint">Click a node in the map to jump here and test choices.</p>
+          </div>
+          <div class="preview__actions">
+            <button id="previewResetBtn" class="btn btn--ghost" type="button">Restart Preview</button>
+          </div>
+        </div>
+        <div id="previewMeters" class="meters meters--horizontal"></div>
+        <div class="scene">
+          <p id="previewSceneLabel" class="scene__label"></p>
+          <h2 id="previewSceneTitle" class="scene__title"></h2>
+          <img id="previewSceneImage" class="scene__image" alt="" />
+          <p id="previewSceneText" class="scene__text"></p>
+          <div id="previewChoices" class="choices"></div>
+        </div>
+      </section>
+
       <section class="editor" id="editor">
         <div class="editor__header">
           <div>

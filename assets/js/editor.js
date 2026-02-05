@@ -25,6 +25,13 @@ const endingsEditorEl = document.getElementById("endingsEditor");
 const addEndingBtn = document.getElementById("addEndingBtn");
 const characterEditorEl = document.getElementById("characterEditor");
 const graphLegendEl = document.getElementById("graphLegend");
+const previewMetersEl = document.getElementById("previewMeters");
+const previewSceneLabelEl = document.getElementById("previewSceneLabel");
+const previewSceneTitleEl = document.getElementById("previewSceneTitle");
+const previewSceneImageEl = document.getElementById("previewSceneImage");
+const previewSceneTextEl = document.getElementById("previewSceneText");
+const previewChoicesEl = document.getElementById("previewChoices");
+const previewResetBtn = document.getElementById("previewResetBtn");
 
 const editorState = {
   story: window.getStory(),
@@ -53,6 +60,19 @@ const graphFilterState = {
   labels: new Set(),
 };
 
+const previewState = {
+  meters: null,
+  currentScene: null,
+  history: [],
+  chosenChoicesByScene: {},
+};
+
+const previewDragState = {
+  isDragging: false,
+  meterType: null,
+  characterId: null,
+};
+
 const CONDITION_TYPES = [
   "min",
   "diff_greater",
@@ -68,6 +88,35 @@ const CONDITION_TYPES = [
 
 function clone(obj) {
   return JSON.parse(JSON.stringify(obj));
+}
+
+function escapeHtml(value) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function formatTextWithIcons(text) {
+  if (!text) return "";
+  let output = escapeHtml(text);
+  const characters = [...editorState.story.characters].sort(
+    (a, b) => b.name.length - a.name.length
+  );
+  characters.forEach((character) => {
+    const icon = character.icon || character.name.slice(0, 1);
+    const name = character.name;
+    const pattern = new RegExp(`\\b${name.replace(/[-/\\\\^$*+?.()|[\\]{}]/g, "\\\\$&")}\\b`, "g");
+    output = output.replace(
+      pattern,
+      `<span class="name-pill"><span class="name-pill__icon">${escapeHtml(
+        icon
+      )}</span>${escapeHtml(name)}</span>`
+    );
+  });
+  return output.replace(/\n/g, "<br />");
 }
 
 function trimText(value, maxLength) {
@@ -159,6 +208,279 @@ function ensureFilterState(labels) {
       graphFilterState.labels.delete(label);
     }
   });
+}
+
+function initPreviewState(startSceneId) {
+  previewState.meters = clone(editorState.story.meters);
+  previewState.currentScene = startSceneId || editorState.story.start;
+  previewState.history = [];
+  previewState.chosenChoicesByScene = {};
+}
+
+function clamp(value, min = 0, max = 100) {
+  return Math.max(min, Math.min(max, value));
+}
+
+function setPreviewMeterValue(meterType, characterId, value) {
+  if (!previewState.meters?.[meterType]) return;
+  previewState.meters[meterType][characterId] = clamp(value);
+}
+
+function updatePreviewMeterFromEvent(event, meterType, characterId, target) {
+  const rect = target.getBoundingClientRect();
+  const x = Math.max(0, Math.min(rect.width, event.clientX - rect.left));
+  const pct = Math.round((x / rect.width) * 100);
+  setPreviewMeterValue(meterType, characterId, pct);
+  renderPreviewMeters();
+}
+
+function renderPreviewMeters() {
+  if (!previewMetersEl) return;
+  previewMetersEl.innerHTML = "";
+  const meterTypes = Object.keys(previewState.meters || {});
+  meterTypes.forEach((type) => {
+    const group = document.createElement("div");
+    group.className = "meter-group";
+
+    const label = document.createElement("div");
+    label.className = "meter-group__label";
+    label.textContent = type;
+    group.appendChild(label);
+
+    const bars = document.createElement("div");
+    bars.className = "meter-group__bars";
+
+    editorState.story.characters.forEach((character) => {
+      const value = previewState.meters?.[type]?.[character.id] ?? 0;
+      const row = document.createElement("div");
+      row.className = "meter-mini-row";
+
+      const icon = document.createElement("div");
+      icon.className = "meter-mini__icon";
+      icon.textContent = character.icon || character.name.slice(0, 1);
+      icon.setAttribute("aria-label", character.name);
+      icon.style.borderColor = character.color;
+
+      const mini = document.createElement("div");
+      mini.className = "meter-mini meter-mini--interactive";
+      mini.setAttribute("aria-label", `${character.name} ${type}`);
+      mini.dataset.meterType = type;
+      mini.dataset.characterId = character.id;
+
+      const fill = document.createElement("div");
+      fill.className = "meter-mini__fill";
+      fill.style.width = `${value}%`;
+      fill.style.background = character.color;
+
+      mini.appendChild(fill);
+      row.appendChild(icon);
+      row.appendChild(mini);
+      bars.appendChild(row);
+
+      mini.addEventListener("pointerdown", (event) => {
+        previewDragState.isDragging = true;
+        previewDragState.meterType = type;
+        previewDragState.characterId = character.id;
+        mini.setPointerCapture(event.pointerId);
+        updatePreviewMeterFromEvent(event, type, character.id, mini);
+      });
+      mini.addEventListener("pointermove", (event) => {
+        if (!previewDragState.isDragging) return;
+        if (
+          previewDragState.meterType !== type ||
+          previewDragState.characterId !== character.id
+        ) {
+          return;
+        }
+        updatePreviewMeterFromEvent(event, type, character.id, mini);
+      });
+      mini.addEventListener("pointerup", () => {
+        previewDragState.isDragging = false;
+        previewDragState.meterType = null;
+        previewDragState.characterId = null;
+      });
+      mini.addEventListener("pointerleave", () => {
+        if (previewDragState.isDragging) {
+          previewDragState.isDragging = false;
+          previewDragState.meterType = null;
+          previewDragState.characterId = null;
+        }
+      });
+    });
+
+    group.appendChild(bars);
+    previewMetersEl.appendChild(group);
+  });
+}
+
+function applyPreviewEffects(effects) {
+  Object.entries(effects).forEach(([meterType, changes]) => {
+    if (!previewState.meters[meterType]) return;
+    Object.entries(changes || {}).forEach(([characterId, delta]) => {
+      const current = previewState.meters[meterType]?.[characterId] ?? 0;
+      previewState.meters[meterType][characterId] = clamp(current + delta);
+    });
+  });
+}
+
+function getPreviewSortedMeters(meterType = "affection") {
+  return Object.entries(previewState.meters[meterType] || {})
+    .map(([id, value]) => ({ id, value }))
+    .sort((a, b) => b.value - a.value);
+}
+
+function previewMeetsCondition(cond) {
+  if (!cond || !cond.type) return true;
+  const meterType = cond.meter || "affection";
+  const meterMap = previewState.meters[meterType] || {};
+  switch (cond.type) {
+    case "min":
+      return (meterMap[cond.character] ?? 0) >= cond.value;
+    case "diff_greater":
+      return (meterMap[cond.a] ?? 0) > (meterMap[cond.b] ?? 0) + cond.value;
+    case "diff_abs_lte":
+      return Math.abs((meterMap[cond.a] ?? 0) - (meterMap[cond.b] ?? 0)) <= cond.value;
+    case "max_ge": {
+      const max = Math.max(...Object.values(meterMap));
+      return max >= cond.value;
+    }
+    case "max_le": {
+      const max = Math.max(...Object.values(meterMap));
+      return max <= cond.value;
+    }
+    case "top_diff_gte": {
+      const sorted = getPreviewSortedMeters(meterType);
+      const top = sorted[0]?.value ?? 0;
+      const second = sorted[1]?.value ?? 0;
+      return top - second >= cond.value;
+    }
+    case "top_is": {
+      const sorted = getPreviewSortedMeters(meterType);
+      return sorted[0]?.id === cond.character;
+    }
+    case "top_diff_lte": {
+      const sorted = getPreviewSortedMeters(meterType);
+      const top = sorted[0]?.value ?? 0;
+      const second = sorted[1]?.value ?? 0;
+      return top - second <= cond.value;
+    }
+    case "total_min": {
+      const total = Object.values(meterMap).reduce((sum, val) => sum + val, 0);
+      return total >= cond.value;
+    }
+    case "total_max": {
+      const total = Object.values(meterMap).reduce((sum, val) => sum + val, 0);
+      return total <= cond.value;
+    }
+    default:
+      return true;
+  }
+}
+
+function previewFindEnding() {
+  return editorState.story.endings.find((ending) =>
+    (ending.conditions || []).every((cond) => previewMeetsCondition(cond))
+  );
+}
+
+function renderPreviewEnding(ending) {
+  if (!ending) return;
+  if (previewSceneLabelEl) previewSceneLabelEl.textContent = "Ending";
+  if (previewSceneTitleEl) previewSceneTitleEl.textContent = ending.title || "Ending";
+  if (previewSceneTextEl) {
+    previewSceneTextEl.innerHTML = formatTextWithIcons(ending.text || "");
+  }
+  if (previewSceneImageEl) {
+    previewSceneImageEl.removeAttribute("src");
+    previewSceneImageEl.style.display = "none";
+  }
+  if (!previewChoicesEl) return;
+  previewChoicesEl.innerHTML = "";
+  const restartBtn = document.createElement("button");
+  restartBtn.className = "btn";
+  restartBtn.type = "button";
+  restartBtn.textContent = "Restart Preview";
+  restartBtn.addEventListener("click", () => {
+    initPreviewState();
+    renderPreviewScene(previewState.currentScene);
+  });
+  previewChoicesEl.appendChild(restartBtn);
+}
+
+function renderPreviewScene(sceneId) {
+  const scene = editorState.story.scenes[sceneId];
+  if (!scene || !previewSceneTitleEl || !previewSceneTextEl || !previewChoicesEl) return;
+
+  previewState.currentScene = sceneId;
+  if (previewSceneLabelEl) previewSceneLabelEl.textContent = scene.label || "";
+  previewSceneTitleEl.textContent = scene.title || sceneId;
+  previewSceneTextEl.innerHTML = formatTextWithIcons(scene.text || "");
+
+  if (previewSceneImageEl) {
+    if (scene.image) {
+      previewSceneImageEl.src = scene.image;
+      previewSceneImageEl.style.display = "block";
+      previewSceneImageEl.alt = scene.title || "";
+    } else {
+      previewSceneImageEl.removeAttribute("src");
+      previewSceneImageEl.style.display = "none";
+    }
+  }
+
+  renderPreviewMeters();
+  previewChoicesEl.innerHTML = "";
+
+  if (scene.ending) {
+    const ending = previewFindEnding();
+    renderPreviewEnding(ending);
+    return;
+  }
+
+  const hideChosen =
+    scene.hideChosenChoicesOnReturn ??
+    editorState.story.settings?.hideChosenChoicesOnReturn ??
+    false;
+  const chosenSet = previewState.chosenChoicesByScene[sceneId] || new Set();
+
+  (scene.choices || []).forEach((choice, index) => {
+    if (hideChosen && chosenSet.has(index)) return;
+    const btn = document.createElement("button");
+    btn.className = "choice";
+    btn.type = "button";
+    btn.innerHTML = formatTextWithIcons(choice.text || "");
+    btn.addEventListener("click", () => {
+      if (hideChosen) {
+        if (!previewState.chosenChoicesByScene[sceneId]) {
+          previewState.chosenChoicesByScene[sceneId] = new Set();
+        }
+        previewState.chosenChoicesByScene[sceneId].add(index);
+      }
+      applyPreviewEffects(choice.effects || {});
+      const autoEndingsEnabled =
+        scene.autoEndings ?? editorState.story.settings?.autoEndingsGlobal ?? false;
+      if (autoEndingsEnabled) {
+        const ending = previewFindEnding();
+        if (ending) {
+          renderPreviewEnding(ending);
+          return;
+        }
+      }
+      renderPreviewScene(choice.next);
+    });
+    previewChoicesEl.appendChild(btn);
+  });
+}
+
+function jumpPreviewTo(sceneId) {
+  if (!editorState.story.scenes[sceneId]) return;
+  initPreviewState(sceneId);
+  renderPreviewScene(sceneId);
+}
+
+function previewEndingById(endingId) {
+  const ending = editorState.story.endings.find((item) => item.id === endingId);
+  if (!ending) return;
+  renderPreviewEnding(ending);
 }
 
 function ensureMeters() {
@@ -433,6 +755,43 @@ function renderEndingsEditor() {
     const conditionsWrapper = document.createElement("div");
     conditionsWrapper.className = "ending-conditions";
 
+    const targets = document.createElement("div");
+    targets.className = "ending-targets";
+
+    const targetsTitle = document.createElement("div");
+    targetsTitle.className = "ending-targets__title";
+    targetsTitle.textContent = "Target meter hints";
+    targets.appendChild(targetsTitle);
+
+    const targetsList = document.createElement("div");
+    targetsList.className = "ending-targets__list";
+    const targetLines = summarizeEndingTargets(ending);
+    if (targetLines.length) {
+      targetLines.forEach((line) => {
+        const item = document.createElement("div");
+        item.textContent = line;
+        targetsList.appendChild(item);
+      });
+    } else {
+      const empty = document.createElement("div");
+      empty.textContent = "No conditions set yet.";
+      targetsList.appendChild(empty);
+    }
+    targets.appendChild(targetsList);
+
+    const applySampleBtn = document.createElement("button");
+    applySampleBtn.className = "btn btn--ghost ending-targets__btn";
+    applySampleBtn.type = "button";
+    applySampleBtn.textContent = "Apply Sample Meters";
+    applySampleBtn.addEventListener("click", () => {
+      const sample = generateSampleMetersForEnding(ending);
+      if (sample) {
+        previewState.meters = sample;
+        renderPreviewScene(previewState.currentScene || editorState.story.start);
+      }
+    });
+    targets.appendChild(applySampleBtn);
+
     (ending.conditions || []).forEach((condition, conditionIndex) => {
       const row = document.createElement("div");
       row.className = "condition-row";
@@ -572,6 +931,7 @@ function renderEndingsEditor() {
 
     card.appendChild(titleInput);
     card.appendChild(textInput);
+    card.appendChild(targets);
     card.appendChild(conditionsWrapper);
     card.appendChild(addConditionBtn);
 
@@ -588,6 +948,186 @@ function renderEndingsEditor() {
     card.appendChild(removeEndingBtn);
     endingsEditorEl.appendChild(card);
   });
+}
+
+function summarizeEndingTargets(ending) {
+  const lines = [];
+  (ending.conditions || []).forEach((cond) => {
+    if (!cond || !cond.type) return;
+    const meter = cond.meter || "affection";
+    switch (cond.type) {
+      case "min":
+        lines.push(`${meter}.${cond.character || "character"} >= ${cond.value ?? "value"}`);
+        break;
+      case "diff_greater":
+        lines.push(`${meter}.${cond.a || "a"} > ${meter}.${cond.b || "b"} + ${cond.value ?? "value"}`);
+        break;
+      case "diff_abs_lte":
+        lines.push(
+          `|${meter}.${cond.a || "a"} - ${meter}.${cond.b || "b"}| <= ${cond.value ?? "value"}`
+        );
+        break;
+      case "max_ge":
+        lines.push(`max(${meter}[*]) >= ${cond.value ?? "value"}`);
+        break;
+      case "max_le":
+        lines.push(`max(${meter}[*]) <= ${cond.value ?? "value"}`);
+        break;
+      case "top_is":
+        lines.push(`top(${meter}) is ${cond.character || "character"}`);
+        break;
+      case "top_diff_gte":
+        lines.push(`top(${meter}) - second(${meter}) >= ${cond.value ?? "value"}`);
+        break;
+      case "top_diff_lte":
+        lines.push(`top(${meter}) - second(${meter}) <= ${cond.value ?? "value"}`);
+        break;
+      case "total_min":
+        lines.push(`sum(${meter}[*]) >= ${cond.value ?? "value"}`);
+        break;
+      case "total_max":
+        lines.push(`sum(${meter}[*]) <= ${cond.value ?? "value"}`);
+        break;
+      default:
+        lines.push(`${cond.type} (${meter})`);
+        break;
+    }
+  });
+  return lines;
+}
+
+function generateSampleMetersForEnding(ending) {
+  const meters = clone(editorState.story.meters || {});
+  const characters = editorState.story.characters || [];
+
+  function ensureMeterType(meterType) {
+    meters[meterType] = meters[meterType] || {};
+    characters.forEach((character) => {
+      if (!Number.isFinite(meters[meterType][character.id])) {
+        meters[meterType][character.id] = 50;
+      }
+    });
+  }
+
+  function clampAll(meterType) {
+    Object.keys(meters[meterType] || {}).forEach((id) => {
+      meters[meterType][id] = clamp(meters[meterType][id], 0, 100);
+    });
+  }
+
+  function getSorted(meterType) {
+    return Object.entries(meters[meterType] || {})
+      .map(([id, value]) => ({ id, value }))
+      .sort((a, b) => b.value - a.value);
+  }
+
+  (ending.conditions || []).forEach((cond) => {
+    if (!cond || !cond.type) return;
+    const meterType = cond.meter || "affection";
+    ensureMeterType(meterType);
+    const map = meters[meterType];
+
+    switch (cond.type) {
+      case "min": {
+        if (!cond.character) break;
+        map[cond.character] = Math.max(map[cond.character] ?? 0, cond.value ?? 0);
+        break;
+      }
+      case "max_ge": {
+        const sorted = getSorted(meterType);
+        const targetId = sorted[0]?.id || characters[0]?.id;
+        if (targetId) {
+          map[targetId] = Math.max(map[targetId] ?? 0, cond.value ?? 0);
+        }
+        break;
+      }
+      case "max_le": {
+        Object.keys(map).forEach((id) => {
+          map[id] = Math.min(map[id], cond.value ?? map[id]);
+        });
+        break;
+      }
+      case "top_is": {
+        if (!cond.character) break;
+        const sorted = getSorted(meterType);
+        const topOther = sorted.find((item) => item.id !== cond.character);
+        const target = (topOther?.value ?? 0) + 1;
+        map[cond.character] = Math.max(map[cond.character] ?? 0, target);
+        break;
+      }
+      case "top_diff_gte": {
+        const sorted = getSorted(meterType);
+        const topId = sorted[0]?.id || characters[0]?.id;
+        const secondVal = sorted[1]?.value ?? 0;
+        if (topId) {
+          const needed = secondVal + (cond.value ?? 0);
+          map[topId] = Math.max(map[topId] ?? 0, needed);
+        }
+        break;
+      }
+      case "top_diff_lte": {
+        const sorted = getSorted(meterType);
+        const topId = sorted[0]?.id;
+        const secondId = sorted[1]?.id;
+        if (!topId || !secondId) break;
+        const diff = (map[topId] ?? 0) - (map[secondId] ?? 0);
+        const maxDiff = cond.value ?? 0;
+        if (diff > maxDiff) {
+          const targetSecond = (map[topId] ?? 0) - maxDiff;
+          map[secondId] = Math.min(100, Math.max(map[secondId] ?? 0, targetSecond));
+        }
+        break;
+      }
+      case "diff_greater": {
+        if (!cond.a || !cond.b) break;
+        const bVal = map[cond.b] ?? 0;
+        map[cond.a] = Math.max(map[cond.a] ?? 0, bVal + (cond.value ?? 0) + 1);
+        break;
+      }
+      case "diff_abs_lte": {
+        if (!cond.a || !cond.b) break;
+        const aVal = map[cond.a] ?? 0;
+        const bVal = map[cond.b] ?? 0;
+        const maxDiff = cond.value ?? 0;
+        if (Math.abs(aVal - bVal) > maxDiff) {
+          if (aVal >= bVal) {
+            map[cond.b] = Math.min(100, aVal - maxDiff);
+          } else {
+            map[cond.a] = Math.min(100, bVal - maxDiff);
+          }
+        }
+        break;
+      }
+      case "total_min": {
+        const total = Object.values(map).reduce((sum, val) => sum + val, 0);
+        const needed = (cond.value ?? 0) - total;
+        if (needed > 0 && characters.length) {
+          const bump = Math.ceil(needed / characters.length);
+          characters.forEach((character) => {
+            map[character.id] = (map[character.id] ?? 0) + bump;
+          });
+        }
+        break;
+      }
+      case "total_max": {
+        const total = Object.values(map).reduce((sum, val) => sum + val, 0);
+        const over = total - (cond.value ?? total);
+        if (over > 0 && characters.length) {
+          const drop = Math.ceil(over / characters.length);
+          characters.forEach((character) => {
+            map[character.id] = (map[character.id] ?? 0) - drop;
+          });
+        }
+        break;
+      }
+      default:
+        break;
+    }
+
+    clampAll(meterType);
+  });
+
+  return meters;
 }
 
 function renderCharacterEditor() {
@@ -660,6 +1200,12 @@ function renderEditor() {
   renderEndingsEditor();
   renderCharacterEditor();
   updateJsonArea();
+  if (!previewState.meters) {
+    initPreviewState();
+  }
+  if (previewState.currentScene) {
+    renderPreviewScene(previewState.currentScene);
+  }
 }
 
 function addScene() {
@@ -1036,10 +1582,15 @@ function renderGraph() {
       group.appendChild(label);
     }
 
-    if (!node.missing && !node.isEnding) {
+    if (!node.missing) {
       group.addEventListener("click", () => {
+        if (node.isEnding) {
+          previewEndingById(node.id.replace("ending:", ""));
+          return;
+        }
         editorState.currentSceneId = node.id;
         renderEditor();
+        jumpPreviewTo(node.id);
       });
     }
 
@@ -1196,6 +1747,12 @@ importStoryBtn.addEventListener("click", importStory);
 autoLayoutBtn.addEventListener("click", renderGraph);
 if (addEndingBtn) {
   addEndingBtn.addEventListener("click", addEnding);
+}
+if (previewResetBtn) {
+  previewResetBtn.addEventListener("click", () => {
+    initPreviewState();
+    renderPreviewScene(previewState.currentScene);
+  });
 }
 
 async function loadStoryForEditor() {

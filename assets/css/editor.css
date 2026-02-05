@@ -293,6 +293,34 @@
   font-size: 0.9rem;
 }
 
+.ending-targets {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.6rem;
+  background: rgba(255, 255, 255, 0.6);
+  font-size: 0.82rem;
+  color: rgba(28, 28, 28, 0.7);
+  display: grid;
+  gap: 0.35rem;
+}
+
+.ending-targets__title {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+  color: rgba(28, 28, 28, 0.55);
+}
+
+.ending-targets__list {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.ending-targets__btn {
+  align-self: flex-start;
+}
+
 .ending-conditions {
   display: grid;
   gap: 0.5rem;
@@ -354,5 +382,30 @@
 .panel--scene #choicesEditor::-webkit-scrollbar-track {
   background: rgba(28, 28, 28, 0.06);
   border-radius: 999px;
+}
+
+.preview {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.preview__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.preview__actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.preview__hint {
+  margin: 0.4rem 0 0;
+  color: rgba(28, 28, 28, 0.6);
+  font-size: 0.9rem;
 }
 
