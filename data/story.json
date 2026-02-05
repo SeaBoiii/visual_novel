@@ -3535,23 +3535,30 @@
     },
     "ending_gate": {
       "label": "Finale",
-      "title": "What Remains",
-      "text": "The night settles. The bonds you built decide what stays.\n\n(Use the endings rules below to resolve the outcome.)",
+      "title": "Finale: What You Earned",
+      "text": "The story tightens into a single point.\n\nNot a punishment.\nNot a reward.\n\nA result.\n\nThe night you stopped being vague changed the shape of every bond.\n\nNow the finale doesn’t ask what you *feel*.\n\nIt asks what you’ve proven:\n\n• Affection — did love grow?\n• Trust — did you become safe?\n• Tension — did you keep the room from burning?\n\nTake one breath.\n\nThen step forward and let the ending choose you back.",
       "image": "",
       "choices": [
         {
-          "text": "See how the night ends.",
+          "text": "See the ending I earned.",
           "effects": {},
           "next": "ending"
         }
       ]
     },
     "ending": {
-      "label": "Ending",
-      "title": "After the Lanterns",
-      "text": "",
+      "label": "Finale",
+      "title": "Epilogue: The After",
+      "text": "After the choice, life continues.\n\nWork still demands.\nFlights still leave.\nFaith still asks you to be accountable.\nFriendship still remembers.\n\nBut you’re no longer living five versions of yourself.\n\nYou’re living one.\n\nAnd the person you chose—or lost—will be the proof of what you became.",
       "image": "",
-      "ending": true
+      "ending": true,
+      "choices": [
+        {
+          "text": "Restart from the Prologue.",
+          "effects": {},
+          "next": "prologue"
+        }
+      ]
     },
     "c4_start": {
       "label": "Chapter Four",
@@ -12671,6 +12678,646 @@
       "choices": [
         {
           "text": "Continue to the Finale gate.",
+          "effects": {},
+          "next": "c10_start"
+        }
+      ]
+    },
+    "c10_start": {
+      "label": "Chapter Ten",
+      "title": "The Night Everything Touches",
+      "text": "The city feels too small for five stories at once.\n\nYou don’t plan the meeting.\nYou just choose a place that can hold a conclusion without demanding a spectacle: a quiet waterfront spot where the lights don’t judge you.\n\nYou send five messages. Not invitations. Not pleas.\nA simple line:\n\n“Tonight, I’ll be honest.”\n\nSome replies come fast.\nSome come late.\nOne comes with only a read receipt.\n\nChapter Ten begins with the first step you’ve avoided since Chapter One:\nyou stop trying to keep the same version of you in every room.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Start with a one-on-one: meet Xin Yi first before anyone arrives.",
+          "effects": {
+            "trust": {
+              "xinyi": 2
+            },
+            "tension": {
+              "xinyi": -1
+            }
+          },
+          "next": "c10_xinyi_pre"
+        },
+        {
+          "text": "Start with a one-on-one: meet Jannah first and let her set the emotional tone.",
+          "effects": {
+            "trust": {
+              "jannah": 2
+            },
+            "tension": {
+              "jannah": -1
+            }
+          },
+          "next": "c10_jannah_pre"
+        },
+        {
+          "text": "Start with a one-on-one: meet Kira first and face the work-personal line.",
+          "effects": {
+            "trust": {
+              "kira": 2
+            },
+            "tension": {
+              "kira": -1
+            }
+          },
+          "next": "c10_kira_pre"
+        },
+        {
+          "text": "Start with a one-on-one: meet Almahirah first — the past you never finished.",
+          "effects": {
+            "trust": {
+              "almah": 2
+            },
+            "tension": {
+              "almah": -1
+            }
+          },
+          "next": "c10_almah_pre"
+        },
+        {
+          "text": "Start with a one-on-one: call Dasha first — the window that keeps moving.",
+          "effects": {
+            "trust": {
+              "dasha": 2
+            },
+            "tension": {
+              "dasha": -1
+            }
+          },
+          "next": "c10_dasha_pre"
+        }
+      ]
+    },
+    "c10_xinyi_pre": {
+      "label": "Chapter Ten",
+      "title": "Xin Yi — The Friend Who Stayed",
+      "text": "Xin Yi arrives early.\n\nShe doesn’t look angry.\nShe looks *tired of being brave for you*.\n\n“You called everyone,” she says.\n\nYou nod.\n\nShe watches your face like she’s reading whether you’ll flinch.\n\n“If you’re going to end this,” she says quietly, “end it clean. No warmth that keeps me hoping.”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Promise clean honesty, even if it costs you.",
+          "effects": {
+            "trust": {
+              "xinyi": 3
+            },
+            "tension": {
+              "xinyi": -1
+            }
+          },
+          "next": "c10_group_arrival"
+        },
+        {
+          "text": "Try to soften it with jokes (unnecessary tension).",
+          "effects": {
+            "tension": {
+              "xinyi": 4
+            },
+            "trust": {
+              "xinyi": -2
+            }
+          },
+          "next": "c10_group_arrival"
+        }
+      ]
+    },
+    "c10_jannah_pre": {
+      "label": "Chapter Ten",
+      "title": "Jannah — The Kind of Love That Holds",
+      "text": "Jannah arrives with careful steps, like she’s walking into a room that might reject her.\n\nShe smiles politely.\nThen she drops the smile.\n\n“I don’t want to fight anyone,” she says. “I just want to know if I’m wasting my heart.”\n\nHer voice is soft.\nHer boundary isn’t.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Reassure her with action: give her your phone and tell her you’ll be present tonight.",
+          "effects": {
+            "trust": {
+              "jannah": 3
+            },
+            "tension": {
+              "jannah": -1
+            }
+          },
+          "next": "c10_group_arrival"
+        },
+        {
+          "text": "Keep your phone (unnecessary tension): ‘I might need it for work.’",
+          "effects": {
+            "tension": {
+              "jannah": 4
+            },
+            "trust": {
+              "jannah": -2
+            }
+          },
+          "next": "c10_group_arrival"
+        }
+      ]
+    },
+    "c10_kira_pre": {
+      "label": "Chapter Ten",
+      "title": "Kira — The Line That Cuts",
+      "text": "Kira arrives last among the early ones.\n\nShe looks at the place, then at you.\n\n“This is personal,” she says, as if naming the danger makes it manageable.\n\nYou nod.\n\nShe doesn’t step closer.\n\n“If you’re choosing chaos,” she says, “don’t drag my career into it.”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Acknowledge the risk and set boundaries: ‘I won’t use you, professionally or emotionally.’",
+          "effects": {
+            "trust": {
+              "kira": 3
+            },
+            "tension": {
+              "kira": -1
+            }
+          },
+          "next": "c10_group_arrival"
+        },
+        {
+          "text": "Flirt anyway (unnecessary tension): blur the line in public.",
+          "effects": {
+            "affection": {
+              "kira": 3
+            },
+            "tension": {
+              "kira": 5
+            },
+            "trust": {
+              "kira": -2
+            }
+          },
+          "next": "c10_group_arrival"
+        }
+      ]
+    },
+    "c10_almah_pre": {
+      "label": "Chapter Ten",
+      "title": "Almahirah — Ten Years Ago, Still Here",
+      "text": "Almahirah stands a few steps away from you, not too close.\n\nThe ex you dated a decade ago.\n\nIn Mecca, fate didn’t give you romance.\nIt gave you *a mirror*.\n\n“Don’t make this sacred into a drama,” she says.\n\nNot cold.\nJust honest.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Ask for closure: ‘If I choose someone else, I want you to be free of me.’",
+          "effects": {
+            "trust": {
+              "almah": 3
+            },
+            "tension": {
+              "almah": -1
+            }
+          },
+          "next": "c10_group_arrival"
+        },
+        {
+          "text": "Make her ‘the backup’ (unnecessary tension): keep the door half-open.",
+          "effects": {
+            "affection": {
+              "almah": 2
+            },
+            "trust": {
+              "almah": -3
+            },
+            "tension": {
+              "almah": 5
+            }
+          },
+          "next": "c10_group_arrival"
+        }
+      ]
+    },
+    "c10_dasha_pre": {
+      "label": "Chapter Ten",
+      "title": "Dasha — The Horizon",
+      "text": "Dasha doesn’t show up.\n\nShe calls.\n\nThe camera shakes a little. Wind. Night.\n\n“I can’t stay,” she says, like she hates that it’s true.\n\n“But I needed to hear what you are when you’re forced to be real.”\n\nShe pauses.\n\n“If you choose someone… choose her like you chose the sunrise. Like you meant it.”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Promise to be real tonight and ask her to wait for the outcome.",
+          "effects": {
+            "trust": {
+              "dasha": 3
+            },
+            "tension": {
+              "dasha": -1
+            }
+          },
+          "next": "c10_group_arrival"
+        },
+        {
+          "text": "Beg her to come anyway (unnecessary tension): turn it into pressure.",
+          "effects": {
+            "affection": {
+              "dasha": 2
+            },
+            "trust": {
+              "dasha": -2
+            },
+            "tension": {
+              "dasha": 4
+            }
+          },
+          "next": "c10_group_arrival"
+        }
+      ]
+    },
+    "c10_group_arrival": {
+      "label": "Chapter Ten",
+      "title": "When Worlds Overlap",
+      "text": "They arrive in layers.\n\nA familiar face at the edge of the lights.\nA pause when someone recognizes someone else.\nA second too long of silence.\n\nNo one screams.\nNo one claims you.\n\nThat’s what makes it worse.\n\nThey are all waiting for the same thing:\n\nnot your feelings—\n\nyour *decision-making*.\n\nYou clear your throat.\n\n“I’m done being vague,” you say.\n\nThe night holds its breath.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Do it clean: speak one name, then release the rest with respect.",
+          "effects": {
+            "trust": {
+              "kira": 1,
+              "jannah": 1,
+              "dasha": 1,
+              "xinyi": 1,
+              "almah": 1
+            },
+            "tension": {
+              "kira": -1,
+              "jannah": -1,
+              "dasha": -1,
+              "xinyi": -1,
+              "almah": -1
+            }
+          },
+          "next": "c10_commit_pick"
+        },
+        {
+          "text": "Do it messy (unnecessary tension): ‘I care about all of you.’",
+          "effects": {
+            "affection": {
+              "kira": 1,
+              "jannah": 1,
+              "dasha": 1,
+              "xinyi": 1,
+              "almah": 1
+            },
+            "trust": {
+              "kira": -2,
+              "jannah": -2,
+              "dasha": -2,
+              "xinyi": -2,
+              "almah": -2
+            },
+            "tension": {
+              "kira": 5,
+              "jannah": 5,
+              "dasha": 5,
+              "xinyi": 5,
+              "almah": 5
+            }
+          },
+          "next": "c10_messy_fallout"
+        },
+        {
+          "text": "Try to postpone again: ‘I need more time.’",
+          "effects": {
+            "trust": {
+              "kira": -3,
+              "jannah": -3,
+              "dasha": -3,
+              "xinyi": -3,
+              "almah": -3
+            },
+            "tension": {
+              "kira": 4,
+              "jannah": 4,
+              "dasha": 4,
+              "xinyi": 4,
+              "almah": 4
+            }
+          },
+          "next": "c10_walkaway"
+        }
+      ]
+    },
+    "c10_commit_pick": {
+      "label": "Chapter Ten",
+      "title": "Say the Name",
+      "text": "You could still dodge.\n\nYou could still optimize.\n\nBut the room is done with that version of you.\n\nYou inhale.\n\nAnd you say a name.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Choose Kira.",
+          "effects": {
+            "affection": {
+              "kira": 6
+            },
+            "trust": {
+              "kira": 4
+            },
+            "tension": {
+              "kira": 2
+            }
+          },
+          "next": "c10_after_kira"
+        },
+        {
+          "text": "Choose Jannah.",
+          "effects": {
+            "affection": {
+              "jannah": 6
+            },
+            "trust": {
+              "jannah": 4
+            },
+            "tension": {
+              "jannah": 2
+            }
+          },
+          "next": "c10_after_jannah"
+        },
+        {
+          "text": "Choose Dasha.",
+          "effects": {
+            "affection": {
+              "dasha": 6
+            },
+            "trust": {
+              "dasha": 4
+            },
+            "tension": {
+              "dasha": 2
+            }
+          },
+          "next": "c10_after_dasha"
+        },
+        {
+          "text": "Choose Xin Yi.",
+          "effects": {
+            "affection": {
+              "xinyi": 6
+            },
+            "trust": {
+              "xinyi": 4
+            },
+            "tension": {
+              "xinyi": 2
+            }
+          },
+          "next": "c10_after_xinyi"
+        },
+        {
+          "text": "Choose Almahirah.",
+          "effects": {
+            "affection": {
+              "almah": 6
+            },
+            "trust": {
+              "almah": 4
+            },
+            "tension": {
+              "almah": 2
+            }
+          },
+          "next": "c10_after_almah"
+        }
+      ]
+    },
+    "c10_messy_fallout": {
+      "label": "Chapter Ten",
+      "title": "The Sentence That Breaks It",
+      "text": "“I care about all of you.”\n\nIt lands like a stone.\n\nNot romantic.\nNot flattering.\n\nA refusal to choose disguised as kindness.\n\nYou watch it happen:\n\nXin Yi’s shoulders harden.\nJannah’s eyes go glassy.\nKira’s expression empties.\nAlmahirah looks away like she’s disappointed in herself for hoping.\n\nAnd Dasha’s voice message comes in, late:\n\n“Don’t do that. Don’t make women carry your indecision.”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Recover: choose one name now (salvage what you can).",
+          "effects": {
+            "tension": {
+              "kira": -1,
+              "jannah": -1,
+              "dasha": -1,
+              "xinyi": -1,
+              "almah": -1
+            }
+          },
+          "next": "c10_commit_pick"
+        },
+        {
+          "text": "Let the fallout stand (accept the consequence).",
+          "effects": {
+            "tension": {
+              "kira": 3,
+              "jannah": 3,
+              "dasha": 3,
+              "xinyi": 3,
+              "almah": 3
+            }
+          },
+          "next": "c10_to_finale"
+        }
+      ]
+    },
+    "c10_walkaway": {
+      "label": "Chapter Ten",
+      "title": "More Time",
+      "text": "You ask for more time.\n\nNo one yells.\n\nThat’s how you know you lost something.\n\nKira nods once, already emotionally gone.\n\nJannah smiles politely, like a teacher managing disappointment.\n\nXin Yi whispers, “Okay.” The kind of okay that ends a chapter.\n\nAlmahirah’s gaze softens with mercy—then closes.\n\nAnd your phone buzzes.\n\nDasha: “Then you were never real.”",
+      "image": "",
+      "choices": [
+        {
+          "text": "Chase one person (panic choice).",
+          "effects": {
+            "tension": {
+              "kira": 2,
+              "jannah": 2,
+              "dasha": 2,
+              "xinyi": 2,
+              "almah": 2
+            }
+          },
+          "next": "c10_panic_pick"
+        },
+        {
+          "text": "Let them go and face the finale alone.",
+          "effects": {
+            "trust": {
+              "kira": -1,
+              "jannah": -1,
+              "dasha": -1,
+              "xinyi": -1,
+              "almah": -1
+            }
+          },
+          "next": "c10_to_finale"
+        }
+      ]
+    },
+    "c10_panic_pick": {
+      "label": "Chapter Ten",
+      "title": "Running After a Door",
+      "text": "You move on instinct.\n\nBut instinct isn’t the same as love.\n\nYou can follow one person now.\n\nThe others will notice.\n\nAnd the night will remember.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Run after Xin Yi.",
+          "effects": {
+            "affection": {
+              "xinyi": 3
+            },
+            "trust": {
+              "xinyi": 1
+            },
+            "tension": {
+              "xinyi": 2,
+              "jannah": 1,
+              "kira": 1,
+              "almah": 1
+            }
+          },
+          "next": "c10_after_xinyi"
+        },
+        {
+          "text": "Run after Jannah.",
+          "effects": {
+            "affection": {
+              "jannah": 3
+            },
+            "trust": {
+              "jannah": 1
+            },
+            "tension": {
+              "jannah": 2,
+              "xinyi": 1,
+              "kira": 1,
+              "almah": 1
+            }
+          },
+          "next": "c10_after_jannah"
+        },
+        {
+          "text": "Run after Kira.",
+          "effects": {
+            "affection": {
+              "kira": 3
+            },
+            "trust": {
+              "kira": 1
+            },
+            "tension": {
+              "kira": 2,
+              "xinyi": 1,
+              "jannah": 1,
+              "almah": 1
+            }
+          },
+          "next": "c10_after_kira"
+        },
+        {
+          "text": "Run after Almahirah.",
+          "effects": {
+            "affection": {
+              "almah": 3
+            },
+            "trust": {
+              "almah": 1
+            },
+            "tension": {
+              "almah": 2,
+              "xinyi": 1,
+              "jannah": 1,
+              "kira": 1
+            }
+          },
+          "next": "c10_after_almah"
+        },
+        {
+          "text": "Call Dasha immediately.",
+          "effects": {
+            "affection": {
+              "dasha": 3
+            },
+            "trust": {
+              "dasha": 1
+            },
+            "tension": {
+              "dasha": 2,
+              "xinyi": 1,
+              "jannah": 1,
+              "kira": 1,
+              "almah": 1
+            }
+          },
+          "next": "c10_after_dasha"
+        }
+      ]
+    },
+    "c10_after_kira": {
+      "label": "Chapter Ten",
+      "title": "After: Kira",
+      "text": "Kira doesn’t soften instantly.\n\nShe looks at the others, then back at you.\n\n“This can’t be half,” she says.\n\nYou nod.\n\nShe doesn’t smile.\n\nBut she steps closer.\n\nAnd that is her version of forgiveness.\n\nThe rest of the night isn’t dramatic.\n\nIt’s quiet.\n\nYou speak to the others one by one.\n\nYou don’t keep them warm.\n\nYou let them go properly.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Go to the finale.",
+          "effects": {},
+          "next": "c10_to_finale"
+        }
+      ]
+    },
+    "c10_after_jannah": {
+      "label": "Chapter Ten",
+      "title": "After: Jannah",
+      "text": "Jannah’s eyes fill—but she doesn’t cry.\n\nShe just breathes, like she’s been holding it for weeks.\n\n“Okay,” she whispers.\n\nYou can tell she doesn’t believe in perfect love.\n\nShe believes in the kind that shows up.\n\nSo you do.\n\nYou speak to the others gently.\n\nNot apologizing for loving her.\n\nApologizing for being unclear.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Go to the finale.",
+          "effects": {},
+          "next": "c10_to_finale"
+        }
+      ]
+    },
+    "c10_after_dasha": {
+      "label": "Chapter Ten",
+      "title": "After: Dasha",
+      "text": "You don’t get a dramatic kiss.\n\nYou get a long exhale.\n\nA laugh that shakes.\n\nA quiet, stunned line:\n\n“So you *can* be real.”\n\nDasha doesn’t promise forever.\n\nShe promises honesty.\n\nAnd for now, that feels like the bravest thing.\n\nYou talk to the others with respect.\n\nYou don’t keep doors open.\n\nYou close them gently.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Go to the finale.",
+          "effects": {},
+          "next": "c10_to_finale"
+        }
+      ]
+    },
+    "c10_after_xinyi": {
+      "label": "Chapter Ten",
+      "title": "After: Xin Yi",
+      "text": "Xin Yi doesn’t look triumphant.\n\nShe looks relieved.\n\nLike she finally knows what to do with her heart.\n\n“You’ll have to live up to that,” she says.\n\nYou nod.\n\nAnd for once, you don’t try to negotiate.\n\nYou speak to the others.\n\nYou don’t plead.\n\nYou respect them.\n\nAnd that respect becomes the first real proof that you’ve changed.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Go to the finale.",
+          "effects": {},
+          "next": "c10_to_finale"
+        }
+      ]
+    },
+    "c10_after_almah": {
+      "label": "Chapter Ten",
+      "title": "After: Almahirah",
+      "text": "Almahirah’s gaze steadies.\n\n“You’re choosing me,” she says, almost like she’s testing whether the sentence is true.\n\nTen years ago, you were younger.\n\nYou loved like a boy who wanted comfort.\n\nTonight, if you choose her, you must choose her like a man who understands what he once broke.\n\nShe nods once.\n\nNot romance.\n\nA covenant.\n\nThen you speak to the others, with respect.\n\nNo half-doors.\n\nNo borrowed warmth.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Go to the finale.",
+          "effects": {},
+          "next": "c10_to_finale"
+        }
+      ]
+    },
+    "c10_to_finale": {
+      "label": "Chapter Ten",
+      "title": "The Door to the Finale",
+      "text": "Chapter Ten doesn’t end with fireworks.\n\nIt ends with honesty finally doing what it was supposed to do:\n\nit creates consequences that feel *clean*.\n\nWhatever happens next is no longer about confusion.\n\nIt’s about the ending you earned.",
+      "image": "",
+      "choices": [
+        {
+          "text": "Step into the finale.",
           "effects": {},
           "next": "ending_gate"
         }
