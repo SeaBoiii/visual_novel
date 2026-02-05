@@ -13,11 +13,21 @@ const saveSlotsEl = document.getElementById("saveSlots");
 let story = window.storyData;
 
 async function loadStory() {
-  const resp = await fetch("data/story.json", { cache: "no-store" });
-  if (!resp.ok) {
+  const storyResp = await fetch("data/story.json", { cache: "no-store" });
+  if (!storyResp.ok) {
     throw new Error("Could not load data/story.json");
   }
-  return await resp.json();
+  const storyData = await storyResp.json();
+
+  const endingsResp = await fetch("data/endings.json", { cache: "no-store" });
+  if (endingsResp.ok) {
+    const endings = await endingsResp.json();
+    storyData.endings = Array.isArray(endings) ? endings : [];
+  } else {
+    storyData.endings = [];
+  }
+
+  return storyData;
 }
 
 window.setStory = (nextStory) => {
@@ -285,6 +295,17 @@ async function startGame() {
         }
         applyEffects(choice.effects || {});
         logEntry(choice.text);
+        const autoEndingsEnabled =
+          scene.autoEndings ??
+          story.settings?.autoEndingsGlobal ??
+          false;
+        if (autoEndingsEnabled) {
+          const ending = findEnding();
+          if (ending) {
+            showScene("ending");
+            return;
+          }
+        }
         showScene(choice.next);
       });
 

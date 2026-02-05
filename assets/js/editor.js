@@ -4,6 +4,7 @@ const sceneLabelInput = document.getElementById("sceneLabelInput");
 const sceneTitleInput = document.getElementById("sceneTitleInput");
 const sceneTextInput = document.getElementById("sceneTextInput");
 const sceneImageInput = document.getElementById("sceneImageInput");
+const sceneAutoEndingsInput = document.getElementById("sceneAutoEndingsInput");
 const sceneImageFile = document.getElementById("sceneImageFile");
 const sceneImageUrl = document.getElementById("sceneImageUrl");
 const uploadUrlBtn = document.getElementById("uploadUrlBtn");
@@ -162,6 +163,9 @@ function renderSceneForm() {
   sceneTitleInput.value = scene.title || "";
   sceneTextInput.value = scene.text || "";
   sceneImageInput.value = scene.image || "";
+  if (sceneAutoEndingsInput) {
+    sceneAutoEndingsInput.checked = !!scene.autoEndings;
+  }
   if (sceneImageUrl) {
     sceneImageUrl.value = "";
   }
@@ -174,6 +178,9 @@ function updateSceneFromForm() {
   scene.title = sceneTitleInput.value.trim();
   scene.text = sceneTextInput.value.trim();
   scene.image = sceneImageInput.value.trim();
+  if (sceneAutoEndingsInput) {
+    scene.autoEndings = sceneAutoEndingsInput.checked || undefined;
+  }
   renderSceneList();
   renderGraph();
   updateJsonArea();
@@ -665,6 +672,8 @@ function renderGraph() {
       id,
       title: scene.title || id,
       missing: false,
+      autoEndings: !!scene.autoEndings,
+      hideChosen: !!scene.hideChosenChoicesOnReturn,
     };
     (scene.choices || []).forEach((choice) => {
       if (choice.next) {
@@ -825,6 +834,12 @@ function renderGraph() {
     if (node.missing) {
       group.classList.add("graph-node--missing");
     }
+    if (node.autoEndings) {
+      group.classList.add("graph-node--autoend");
+    }
+    if (node.hideChosen) {
+      group.classList.add("graph-node--hidechosen");
+    }
     if (node.isEnding) {
       group.classList.add("graph-node--ending");
     }
@@ -834,6 +849,9 @@ function renderGraph() {
     rect.setAttribute("y", pos.y);
     rect.setAttribute("width", layout.nodeWidth);
     rect.setAttribute("height", layout.nodeHeight);
+    if (node.isEnding) {
+      rect.classList.add("graph-node__rect--ending");
+    }
 
     const title = document.createElementNS(svgNS, "text");
     title.setAttribute("x", pos.x + 12);
@@ -846,6 +864,37 @@ function renderGraph() {
     subtitle.textContent = node.id;
 
     group.appendChild(rect);
+
+    const badges = [];
+    if (node.autoEndings) {
+      badges.push({ label: "A", cls: "graph-badge--auto" });
+    }
+    if (node.hideChosen) {
+      badges.push({ label: "H", cls: "graph-badge--hide" });
+    }
+
+    badges.forEach((badge, idx) => {
+      const badgeGroup = document.createElementNS(svgNS, "g");
+      badgeGroup.setAttribute("class", `graph-badge ${badge.cls}`);
+
+      const badgeRect = document.createElementNS(svgNS, "rect");
+      badgeRect.setAttribute("x", pos.x + layout.nodeWidth - 18 - idx * 18);
+      badgeRect.setAttribute("y", pos.y + 6);
+      badgeRect.setAttribute("width", 14);
+      badgeRect.setAttribute("height", 14);
+      badgeRect.setAttribute("rx", 4);
+      badgeRect.setAttribute("ry", 4);
+
+      const badgeText = document.createElementNS(svgNS, "text");
+      badgeText.setAttribute("x", pos.x + layout.nodeWidth - 11 - idx * 18);
+      badgeText.setAttribute("y", pos.y + 17);
+      badgeText.setAttribute("text-anchor", "middle");
+      badgeText.textContent = badge.label;
+
+      badgeGroup.appendChild(badgeRect);
+      badgeGroup.appendChild(badgeText);
+      group.appendChild(badgeGroup);
+    });
     group.appendChild(title);
     group.appendChild(subtitle);
 
@@ -991,6 +1040,9 @@ sceneLabelInput.addEventListener("input", updateSceneFromForm);
 sceneTitleInput.addEventListener("input", updateSceneFromForm);
 sceneTextInput.addEventListener("input", updateSceneFromForm);
 sceneImageInput.addEventListener("input", updateSceneFromForm);
+if (sceneAutoEndingsInput) {
+  sceneAutoEndingsInput.addEventListener("change", updateSceneFromForm);
+}
 sceneIdInput.addEventListener("change", () => renameScene(sceneIdInput.value.trim()));
 sceneImageFile.addEventListener("change", (event) => handleImageUpload(event.target.files[0]));
 if (uploadUrlBtn) {
@@ -1014,6 +1066,13 @@ async function loadStoryForEditor() {
       throw new Error("Could not load data/story.json");
     }
     const parsed = await resp.json();
+    const endingsResp = await fetch("data/endings.json", { cache: "no-store" });
+    if (endingsResp.ok) {
+      const endings = await endingsResp.json();
+      parsed.endings = Array.isArray(endings) ? endings : [];
+    } else {
+      parsed.endings = [];
+    }
     editorState.story = parsed;
     editorState.currentSceneId = parsed.start;
   } catch (error) {

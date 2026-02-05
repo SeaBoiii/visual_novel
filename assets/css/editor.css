@@ -86,9 +86,37 @@
   stroke: rgba(122, 143, 74, 0.6);
 }
 
-.graph-node--ending rect {
-  stroke: rgba(122, 143, 74, 0.6);
+.graph-node__rect--ending {
+  stroke: rgba(122, 143, 74, 0.85);
   stroke-dasharray: 3 3;
+  stroke-width: 2;
+}
+
+.graph-badge rect {
+  fill: white;
+  stroke: var(--line);
+}
+
+.graph-badge text {
+  font-size: 9px;
+  font-weight: 700;
+  fill: var(--ink);
+}
+
+.graph-badge--auto rect {
+  stroke: rgba(90, 120, 190, 0.9);
+}
+
+.graph-badge--auto text {
+  fill: rgba(90, 120, 190, 0.9);
+}
+
+.graph-badge--hide rect {
+  stroke: rgba(196, 77, 63, 0.9);
+}
+
+.graph-badge--hide text {
+  fill: rgba(196, 77, 63, 0.9);
 }
 
 .meter__hint {
@@ -187,5 +215,13 @@
   padding: 0.6rem;
   display: grid;
   gap: 0.5rem;
+}
+
+.form-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: rgba(28, 28, 28, 0.75);
 }
 

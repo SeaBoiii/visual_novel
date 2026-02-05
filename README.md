@@ -19,7 +19,8 @@ A browser-based, choice-driven visual novel where every decision shifts **Affect
 │  ├─ css/
 │  └─ js/
 ├─ data/
-│  ├─ story.json   # Source of truth
+│  ├─ story.json   # Story content (scenes, characters, meters)
+│  ├─ endings.json # Endings + conditions
 │  └─ story.js     # Fallback story data
 ├─ images/
 ├─ index.html      # Game
@@ -29,7 +30,7 @@ A browser-based, choice-driven visual novel where every decision shifts **Affect
 ```
 
 ## Run Locally
-The game reads from `data/story.json`. Use the local server so the JSON can be loaded by the browser.
+The game reads from `data/story.json` + `data/endings.json`. Use the local server so the JSON can be loaded by the browser.
 
 ```bash
 python server.py
