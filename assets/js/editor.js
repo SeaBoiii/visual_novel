@@ -24,6 +24,8 @@ const autoLayoutBtn = document.getElementById("autoLayoutBtn");
 const endingsEditorEl = document.getElementById("endingsEditor");
 const addEndingBtn = document.getElementById("addEndingBtn");
 const characterEditorEl = document.getElementById("characterEditor");
+const graphLegendEl = document.getElementById("graphLegend");
+const graphFiltersEl = document.getElementById("graphFilters");
 
 const editorState = {
   story: window.getStory(),
@@ -33,10 +35,10 @@ const editorState = {
 let autoSaveTimer = null;
 
 const layout = {
-  nodeWidth: 170,
-  nodeHeight: 60,
-  colGap: 120,
-  rowGap: 40,
+  nodeWidth: 200,
+  nodeHeight: 74,
+  colGap: 140,
+  rowGap: 50,
 };
 
 const graphView = {
@@ -46,6 +48,10 @@ const graphView = {
   isPanning: false,
   lastX: 0,
   lastY: 0,
+};
+
+const graphFilterState = {
+  labels: new Set(),
 };
 
 const CONDITION_TYPES = [
@@ -63,6 +69,113 @@ const CONDITION_TYPES = [
 
 function clone(obj) {
   return JSON.parse(JSON.stringify(obj));
+}
+
+function trimText(value, maxLength) {
+  if (!value) return "";
+  if (value.length <= maxLength) return value;
+  return `${value.slice(0, Math.max(0, maxLength - 3))}...`;
+}
+
+const GROUP_COLORS = [
+  "#6e5aa8",
+  "#b5525c",
+  "#5b7aa4",
+  "#7a8f4a",
+  "#c28a3a",
+  "#3d7c6b",
+  "#8a5a3b",
+  "#3f6aa5",
+];
+
+function getGroupColorMap() {
+  const labels = new Set();
+  listSceneIds().forEach((sceneId) => {
+    const label = getScene(sceneId)?.label;
+    if (label) {
+      labels.add(label.trim());
+    }
+  });
+  const colorMap = {};
+  Array.from(labels).forEach((label, idx) => {
+    colorMap[label] = GROUP_COLORS[idx % GROUP_COLORS.length];
+  });
+  colorMap.Ending = "rgba(122, 143, 74, 0.9)";
+  return colorMap;
+}
+
+function renderLegend(colorMap) {
+  if (!graphLegendEl) return;
+  const labels = Object.keys(colorMap);
+  if (!labels.length) {
+    graphLegendEl.innerHTML = "";
+    return;
+  }
+  graphLegendEl.innerHTML = "";
+  labels.forEach((label) => {
+    const item = document.createElement("div");
+    item.className = "graph__legend-item";
+    const swatch = document.createElement("span");
+    swatch.className = "graph__legend-swatch";
+    swatch.style.background = colorMap[label];
+    const text = document.createElement("span");
+    text.textContent = label;
+    item.appendChild(swatch);
+    item.appendChild(text);
+    graphLegendEl.appendChild(item);
+  });
+}
+
+function getLabelList() {
+  const labels = new Set();
+  listSceneIds().forEach((sceneId) => {
+    const label = getScene(sceneId)?.label;
+    if (label) {
+      labels.add(label.trim());
+    }
+  });
+  if (Array.isArray(editorState.story.endings) && editorState.story.endings.length) {
+    labels.add("Ending");
+  }
+  return Array.from(labels);
+}
+
+function ensureFilterState(labels) {
+  if (!graphFilterState.labels.size) {
+    labels.forEach((label) => graphFilterState.labels.add(label));
+    return;
+  }
+  labels.forEach((label) => graphFilterState.labels.add(label));
+  Array.from(graphFilterState.labels).forEach((label) => {
+    if (!labels.includes(label)) {
+      graphFilterState.labels.delete(label);
+    }
+  });
+}
+
+function renderFilters(labels) {
+  if (!graphFiltersEl) return;
+  graphFiltersEl.innerHTML = "";
+  labels.forEach((label) => {
+    const item = document.createElement("label");
+    item.className = "graph__filter";
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.checked = graphFilterState.labels.has(label);
+    input.addEventListener("change", () => {
+      if (input.checked) {
+        graphFilterState.labels.add(label);
+      } else {
+        graphFilterState.labels.delete(label);
+      }
+      renderGraph();
+    });
+    const text = document.createElement("span");
+    text.textContent = label;
+    item.appendChild(input);
+    item.appendChild(text);
+    graphFiltersEl.appendChild(item);
+  });
 }
 
 function ensureMeters() {
@@ -665,15 +778,25 @@ function renderGraph() {
   const missingNodes = {};
   const edges = [];
   const ids = listSceneIds();
+  const colorMap = getGroupColorMap();
+  const labels = getLabelList();
+  ensureFilterState(labels);
+  renderFilters(labels);
 
   ids.forEach((id) => {
     const scene = getScene(id);
+    const label = scene.label || "Scene";
+    if (!graphFilterState.labels.has(label)) {
+      return;
+    }
     nodes[id] = {
       id,
       title: scene.title || id,
       missing: false,
       autoEndings: !!scene.autoEndings,
       hideChosen: !!scene.hideChosenChoicesOnReturn,
+      groupLabel: label,
+      groupColor: colorMap[label] || colorMap.Scene || "#6e5aa8",
     };
     (scene.choices || []).forEach((choice) => {
       if (choice.next) {
@@ -690,17 +813,27 @@ function renderGraph() {
   });
 
   Object.assign(nodes, missingNodes);
+  edges.splice(
+    0,
+    edges.length,
+    ...edges.filter((edge) => nodes[edge.from] && nodes[edge.to])
+  );
 
   // Add virtual nodes for endings so the route is visible.
   if (Array.isArray(editorState.story.endings) && editorState.story.endings.length) {
     editorState.story.endings.forEach((ending) => {
       const endId = `ending:${ending.id}`;
+      if (!graphFilterState.labels.has("Ending")) {
+        return;
+      }
       nodes[endId] = {
         id: endId,
         title: ending.title || ending.id,
         missing: false,
         isEnding: true,
         autoEndings: !!ending.autoEndings,
+        groupLabel: "Ending",
+        groupColor: colorMap.Ending,
       };
       if (editorState.story.scenes.ending) {
         edges.push({ from: "ending", to: endId, isEndingEdge: true });
@@ -854,17 +987,36 @@ function renderGraph() {
       rect.classList.add("graph-node__rect--ending");
     }
 
+    const bar = document.createElementNS(svgNS, "rect");
+    bar.setAttribute("x", pos.x);
+    bar.setAttribute("y", pos.y);
+    bar.setAttribute("width", 8);
+    bar.setAttribute("height", layout.nodeHeight);
+    bar.setAttribute("rx", 10);
+    bar.setAttribute("ry", 10);
+    bar.setAttribute("class", "graph-node__bar");
+    if (node.groupColor) {
+      bar.setAttribute("fill", node.groupColor);
+    }
+
     const title = document.createElementNS(svgNS, "text");
-    title.setAttribute("x", pos.x + 12);
-    title.setAttribute("y", pos.y + 22);
-    title.textContent = node.title;
+    title.setAttribute("x", pos.x + 14);
+    title.setAttribute("y", pos.y + 24);
+    title.textContent = trimText(node.title, 26);
 
     const subtitle = document.createElementNS(svgNS, "text");
-    subtitle.setAttribute("x", pos.x + 12);
-    subtitle.setAttribute("y", pos.y + 42);
-    subtitle.textContent = node.id;
+    subtitle.setAttribute("x", pos.x + 14);
+    subtitle.setAttribute("y", pos.y + 44);
+    subtitle.textContent = trimText(node.id, 22);
+
+    const label = document.createElementNS(svgNS, "text");
+    label.setAttribute("x", pos.x + 14);
+    label.setAttribute("y", pos.y + 62);
+    label.setAttribute("class", "graph-node__label");
+    label.textContent = trimText(node.groupLabel || "", 18);
 
     group.appendChild(rect);
+    group.appendChild(bar);
 
     const badges = [];
     if (node.autoEndings) {
@@ -898,6 +1050,9 @@ function renderGraph() {
     });
     group.appendChild(title);
     group.appendChild(subtitle);
+    if (node.groupLabel) {
+      group.appendChild(label);
+    }
 
     if (!node.missing && !node.isEnding) {
       group.addEventListener("click", () => {
@@ -914,6 +1069,7 @@ function renderGraph() {
   viewport.className = "graph__viewport";
   viewport.appendChild(svg);
   graphCanvas.appendChild(viewport);
+  renderLegend(colorMap);
   adjustDefaultZoom(Object.keys(nodes).length);
   applyGraphTransform();
 }

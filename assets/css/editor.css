@@ -13,7 +13,9 @@
 
 .graph__canvas {
   margin-top: 1rem;
-  background: #fffdf8;
+  background: radial-gradient(circle at 1px 1px, rgba(90, 120, 190, 0.09) 1px, transparent 0)
+      0 0 / 18px 18px,
+    #fffdf8;
   border-radius: 18px;
   border: 1px solid var(--line);
   min-height: 560px;
@@ -52,7 +54,7 @@
   stroke-width: 1.5;
   rx: 12;
   ry: 12;
-  filter: drop-shadow(0 8px 16px rgba(196, 77, 63, 0.12));
+  filter: drop-shadow(0 10px 18px rgba(196, 77, 63, 0.12));
 }
 
 .graph-node--active rect {
@@ -71,10 +73,22 @@
   fill: var(--ink);
 }
 
+.graph-node__label {
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  fill: rgba(28, 28, 28, 0.55);
+}
+
+.graph-node__bar {
+  opacity: 0.95;
+}
+
 .graph-link {
   stroke: rgba(28, 28, 28, 0.35);
-  stroke-width: 1.5;
+  stroke-width: 1.8;
   fill: none;
+  stroke-linecap: round;
 }
 
 .graph-link--missing {
@@ -84,12 +98,61 @@
 
 .graph-link--ending {
   stroke: rgba(122, 143, 74, 0.6);
+  stroke-dasharray: 6 4;
 }
 
 .graph-node__rect--ending {
   stroke: rgba(122, 143, 74, 0.85);
   stroke-dasharray: 3 3;
   stroke-width: 2;
+}
+
+.graph__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  color: rgba(28, 28, 28, 0.65);
+}
+
+.graph__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.6rem;
+  margin-top: 0.6rem;
+}
+
+.graph__filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 0.78rem;
+  color: rgba(28, 28, 28, 0.75);
+}
+
+.graph__filter input {
+  accent-color: var(--accent);
+}
+
+.graph__legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.graph__legend-swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
 }
 
 .graph-badge rect {
@@ -183,6 +246,59 @@
   background: #fffdf8;
 }
 
+.panel--endings #endingsEditor {
+  max-height: 520px;
+  overflow: auto;
+  padding-right: 0.4rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.panel--endings #endingsEditor::-webkit-scrollbar {
+  width: 8px;
+}
+
+.panel--endings #endingsEditor::-webkit-scrollbar-thumb {
+  background: rgba(28, 28, 28, 0.2);
+  border-radius: 999px;
+}
+
+.panel--endings #endingsEditor::-webkit-scrollbar-track {
+  background: rgba(28, 28, 28, 0.06);
+  border-radius: 999px;
+}
+
+.ending-glossary {
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  padding: 0.6rem 0.75rem;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 0.78rem;
+  color: rgba(28, 28, 28, 0.7);
+  display: grid;
+  gap: 0.35rem;
+}
+
+.ending-glossary__title {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+  color: rgba(28, 28, 28, 0.55);
+}
+
+.ending-glossary__list {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.ending-glossary__key {
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--ink);
+  margin-right: 0.25rem;
+}
+
 .ending-card input,
 .ending-card select,
 .ending-card textarea {
@@ -223,5 +339,36 @@
   gap: 0.5rem;
   font-size: 0.85rem;
   color: rgba(28, 28, 28, 0.75);
+}
+
+.panel--scene .form {
+  max-height: 360px;
+  overflow: auto;
+  padding-right: 0.4rem;
+}
+
+.panel--scene #choicesEditor {
+  max-height: 360px;
+  overflow: auto;
+  padding-right: 0.4rem;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.panel--scene .form::-webkit-scrollbar,
+.panel--scene #choicesEditor::-webkit-scrollbar {
+  width: 8px;
+}
+
+.panel--scene .form::-webkit-scrollbar-thumb,
+.panel--scene #choicesEditor::-webkit-scrollbar-thumb {
+  background: rgba(28, 28, 28, 0.2);
+  border-radius: 999px;
+}
+
+.panel--scene .form::-webkit-scrollbar-track,
+.panel--scene #choicesEditor::-webkit-scrollbar-track {
+  background: rgba(28, 28, 28, 0.06);
+  border-radius: 999px;
 }
 

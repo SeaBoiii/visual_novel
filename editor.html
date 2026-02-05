@@ -35,6 +35,8 @@
             <button id="autoLayoutBtn" class="btn btn--ghost" type="button">Auto Layout</button>
           </div>
         </div>
+        <div class="graph__filters" id="graphFilters"></div>
+        <div id="graphLegend" class="graph__legend"></div>
         <div id="graphCanvas" class="graph__canvas"></div>
       </section>
 
@@ -69,7 +71,7 @@
             <div id="characterEditor"></div>
           </div>
 
-          <div class="panel">
+          <div class="panel panel--scene">
             <div class="panel__header">
               <h4>Scene Editor</h4>
               <button id="deleteSceneBtn" class="btn btn--ghost" type="button">Delete Scene</button>
@@ -137,10 +139,25 @@
             </div>
           </div>
 
-          <div class="panel">
+          <div class="panel panel--endings">
             <div class="panel__header">
               <h4>Endings</h4>
               <button id="addEndingBtn" class="btn btn--ghost" type="button">Add Ending</button>
+            </div>
+            <div class="ending-glossary">
+              <div class="ending-glossary__title">Condition glossary</div>
+              <div class="ending-glossary__list">
+                <div><span class="ending-glossary__key">min</span> meter for character >= value</div>
+                <div><span class="ending-glossary__key">diff_greater</span> meter[a] > meter[b] + value</div>
+                <div><span class="ending-glossary__key">diff_abs_lte</span> |meter[a] - meter[b]| <= value</div>
+                <div><span class="ending-glossary__key">max_ge</span> max meter >= value</div>
+                <div><span class="ending-glossary__key">max_le</span> max meter <= value</div>
+                <div><span class="ending-glossary__key">top_is</span> top character == character</div>
+                <div><span class="ending-glossary__key">top_diff_gte</span> top - second >= value</div>
+                <div><span class="ending-glossary__key">top_diff_lte</span> top - second <= value</div>
+                <div><span class="ending-glossary__key">total_min</span> sum meter >= value</div>
+                <div><span class="ending-glossary__key">total_max</span> sum meter <= value</div>
+              </div>
             </div>
             <div id="endingsEditor"></div>
           </div>
