@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Story Editor</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/editor.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="hero">
+        <div class="hero__title">
+          <h1>Story Editor</h1>
+          <p class="tagline">Build chapters, see branches, and preview affection paths.</p>
+          <div class="mode-toggle">
+            <a class="btn btn--ghost" href="index.html">Back to Game</a>
+          </div>
+        </div>
+        <div class="meters">
+          <div class="meter">
+            <div class="meter__label">Tip</div>
+            <div class="meter__bar">
+              <div class="meter__fill" style="width: 100%"></div>
+            </div>
+            <p class="meter__hint">Click a node in the graph to edit it.</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="graph">
+        <div class="graph__header">
+          <h3>Branching Map</h3>
+          <div class="graph__actions">
+            <button id="autoLayoutBtn" class="btn btn--ghost" type="button">Auto Layout</button>
+          </div>
+        </div>
+        <div id="graphCanvas" class="graph__canvas"></div>
+      </section>
+
+      <section class="editor" id="editor">
+        <div class="editor__header">
+          <div>
+            <h3>Story Builder</h3>
+            <p>Change scenes, branching, and affection effects. Export JSON when ready.</p>
+          </div>
+          <div class="editor__actions">
+            <button id="applyStoryBtn" class="btn" type="button">Apply To Preview</button>
+            <button id="exportStoryBtn" class="btn btn--ghost" type="button">Export JSON</button>
+          </div>
+        </div>
+
+        <div class="editor__grid">
+          <div class="panel">
+            <div class="panel__header">
+              <h4>Scenes</h4>
+              <button id="addSceneBtn" class="btn btn--ghost" type="button">Add Scene</button>
+            </div>
+            <div id="sceneList" class="scene-list"></div>
+            <div class="panel__footer">
+              <p class="hint">Click a scene to edit it. Missing targets show in red.</p>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel__header">
+              <h4>Characters</h4>
+            </div>
+            <div id="characterEditor"></div>
+          </div>
+
+          <div class="panel">
+            <div class="panel__header">
+              <h4>Scene Editor</h4>
+              <button id="deleteSceneBtn" class="btn btn--ghost" type="button">Delete Scene</button>
+            </div>
+            <div class="form">
+              <label>
+                Scene Id
+                <input id="sceneIdInput" type="text" />
+              </label>
+              <label>
+                Label
+                <input id="sceneLabelInput" type="text" />
+              </label>
+              <label>
+                Title
+                <input id="sceneTitleInput" type="text" />
+              </label>
+              <label>
+                Image URL or Path
+                <input id="sceneImageInput" type="text" placeholder="images/your-scene.jpg" />
+              </label>
+              <label>
+                Local Image (save to images/)
+                <input id="sceneImageFile" type="file" accept="image/*" />
+              </label>
+              <label>
+                Upload From URL
+                <div class="upload-row">
+                  <input id="sceneImageUrl" type="text" placeholder="https://..." />
+                  <button id="uploadUrlBtn" class="btn btn--ghost" type="button">Fetch</button>
+                </div>
+              </label>
+              <div class="upload-status" id="uploadStatus">
+                <div class="upload-bar">
+                  <div class="upload-bar__fill" id="uploadBar"></div>
+                </div>
+                <span id="uploadLabel">Idle</span>
+              </div>
+              <label>
+                Text
+                <textarea id="sceneTextInput" rows="4"></textarea>
+              </label>
+            </div>
+
+            <div class="choices-editor">
+              <div class="panel__header">
+                <h4>Choices</h4>
+                <button id="addChoiceBtn" class="btn btn--ghost" type="button">Add Choice</button>
+              </div>
+              <div id="choicesEditor"></div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel__header">
+              <h4>Story JSON</h4>
+            </div>
+            <textarea id="storyJson" class="json-area" rows="20"></textarea>
+            <div class="panel__footer">
+              <button id="importStoryBtn" class="btn btn--ghost" type="button">Import JSON</button>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel__header">
+              <h4>Endings</h4>
+              <button id="addEndingBtn" class="btn btn--ghost" type="button">Add Ending</button>
+            </div>
+            <div id="endingsEditor"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="data/story.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/editor.js"></script>
+  </body>
+</html>

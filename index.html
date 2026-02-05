@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Novel Choices</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <main class="app" aria-live="polite">
+      <header class="hero">
+        <div class="hero__title">
+          <h1>Crosswinds in Sapa</h1>
+          <p class="tagline">
+            A mountain retreat brings four lives into alignment. Every decision shifts affection,
+            trust, and tension—deciding who stays, who leaves, and what the night becomes.
+          </p>
+        </div>
+        <div class="meters meters--horizontal" id="meters"></div>
+      </header>
+
+      <section class="scene">
+        <div class="scene__content">
+          <p class="scene__label" id="sceneLabel">Prologue</p>
+          <h2 class="scene__title" id="sceneTitle">Loading...</h2>
+          <img class="scene__image" id="sceneImage" alt="" />
+          <p class="scene__text" id="sceneText"></p>
+        </div>
+
+        <div class="choices" id="choices"></div>
+      </section>
+
+      <section class="log" aria-label="Story log">
+        <div class="log__header">
+          <h3>Story Log</h3>
+          <div class="log__actions">
+            <button id="backBtn" class="btn btn--ghost" type="button">Back</button>
+            <button id="cluesBtn" class="btn btn--ghost" type="button">Show Clues</button>
+            <button id="restartBtn" class="btn btn--ghost" type="button">Restart</button>
+          </div>
+        </div>
+        <ol class="log__list" id="logList"></ol>
+        <div class="save-slots" id="saveSlots">
+          <div class="save-slot">
+            <span>Slot 1</span>
+            <span class="save-slot__time" data-slot-time="1">Empty</span>
+            <button class="btn btn--ghost" data-save-slot="1">Save</button>
+            <button class="btn btn--ghost" data-load-slot="1">Load</button>
+            <button class="btn btn--ghost" data-clear-slot="1">Clear</button>
+          </div>
+          <div class="save-slot">
+            <span>Slot 2</span>
+            <span class="save-slot__time" data-slot-time="2">Empty</span>
+            <button class="btn btn--ghost" data-save-slot="2">Save</button>
+            <button class="btn btn--ghost" data-load-slot="2">Load</button>
+            <button class="btn btn--ghost" data-clear-slot="2">Clear</button>
+          </div>
+          <div class="save-slot">
+            <span>Slot 3</span>
+            <span class="save-slot__time" data-slot-time="3">Empty</span>
+            <button class="btn btn--ghost" data-save-slot="3">Save</button>
+            <button class="btn btn--ghost" data-load-slot="3">Load</button>
+            <button class="btn btn--ghost" data-clear-slot="3">Clear</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Deploy on GitHub Pages. Edit the story in <code>data/story.js</code>.</p>
+    </footer>
+
+    <script src="data/story.js"></script>
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

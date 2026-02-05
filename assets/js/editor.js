@@ -1,0 +1,1095 @@
+﻿const sceneListEl = document.getElementById("sceneList");
+const sceneIdInput = document.getElementById("sceneIdInput");
+const sceneLabelInput = document.getElementById("sceneLabelInput");
+const sceneTitleInput = document.getElementById("sceneTitleInput");
+const sceneTextInput = document.getElementById("sceneTextInput");
+const sceneImageInput = document.getElementById("sceneImageInput");
+const sceneImageFile = document.getElementById("sceneImageFile");
+const sceneImageUrl = document.getElementById("sceneImageUrl");
+const uploadUrlBtn = document.getElementById("uploadUrlBtn");
+const uploadStatus = document.getElementById("uploadStatus");
+const uploadBar = document.getElementById("uploadBar");
+const uploadLabel = document.getElementById("uploadLabel");
+const choicesEditorEl = document.getElementById("choicesEditor");
+const addChoiceBtn = document.getElementById("addChoiceBtn");
+const addSceneBtn = document.getElementById("addSceneBtn");
+const deleteSceneBtn = document.getElementById("deleteSceneBtn");
+const applyStoryBtn = document.getElementById("applyStoryBtn");
+const exportStoryBtn = document.getElementById("exportStoryBtn");
+const importStoryBtn = document.getElementById("importStoryBtn");
+const storyJsonEl = document.getElementById("storyJson");
+const graphCanvas = document.getElementById("graphCanvas");
+const autoLayoutBtn = document.getElementById("autoLayoutBtn");
+const endingsEditorEl = document.getElementById("endingsEditor");
+const addEndingBtn = document.getElementById("addEndingBtn");
+const characterEditorEl = document.getElementById("characterEditor");
+
+const editorState = {
+  story: window.getStory(),
+  currentSceneId: null,
+};
+
+let autoSaveTimer = null;
+
+const layout = {
+  nodeWidth: 170,
+  nodeHeight: 60,
+  colGap: 120,
+  rowGap: 40,
+};
+
+const graphView = {
+  scale: 1.25,
+  x: 0,
+  y: 0,
+  isPanning: false,
+  lastX: 0,
+  lastY: 0,
+};
+
+const CONDITION_TYPES = [
+  "min",
+  "diff_greater",
+  "diff_abs_lte",
+  "max_ge",
+  "max_le",
+  "top_is",
+  "top_diff_gte",
+  "top_diff_lte",
+  "total_min",
+  "total_max",
+];
+
+function clone(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+
+function ensureMeters() {
+  const meters = editorState.story.meters || {};
+  const isFlat = Object.values(meters).every((value) => typeof value === "number");
+  if (isFlat) {
+    editorState.story.meters = { affection: { ...meters } };
+  }
+  if (!editorState.story.meters.affection) {
+    editorState.story.meters.affection = {};
+  }
+  if (!editorState.story.meters.trust) {
+    editorState.story.meters.trust = {};
+  }
+  if (!editorState.story.meters.tension) {
+    editorState.story.meters.tension = {};
+  }
+  editorState.story.characters.forEach((character) => {
+    if (editorState.story.meters.affection[character.id] === undefined) {
+      editorState.story.meters.affection[character.id] = 30;
+    }
+    if (editorState.story.meters.trust[character.id] === undefined) {
+      editorState.story.meters.trust[character.id] = 25;
+    }
+    if (editorState.story.meters.tension[character.id] === undefined) {
+      editorState.story.meters.tension[character.id] = 20;
+    }
+  });
+}
+
+function getMeterTypes() {
+  return Object.keys(editorState.story.meters || {});
+}
+
+function getScene(sceneId) {
+  return editorState.story.scenes[sceneId];
+}
+
+function listSceneIds() {
+  return Object.keys(editorState.story.scenes);
+}
+
+function ensureCurrentScene() {
+  if (!editorState.currentSceneId) {
+    editorState.currentSceneId = editorState.story.start;
+  }
+  if (!editorState.story.scenes[editorState.currentSceneId]) {
+    editorState.currentSceneId = listSceneIds()[0];
+  }
+}
+
+function renderSceneList() {
+  ensureCurrentScene();
+  sceneListEl.innerHTML = "";
+  const ids = listSceneIds();
+
+  ids.forEach((sceneId) => {
+    const scene = getScene(sceneId);
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = "scene-card";
+    if (sceneId === editorState.currentSceneId) {
+      card.classList.add("scene-card--active");
+    }
+
+    const title = document.createElement("div");
+    title.className = "scene-card__title";
+    title.textContent = scene.title || sceneId;
+
+    const meta = document.createElement("div");
+    meta.className = "scene-card__meta";
+    const nextIds = (scene.choices || []).map((choice) => choice.next).filter(Boolean);
+    const missing = nextIds.filter((id) => !editorState.story.scenes[id]);
+    meta.textContent = nextIds.length
+      ? `Next: ${nextIds.join(", ")}`
+      : "No choices";
+    if (missing.length) {
+      meta.classList.add("scene-card__meta--missing");
+      meta.textContent = `Missing targets: ${missing.join(", ")}`;
+    }
+
+    card.appendChild(title);
+    card.appendChild(meta);
+    card.addEventListener("click", () => {
+      editorState.currentSceneId = sceneId;
+      renderEditor();
+    });
+
+    sceneListEl.appendChild(card);
+  });
+}
+
+function renderSceneForm() {
+  const scene = getScene(editorState.currentSceneId);
+  if (!scene) return;
+  sceneIdInput.value = editorState.currentSceneId;
+  sceneLabelInput.value = scene.label || "";
+  sceneTitleInput.value = scene.title || "";
+  sceneTextInput.value = scene.text || "";
+  sceneImageInput.value = scene.image || "";
+  if (sceneImageUrl) {
+    sceneImageUrl.value = "";
+  }
+}
+
+function updateSceneFromForm() {
+  const scene = getScene(editorState.currentSceneId);
+  if (!scene) return;
+  scene.label = sceneLabelInput.value.trim();
+  scene.title = sceneTitleInput.value.trim();
+  scene.text = sceneTextInput.value.trim();
+  scene.image = sceneImageInput.value.trim();
+  renderSceneList();
+  renderGraph();
+  updateJsonArea();
+}
+
+function renameScene(newId) {
+  const oldId = editorState.currentSceneId;
+  if (!newId || newId === oldId) return;
+  if (editorState.story.scenes[newId]) {
+    alert("Scene id already exists.");
+    sceneIdInput.value = oldId;
+    return;
+  }
+
+  editorState.story.scenes[newId] = editorState.story.scenes[oldId];
+  delete editorState.story.scenes[oldId];
+
+  Object.values(editorState.story.scenes).forEach((scene) => {
+    (scene.choices || []).forEach((choice) => {
+      if (choice.next === oldId) {
+        choice.next = newId;
+      }
+    });
+  });
+
+  if (editorState.story.start === oldId) {
+    editorState.story.start = newId;
+  }
+
+  editorState.currentSceneId = newId;
+  renderEditor();
+}
+
+function renderChoicesEditor() {
+  const scene = getScene(editorState.currentSceneId);
+  if (!scene) return;
+  choicesEditorEl.innerHTML = "";
+
+  (scene.choices || []).forEach((choice, index) => {
+    const row = document.createElement("div");
+    row.className = "choice-row";
+
+    const textInput = document.createElement("input");
+    textInput.type = "text";
+    textInput.placeholder = "Choice text";
+    textInput.value = choice.text || "";
+
+    const nextInput = document.createElement("input");
+    nextInput.type = "text";
+    nextInput.placeholder = "Next scene id";
+    nextInput.value = choice.next || "";
+
+    const grid = document.createElement("div");
+    grid.className = "choice-row__grid";
+    grid.appendChild(textInput);
+    grid.appendChild(nextInput);
+
+    textInput.addEventListener("input", () => {
+      choice.text = textInput.value;
+      updateJsonArea();
+    });
+
+    nextInput.addEventListener("input", () => {
+      choice.next = nextInput.value.trim();
+      renderSceneList();
+      renderGraph();
+      updateJsonArea();
+    });
+
+    row.appendChild(grid);
+
+    const meterTypes = getMeterTypes();
+    choice.effects = choice.effects || {};
+
+    meterTypes.forEach((meterType) => {
+      const meterGroup = document.createElement("div");
+      meterGroup.className = "choice-row__meter";
+
+      const meterTitle = document.createElement("div");
+      meterTitle.className = "choice-row__meter-title";
+      meterTitle.textContent = meterType;
+      meterGroup.appendChild(meterTitle);
+
+      const meterGrid = document.createElement("div");
+      meterGrid.className = "choice-row__grid";
+
+      editorState.story.characters.forEach((character) => {
+        const effectInput = document.createElement("input");
+        effectInput.type = "number";
+        effectInput.placeholder = `${character.name} +/-`;
+        const val = (choice.effects[meterType] || {})[character.id];
+        effectInput.value = Number.isFinite(val) ? val : "";
+        effectInput.addEventListener("input", () => {
+          choice.effects[meterType] = choice.effects[meterType] || {};
+          const parsed = Number(effectInput.value);
+          if (Number.isFinite(parsed)) {
+            choice.effects[meterType][character.id] = parsed;
+          } else {
+            delete choice.effects[meterType][character.id];
+          }
+          updateJsonArea();
+        });
+        meterGrid.appendChild(effectInput);
+      });
+
+      meterGroup.appendChild(meterGrid);
+      row.appendChild(meterGroup);
+    });
+
+    const actions = document.createElement("div");
+    actions.className = "choice-row__actions";
+    const removeBtn = document.createElement("button");
+    removeBtn.className = "btn btn--ghost";
+    removeBtn.type = "button";
+    removeBtn.textContent = "Remove";
+    removeBtn.addEventListener("click", () => {
+      scene.choices.splice(index, 1);
+      renderEditor();
+    });
+
+    actions.appendChild(removeBtn);
+
+    row.appendChild(actions);
+    choicesEditorEl.appendChild(row);
+  });
+}
+
+function renderEndingsEditor() {
+  if (!endingsEditorEl) return;
+  endingsEditorEl.innerHTML = "";
+
+  editorState.story.endings.forEach((ending, endingIndex) => {
+    const card = document.createElement("div");
+    card.className = "ending-card";
+
+    const titleInput = document.createElement("input");
+    titleInput.type = "text";
+    titleInput.value = ending.title || "";
+    titleInput.placeholder = "Ending title";
+    titleInput.addEventListener("input", () => {
+      ending.title = titleInput.value;
+      updateJsonArea();
+    });
+
+    const textInput = document.createElement("textarea");
+    textInput.rows = 3;
+    textInput.value = ending.text || "";
+    textInput.placeholder = "Ending text";
+    textInput.addEventListener("input", () => {
+      ending.text = textInput.value;
+      updateJsonArea();
+    });
+
+    const conditionsWrapper = document.createElement("div");
+    conditionsWrapper.className = "ending-conditions";
+
+    (ending.conditions || []).forEach((condition, conditionIndex) => {
+      const row = document.createElement("div");
+      row.className = "condition-row";
+
+      const grid = document.createElement("div");
+      grid.className = "condition-grid";
+
+      const typeSelect = document.createElement("select");
+      CONDITION_TYPES.forEach((type) => {
+        const option = document.createElement("option");
+        option.value = type;
+        option.textContent = type;
+        if (condition.type === type) {
+          option.selected = true;
+        }
+        typeSelect.appendChild(option);
+      });
+      typeSelect.addEventListener("change", () => {
+        condition.type = typeSelect.value;
+        updateJsonArea();
+      });
+
+      const meterSelect = document.createElement("select");
+      getMeterTypes().forEach((meterType) => {
+        const option = document.createElement("option");
+        option.value = meterType;
+        option.textContent = meterType;
+        if ((condition.meter || "affection") === meterType) {
+          option.selected = true;
+        }
+        meterSelect.appendChild(option);
+      });
+      meterSelect.addEventListener("change", () => {
+        condition.meter = meterSelect.value;
+        updateJsonArea();
+      });
+
+      const characterSelect = document.createElement("select");
+      const emptyChar = document.createElement("option");
+      emptyChar.value = "";
+      emptyChar.textContent = "character";
+      characterSelect.appendChild(emptyChar);
+      editorState.story.characters.forEach((character) => {
+        const option = document.createElement("option");
+        option.value = character.id;
+        option.textContent = character.name;
+        if (condition.character === character.id) {
+          option.selected = true;
+        }
+        characterSelect.appendChild(option);
+      });
+      characterSelect.addEventListener("change", () => {
+        condition.character = characterSelect.value || undefined;
+        updateJsonArea();
+      });
+
+      const aSelect = document.createElement("select");
+      const emptyA = document.createElement("option");
+      emptyA.value = "";
+      emptyA.textContent = "a";
+      aSelect.appendChild(emptyA);
+      editorState.story.characters.forEach((character) => {
+        const option = document.createElement("option");
+        option.value = character.id;
+        option.textContent = character.name;
+        if (condition.a === character.id) {
+          option.selected = true;
+        }
+        aSelect.appendChild(option);
+      });
+      aSelect.addEventListener("change", () => {
+        condition.a = aSelect.value || undefined;
+        updateJsonArea();
+      });
+
+      const bSelect = document.createElement("select");
+      const emptyB = document.createElement("option");
+      emptyB.value = "";
+      emptyB.textContent = "b";
+      bSelect.appendChild(emptyB);
+      editorState.story.characters.forEach((character) => {
+        const option = document.createElement("option");
+        option.value = character.id;
+        option.textContent = character.name;
+        if (condition.b === character.id) {
+          option.selected = true;
+        }
+        bSelect.appendChild(option);
+      });
+      bSelect.addEventListener("change", () => {
+        condition.b = bSelect.value || undefined;
+        updateJsonArea();
+      });
+
+      const valueInput = document.createElement("input");
+      valueInput.type = "number";
+      valueInput.placeholder = "value";
+      valueInput.value = Number.isFinite(condition.value) ? condition.value : "";
+      valueInput.addEventListener("input", () => {
+        const parsed = Number(valueInput.value);
+        condition.value = Number.isFinite(parsed) ? parsed : undefined;
+        updateJsonArea();
+      });
+
+      grid.appendChild(typeSelect);
+      grid.appendChild(meterSelect);
+      grid.appendChild(characterSelect);
+      grid.appendChild(aSelect);
+      grid.appendChild(bSelect);
+      grid.appendChild(valueInput);
+
+      const removeBtn = document.createElement("button");
+      removeBtn.className = "btn btn--ghost";
+      removeBtn.type = "button";
+      removeBtn.textContent = "Remove Condition";
+      removeBtn.addEventListener("click", () => {
+        ending.conditions.splice(conditionIndex, 1);
+        renderEndingsEditor();
+        updateJsonArea();
+      });
+
+      row.appendChild(grid);
+      row.appendChild(removeBtn);
+      conditionsWrapper.appendChild(row);
+    });
+
+    const addConditionBtn = document.createElement("button");
+    addConditionBtn.className = "btn btn--ghost";
+    addConditionBtn.type = "button";
+    addConditionBtn.textContent = "Add Condition";
+    addConditionBtn.addEventListener("click", () => {
+      ending.conditions = ending.conditions || [];
+      ending.conditions.push({ type: "min", meter: "affection", value: 50 });
+      renderEndingsEditor();
+      updateJsonArea();
+    });
+
+    card.appendChild(titleInput);
+    card.appendChild(textInput);
+    card.appendChild(conditionsWrapper);
+    card.appendChild(addConditionBtn);
+
+    const removeEndingBtn = document.createElement("button");
+    removeEndingBtn.className = "btn btn--ghost";
+    removeEndingBtn.type = "button";
+    removeEndingBtn.textContent = "Remove Ending";
+    removeEndingBtn.addEventListener("click", () => {
+      editorState.story.endings.splice(endingIndex, 1);
+      renderEndingsEditor();
+      updateJsonArea();
+    });
+
+    card.appendChild(removeEndingBtn);
+    endingsEditorEl.appendChild(card);
+  });
+}
+
+function renderCharacterEditor() {
+  if (!characterEditorEl) return;
+  characterEditorEl.innerHTML = "";
+
+  editorState.story.characters.forEach((character) => {
+    const card = document.createElement("div");
+    card.className = "character-card";
+
+    const nameInput = document.createElement("input");
+    nameInput.type = "text";
+    nameInput.value = character.name || "";
+    nameInput.placeholder = "Name";
+    nameInput.addEventListener("input", () => {
+      character.name = nameInput.value;
+      renderSceneList();
+      updateJsonArea();
+    });
+
+    const iconInput = document.createElement("input");
+    iconInput.type = "text";
+    iconInput.value = character.icon || "";
+    iconInput.placeholder = "Icon / emoji";
+    iconInput.addEventListener("input", () => {
+      character.icon = iconInput.value;
+      updateJsonArea();
+    });
+
+    const colorInput = document.createElement("input");
+    colorInput.type = "text";
+    colorInput.value = character.color || "";
+    colorInput.placeholder = "#rrggbb";
+    colorInput.addEventListener("input", () => {
+      character.color = colorInput.value;
+      updateJsonArea();
+    });
+
+    card.appendChild(nameInput);
+    card.appendChild(iconInput);
+    card.appendChild(colorInput);
+    characterEditorEl.appendChild(card);
+  });
+}
+
+function updateJsonArea() {
+  storyJsonEl.value = JSON.stringify(editorState.story, null, 2);
+}
+
+function scheduleAutoSave() {
+  if (autoSaveTimer) {
+    clearTimeout(autoSaveTimer);
+  }
+  autoSaveTimer = setTimeout(() => {
+    autoSaveTimer = null;
+    // auto-save disabled
+  }, 1000);
+}
+
+async function autoSaveStory() {
+  // auto-save disabled (story.json is source of truth)
+}
+
+function renderEditor() {
+  ensureMeters();
+  renderSceneList();
+  renderSceneForm();
+  renderChoicesEditor();
+  renderGraph();
+  renderEndingsEditor();
+  renderCharacterEditor();
+  updateJsonArea();
+}
+
+function addScene() {
+  const newId = prompt("New scene id (letters, numbers, underscores):");
+  if (!newId) return;
+  if (editorState.story.scenes[newId]) {
+    alert("Scene id already exists.");
+    return;
+  }
+  editorState.story.scenes[newId] = {
+    label: "New Chapter",
+    title: "Untitled Scene",
+    text: "Write your scene text here.",
+    image: "",
+    choices: [],
+  };
+  editorState.currentSceneId = newId;
+  renderEditor();
+}
+
+function deleteScene() {
+  const sceneId = editorState.currentSceneId;
+  if (!sceneId) return;
+  if (!confirm(`Delete scene "${sceneId}"?`)) return;
+  delete editorState.story.scenes[sceneId];
+  if (editorState.story.start === sceneId) {
+    editorState.story.start = listSceneIds()[0] || "";
+  }
+  editorState.currentSceneId = listSceneIds()[0] || null;
+  renderEditor();
+}
+
+function addChoice() {
+  const scene = getScene(editorState.currentSceneId);
+  if (!scene) return;
+  scene.choices = scene.choices || [];
+  scene.choices.push({
+    text: "New choice",
+    effects: {},
+    next: "",
+  });
+  renderEditor();
+}
+
+function addEnding() {
+  editorState.story.endings.push({
+    id: `ending_${editorState.story.endings.length + 1}`,
+    title: "New Ending",
+    text: "Describe this ending.",
+    conditions: [],
+  });
+  renderEndingsEditor();
+  updateJsonArea();
+}
+
+function applyStory() {
+  const nextStory = clone(editorState.story);
+  window.setStory(nextStory);
+}
+
+function exportStory() {
+  updateJsonArea();
+  storyJsonEl.focus();
+  storyJsonEl.select();
+}
+
+function importStory() {
+  try {
+    const raw = storyJsonEl.value.trim();
+    let parsed = null;
+    try {
+      parsed = JSON.parse(raw);
+    } catch (jsonError) {
+      let objectText = raw;
+      if (raw.includes("window.storyData")) {
+        const start = raw.indexOf("{");
+        const end = raw.lastIndexOf("}");
+        if (start !== -1 && end !== -1 && end > start) {
+          objectText = raw.slice(start, end + 1);
+        }
+      }
+      // Fallback for JS-style objects with trailing commas.
+      parsed = Function(`"use strict"; return (${objectText});`)();
+    }
+    if (!parsed || !parsed.scenes || !parsed.characters) {
+      alert("JSON missing required fields: scenes, characters.");
+      return;
+    }
+    editorState.story = parsed;
+    editorState.currentSceneId = parsed.start;
+    renderEditor();
+  } catch (error) {
+    alert(`Could not parse JSON. ${error.message || ""}`.trim());
+  }
+}
+
+function renderGraph() {
+  const nodes = {};
+  const missingNodes = {};
+  const edges = [];
+  const ids = listSceneIds();
+
+  ids.forEach((id) => {
+    const scene = getScene(id);
+    nodes[id] = {
+      id,
+      title: scene.title || id,
+      missing: false,
+    };
+    (scene.choices || []).forEach((choice) => {
+      if (choice.next) {
+        edges.push({ from: id, to: choice.next });
+        if (!editorState.story.scenes[choice.next]) {
+          missingNodes[choice.next] = {
+            id: choice.next,
+            title: "Missing",
+            missing: true,
+          };
+        }
+      }
+    });
+  });
+
+  Object.assign(nodes, missingNodes);
+
+  // Add virtual nodes for endings so the route is visible.
+  if (Array.isArray(editorState.story.endings) && editorState.story.endings.length) {
+    editorState.story.endings.forEach((ending) => {
+      const endId = `ending:${ending.id}`;
+      nodes[endId] = {
+        id: endId,
+        title: ending.title || ending.id,
+        missing: false,
+        isEnding: true,
+      };
+      if (editorState.story.scenes.ending) {
+        edges.push({ from: "ending", to: endId, isEndingEdge: true });
+      }
+    });
+  }
+
+  const depths = {};
+  const queue = [];
+  const start = editorState.story.start;
+  if (start && nodes[start]) {
+    depths[start] = 0;
+    queue.push(start);
+  }
+
+  while (queue.length) {
+    const current = queue.shift();
+    const currentDepth = depths[current] ?? 0;
+    edges
+      .filter((edge) => edge.from === current)
+      .forEach((edge) => {
+        if (depths[edge.to] === undefined) {
+          depths[edge.to] = currentDepth + 1;
+          queue.push(edge.to);
+        }
+      });
+  }
+
+  const maxDepth = Math.max(0, ...Object.values(depths));
+  Object.keys(nodes).forEach((id, index) => {
+    if (depths[id] === undefined) {
+      depths[id] = maxDepth + 1 + index * 0.1;
+    }
+  });
+
+  const columns = {};
+  Object.entries(depths).forEach(([id, depth]) => {
+    const key = Math.floor(depth);
+    columns[key] = columns[key] || [];
+    columns[key].push(id);
+  });
+
+  // Order nodes within each column to reduce crossings.
+  const incoming = {};
+  edges.forEach((edge) => {
+    incoming[edge.to] = incoming[edge.to] || [];
+    incoming[edge.to].push(edge.from);
+  });
+
+  Object.keys(columns).forEach((colKey) => {
+    columns[colKey].sort((a, b) => {
+      const aParents = incoming[a] || [];
+      const bParents = incoming[b] || [];
+      const aMin = Math.min(...aParents.map((p) => depths[p] ?? 0), depths[a] ?? 0);
+      const bMin = Math.min(...bParents.map((p) => depths[p] ?? 0), depths[b] ?? 0);
+      if (aMin !== bMin) return aMin - bMin;
+      const aTitle = nodes[a]?.title || a;
+      const bTitle = nodes[b]?.title || b;
+      return aTitle.localeCompare(bTitle);
+    });
+  });
+
+  const positions = {};
+  const colKeys = Object.keys(columns).map(Number).sort((a, b) => a - b);
+  colKeys.forEach((depth) => {
+    const col = columns[depth];
+    col.forEach((id, rowIndex) => {
+      positions[id] = {
+        x: depth * (layout.nodeWidth + layout.colGap),
+        y: rowIndex * (layout.nodeHeight + layout.rowGap),
+      };
+    });
+  });
+
+  const totalWidth = (colKeys.length || 1) * (layout.nodeWidth + layout.colGap);
+  const maxRows = Math.max(1, ...Object.values(columns).map((col) => col.length));
+  const totalHeight = maxRows * (layout.nodeHeight + layout.rowGap);
+
+  const svgNS = "http://www.w3.org/2000/svg";
+  const svg = document.createElementNS(svgNS, "svg");
+  svg.setAttribute("viewBox", `0 0 ${totalWidth} ${totalHeight}`);
+  svg.setAttribute("role", "img");
+
+  const defs = document.createElementNS(svgNS, "defs");
+  const marker = document.createElementNS(svgNS, "marker");
+  marker.setAttribute("id", "arrow");
+  marker.setAttribute("markerWidth", "10");
+  marker.setAttribute("markerHeight", "10");
+  marker.setAttribute("refX", "9");
+  marker.setAttribute("refY", "5");
+  marker.setAttribute("orient", "auto");
+  const arrow = document.createElementNS(svgNS, "path");
+  arrow.setAttribute("d", "M 0 0 L 10 5 L 0 10 z");
+  arrow.setAttribute("fill", "rgba(28, 28, 28, 0.6)");
+  marker.appendChild(arrow);
+  defs.appendChild(marker);
+  svg.appendChild(defs);
+
+  edges.forEach((edge) => {
+    if (!positions[edge.from] || !positions[edge.to]) return;
+    const startPos = positions[edge.from];
+    const endPos = positions[edge.to];
+    const line = document.createElementNS(svgNS, "path");
+    const startX = startPos.x + layout.nodeWidth;
+    const startY = startPos.y + layout.nodeHeight / 2;
+    const endX = endPos.x;
+    const endY = endPos.y + layout.nodeHeight / 2;
+    const midX = startX + (endX - startX) * 0.5;
+    line.setAttribute(
+      "d",
+      `M ${startX} ${startY} C ${midX} ${startY}, ${midX} ${endY}, ${endX} ${endY}`
+    );
+    line.setAttribute("class", "graph-link");
+    if (!editorState.story.scenes[edge.to]) {
+      line.classList.add("graph-link--missing");
+    }
+    if (edge.isEndingEdge) {
+      line.classList.add("graph-link--ending");
+    }
+    line.setAttribute("marker-end", "url(#arrow)");
+    svg.appendChild(line);
+  });
+
+  Object.values(nodes).forEach((node) => {
+    const pos = positions[node.id];
+    if (!pos) return;
+    const group = document.createElementNS(svgNS, "g");
+    group.setAttribute("class", "graph-node");
+    if (node.id === editorState.currentSceneId) {
+      group.classList.add("graph-node--active");
+    }
+    if (node.missing) {
+      group.classList.add("graph-node--missing");
+    }
+    if (node.isEnding) {
+      group.classList.add("graph-node--ending");
+    }
+
+    const rect = document.createElementNS(svgNS, "rect");
+    rect.setAttribute("x", pos.x);
+    rect.setAttribute("y", pos.y);
+    rect.setAttribute("width", layout.nodeWidth);
+    rect.setAttribute("height", layout.nodeHeight);
+
+    const title = document.createElementNS(svgNS, "text");
+    title.setAttribute("x", pos.x + 12);
+    title.setAttribute("y", pos.y + 22);
+    title.textContent = node.title;
+
+    const subtitle = document.createElementNS(svgNS, "text");
+    subtitle.setAttribute("x", pos.x + 12);
+    subtitle.setAttribute("y", pos.y + 42);
+    subtitle.textContent = node.id;
+
+    group.appendChild(rect);
+    group.appendChild(title);
+    group.appendChild(subtitle);
+
+    if (!node.missing && !node.isEnding) {
+      group.addEventListener("click", () => {
+        editorState.currentSceneId = node.id;
+        renderEditor();
+      });
+    }
+
+    svg.appendChild(group);
+  });
+
+  graphCanvas.innerHTML = "";
+  const viewport = document.createElement("div");
+  viewport.className = "graph__viewport";
+  viewport.appendChild(svg);
+  graphCanvas.appendChild(viewport);
+  adjustDefaultZoom(Object.keys(nodes).length);
+  applyGraphTransform();
+}
+
+function setUploadProgress(value, label) {
+  if (uploadBar) {
+    uploadBar.style.width = `${value}%`;
+  }
+  if (uploadLabel) {
+    uploadLabel.textContent = label;
+  }
+}
+
+function sceneSlug() {
+  return (editorState.currentSceneId || "scene").toLowerCase().replace(/[^a-z0-9_-]+/g, "-");
+}
+
+function uploadWithProgress(url, formData) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+
+    xhr.upload.onprogress = (event) => {
+      if (event.lengthComputable) {
+        const pct = Math.round((event.loaded / event.total) * 100);
+        setUploadProgress(pct, `Uploading... ${pct}%`);
+      } else {
+        setUploadProgress(50, "Uploading...");
+      }
+    };
+
+    xhr.onload = () => {
+      if (xhr.status >= 200 && xhr.status < 300) {
+        resolve(xhr.responseText);
+      } else {
+        reject(new Error("Upload failed"));
+      }
+    };
+
+    xhr.onerror = () => reject(new Error("Upload failed"));
+    xhr.send(formData);
+  });
+}
+
+async function handleImageUpload(file) {
+  if (!file) return;
+  const scene = getScene(editorState.currentSceneId);
+  if (!scene) return;
+
+  setUploadProgress(0, "Preparing upload...");
+  const formData = new FormData();
+  formData.append("file", file, file.name);
+  formData.append("name", sceneSlug());
+
+  try {
+    const responseText = await uploadWithProgress("/upload", formData);
+    const data = JSON.parse(responseText);
+    scene.image = data.path;
+    sceneImageInput.value = scene.image;
+    updateJsonArea();
+    renderGraph();
+    setUploadProgress(100, "Uploaded");
+  } catch (error) {
+    setUploadProgress(0, "Upload failed");
+  }
+}
+
+async function pollDownload(jobId) {
+  let done = false;
+  while (!done) {
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    const response = await fetch(`/upload-status?id=${encodeURIComponent(jobId)}`);
+    if (!response.ok) {
+      setUploadProgress(0, "Upload failed");
+      return null;
+    }
+    const data = await response.json();
+    if (data.status === "error") {
+      setUploadProgress(0, "Upload failed");
+      return null;
+    }
+    if (data.progress !== undefined) {
+      setUploadProgress(data.progress, `Downloading... ${data.progress}%`);
+    }
+    if (data.status === "done") {
+      done = true;
+      return data.path;
+    }
+  }
+  return null;
+}
+
+async function handleImageUrlUpload() {
+  const scene = getScene(editorState.currentSceneId);
+  if (!scene) return;
+  const url = (sceneImageUrl?.value || "").trim();
+  if (!url) return;
+
+  setUploadProgress(0, "Starting download...");
+  try {
+    const response = await fetch("/upload-url", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ url, name: sceneSlug() }),
+    });
+
+    if (!response.ok) {
+      throw new Error("Upload failed");
+    }
+
+    const data = await response.json();
+    const path = await pollDownload(data.id);
+    if (!path) return;
+    scene.image = path;
+    sceneImageInput.value = scene.image;
+    updateJsonArea();
+    renderGraph();
+    setUploadProgress(100, "Downloaded");
+  } catch (error) {
+    setUploadProgress(0, "Upload failed");
+  }
+}
+
+sceneLabelInput.addEventListener("input", updateSceneFromForm);
+sceneTitleInput.addEventListener("input", updateSceneFromForm);
+sceneTextInput.addEventListener("input", updateSceneFromForm);
+sceneImageInput.addEventListener("input", updateSceneFromForm);
+sceneIdInput.addEventListener("change", () => renameScene(sceneIdInput.value.trim()));
+sceneImageFile.addEventListener("change", (event) => handleImageUpload(event.target.files[0]));
+if (uploadUrlBtn) {
+  uploadUrlBtn.addEventListener("click", handleImageUrlUpload);
+}
+addChoiceBtn.addEventListener("click", addChoice);
+addSceneBtn.addEventListener("click", addScene);
+deleteSceneBtn.addEventListener("click", deleteScene);
+applyStoryBtn.addEventListener("click", applyStory);
+exportStoryBtn.addEventListener("click", exportStory);
+importStoryBtn.addEventListener("click", importStory);
+autoLayoutBtn.addEventListener("click", renderGraph);
+if (addEndingBtn) {
+  addEndingBtn.addEventListener("click", addEnding);
+}
+
+async function loadStoryForEditor() {
+  try {
+    const resp = await fetch("data/story.json", { cache: "no-store" });
+    if (!resp.ok) {
+      throw new Error("Could not load data/story.json");
+    }
+    const parsed = await resp.json();
+    editorState.story = parsed;
+    editorState.currentSceneId = parsed.start;
+  } catch (error) {
+    editorState.story = window.getStory();
+  }
+  renderEditor();
+}
+
+loadStoryForEditor();
+
+function applyGraphTransform() {
+  const viewport = graphCanvas.querySelector(".graph__viewport");
+  if (!viewport) return;
+  viewport.style.transform = `translate(${graphView.x}px, ${graphView.y}px) scale(${graphView.scale})`;
+}
+
+function clampGraphScale(next) {
+  return Math.min(10, Math.max(0.6, next));
+}
+
+function handleGraphWheel(event) {
+  event.preventDefault();
+  const rect = graphCanvas.getBoundingClientRect();
+  const mouseX = event.clientX - rect.left - 24;
+  const mouseY = event.clientY - rect.top - 24;
+  const delta = event.deltaY < 0 ? 1.1 : 0.9;
+  const nextScale = clampGraphScale(graphView.scale * delta);
+  const scaleRatio = nextScale / graphView.scale;
+  graphView.x = mouseX - (mouseX - graphView.x) * scaleRatio;
+  graphView.y = mouseY - (mouseY - graphView.y) * scaleRatio;
+  graphView.scale = nextScale;
+  applyGraphTransform();
+}
+
+function handleGraphPointerDown(event) {
+  if (event.target.closest(".graph-node")) return;
+  if (event.button !== 0) return;
+  graphView.isPanning = true;
+  graphView.lastX = event.clientX;
+  graphView.lastY = event.clientY;
+  graphCanvas.classList.add("is-grabbing");
+  graphCanvas.setPointerCapture(event.pointerId);
+}
+
+function handleGraphPointerMove(event) {
+  if (!graphView.isPanning) return;
+  const dx = event.clientX - graphView.lastX;
+  const dy = event.clientY - graphView.lastY;
+  graphView.x += dx;
+  graphView.y += dy;
+  graphView.lastX = event.clientX;
+  graphView.lastY = event.clientY;
+  applyGraphTransform();
+}
+
+function handleGraphPointerUp(event) {
+  graphView.isPanning = false;
+  graphCanvas.classList.remove("is-grabbing");
+  graphCanvas.releasePointerCapture(event.pointerId);
+}
+
+graphCanvas.addEventListener("wheel", handleGraphWheel, { passive: false });
+graphCanvas.addEventListener("pointerdown", handleGraphPointerDown);
+graphCanvas.addEventListener("pointermove", handleGraphPointerMove);
+graphCanvas.addEventListener("pointerup", handleGraphPointerUp);
+graphCanvas.addEventListener("pointerleave", handleGraphPointerUp);
+
+function adjustDefaultZoom(nodeCount) {
+  // Larger graphs zoom out slightly; smaller graphs zoom in.
+  if (nodeCount <= 20) {
+    graphView.scale = Math.max(graphView.scale, 1.35);
+  } else if (nodeCount <= 40) {
+    graphView.scale = Math.max(graphView.scale, 1.15);
+  } else if (nodeCount <= 80) {
+    graphView.scale = Math.max(graphView.scale, 0.95);
+  } else {
+    graphView.scale = Math.max(graphView.scale, 0.8);
+  }
+}
