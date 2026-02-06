@@ -20,8 +20,9 @@ const exportStoryBtn = document.getElementById("exportStoryBtn");
 const importStoryBtn = document.getElementById("importStoryBtn");
 const storyJsonEl = document.getElementById("storyJson");
 const graphCanvas = document.getElementById("graphCanvas");
-const autoLayoutBtn = document.getElementById("autoLayoutBtn");
-const endingsEditorEl = document.getElementById("endingsEditor");
+const endingLayoutBtn = document.getElementById("endingLayoutBtn");
+const endingListEl = document.getElementById("endingList");
+const endingEditorEl = document.getElementById("endingEditor");
 const addEndingBtn = document.getElementById("addEndingBtn");
 const characterEditorEl = document.getElementById("characterEditor");
 const graphLegendEl = document.getElementById("graphLegend");
@@ -36,6 +37,7 @@ const previewResetBtn = document.getElementById("previewResetBtn");
 const editorState = {
   story: window.getStory(),
   currentSceneId: null,
+  currentEndingId: null,
 };
 
 let autoSaveTimer = null;
@@ -54,6 +56,7 @@ const graphView = {
   isPanning: false,
   lastX: 0,
   lastY: 0,
+  fitToFiltered: false,
 };
 
 const graphFilterState = {
@@ -65,6 +68,7 @@ const previewState = {
   currentScene: null,
   history: [],
   chosenChoicesByScene: {},
+  completedChapters: new Set(),
 };
 
 const previewDragState = {
@@ -215,6 +219,15 @@ function initPreviewState(startSceneId) {
   previewState.currentScene = startSceneId || editorState.story.start;
   previewState.history = [];
   previewState.chosenChoicesByScene = {};
+  previewState.completedChapters = new Set();
+}
+
+function setPreviewCompletedChapters(count) {
+  previewState.completedChapters = new Set();
+  const target = Math.max(0, count || 0);
+  for (let i = 1; i <= target; i += 1) {
+    previewState.completedChapters.add(`Chapter ${i}`);
+  }
 }
 
 function clamp(value, min = 0, max = 100) {
@@ -378,9 +391,22 @@ function previewMeetsCondition(cond) {
 }
 
 function previewFindEnding() {
-  return editorState.story.endings.find((ending) =>
-    (ending.conditions || []).every((cond) => previewMeetsCondition(cond))
-  );
+  let best = null;
+  let bestPriority = -Infinity;
+  let bestIndex = Infinity;
+  editorState.story.endings.forEach((ending, index) => {
+    const minChapters = Number.isFinite(ending.minChapters) ? ending.minChapters : 0;
+    if (previewState.completedChapters.size < minChapters) return;
+    const matches = (ending.conditions || []).every((cond) => previewMeetsCondition(cond));
+    if (!matches) return;
+    const priority = Number.isFinite(ending.priority) ? ending.priority : 0;
+    if (priority > bestPriority || (priority === bestPriority && index < bestIndex)) {
+      best = ending;
+      bestPriority = priority;
+      bestIndex = index;
+    }
+  });
+  return best;
 }
 
 function renderPreviewEnding(ending) {
@@ -412,6 +438,9 @@ function renderPreviewScene(sceneId) {
   if (!scene || !previewSceneTitleEl || !previewSceneTextEl || !previewChoicesEl) return;
 
   previewState.currentScene = sceneId;
+  if (scene.label && scene.label.trim().toLowerCase().startsWith("chapter")) {
+    previewState.completedChapters.add(scene.label.trim());
+  }
   if (previewSceneLabelEl) previewSceneLabelEl.textContent = scene.label || "";
   previewSceneTitleEl.textContent = scene.title || sceneId;
   previewSceneTextEl.innerHTML = formatTextWithIcons(scene.text || "");
@@ -483,6 +512,23 @@ function previewEndingById(endingId) {
   renderPreviewEnding(ending);
 }
 
+function focusEndingCard(endingId) {
+  if (!endingListEl) return;
+  editorState.currentEndingId = endingId;
+  renderEndingsList();
+  renderEndingEditor();
+  const item = endingListEl.querySelector(`[data-ending-id="${endingId}"]`);
+  if (!item) return;
+  endingListEl.scrollTo({
+    top: item.offsetTop - 8,
+    behavior: "smooth",
+  });
+  item.classList.add("ending-item--focus");
+  window.setTimeout(() => {
+    item.classList.remove("ending-item--focus");
+  }, 1200);
+}
+
 function ensureMeters() {
   const meters = editorState.story.meters || {};
   const isFlat = Object.values(meters).every((value) => typeof value === "number");
@@ -529,6 +575,18 @@ function ensureCurrentScene() {
   }
   if (!editorState.story.scenes[editorState.currentSceneId]) {
     editorState.currentSceneId = listSceneIds()[0];
+  }
+}
+
+function ensureCurrentEnding() {
+  if (!editorState.currentEndingId) {
+    editorState.currentEndingId = editorState.story.endings?.[0]?.id || null;
+  }
+  const exists = editorState.story.endings?.some(
+    (ending) => ending.id === editorState.currentEndingId
+  );
+  if (!exists) {
+    editorState.currentEndingId = editorState.story.endings?.[0]?.id || null;
   }
 }
 
@@ -726,232 +784,318 @@ function renderChoicesEditor() {
   });
 }
 
-function renderEndingsEditor() {
-  if (!endingsEditorEl) return;
-  endingsEditorEl.innerHTML = "";
-
-  editorState.story.endings.forEach((ending, endingIndex) => {
-    const card = document.createElement("div");
-    card.className = "ending-card";
-
-    const titleInput = document.createElement("input");
-    titleInput.type = "text";
-    titleInput.value = ending.title || "";
-    titleInput.placeholder = "Ending title";
-    titleInput.addEventListener("input", () => {
-      ending.title = titleInput.value;
-      updateJsonArea();
-    });
-
-    const textInput = document.createElement("textarea");
-    textInput.rows = 3;
-    textInput.value = ending.text || "";
-    textInput.placeholder = "Ending text";
-    textInput.addEventListener("input", () => {
-      ending.text = textInput.value;
-      updateJsonArea();
-    });
-
-    const conditionsWrapper = document.createElement("div");
-    conditionsWrapper.className = "ending-conditions";
-
-    const targets = document.createElement("div");
-    targets.className = "ending-targets";
-
-    const targetsTitle = document.createElement("div");
-    targetsTitle.className = "ending-targets__title";
-    targetsTitle.textContent = "Target meter hints";
-    targets.appendChild(targetsTitle);
-
-    const targetsList = document.createElement("div");
-    targetsList.className = "ending-targets__list";
-    const targetLines = summarizeEndingTargets(ending);
-    if (targetLines.length) {
-      targetLines.forEach((line) => {
-        const item = document.createElement("div");
-        item.textContent = line;
-        targetsList.appendChild(item);
-      });
-    } else {
-      const empty = document.createElement("div");
-      empty.textContent = "No conditions set yet.";
-      targetsList.appendChild(empty);
+function renderEndingsList() {
+  if (!endingListEl) return;
+  ensureCurrentEnding();
+  endingListEl.innerHTML = "";
+  editorState.story.endings.forEach((ending) => {
+    const item = document.createElement("button");
+    item.type = "button";
+    item.className = "ending-item";
+    item.dataset.endingId = ending.id;
+    if (ending.id === editorState.currentEndingId) {
+      item.classList.add("ending-item--active");
     }
-    targets.appendChild(targetsList);
-
-    const applySampleBtn = document.createElement("button");
-    applySampleBtn.className = "btn btn--ghost ending-targets__btn";
-    applySampleBtn.type = "button";
-    applySampleBtn.textContent = "Apply Sample Meters";
-    applySampleBtn.addEventListener("click", () => {
-      const sample = generateSampleMetersForEnding(ending);
-      if (sample) {
-        previewState.meters = sample;
-        renderPreviewScene(previewState.currentScene || editorState.story.start);
-      }
+    const title = document.createElement("div");
+    title.className = "ending-item__title";
+    title.textContent = ending.title || ending.id;
+    const meta = document.createElement("div");
+    meta.className = "ending-item__meta";
+    meta.textContent = ending.id;
+    item.appendChild(title);
+    item.appendChild(meta);
+    item.addEventListener("click", () => {
+      editorState.currentEndingId = ending.id;
+      renderEndingEditor();
     });
-    targets.appendChild(applySampleBtn);
-
-    (ending.conditions || []).forEach((condition, conditionIndex) => {
-      const row = document.createElement("div");
-      row.className = "condition-row";
-
-      const grid = document.createElement("div");
-      grid.className = "condition-grid";
-
-      const typeSelect = document.createElement("select");
-      CONDITION_TYPES.forEach((type) => {
-        const option = document.createElement("option");
-        option.value = type;
-        option.textContent = type;
-        if (condition.type === type) {
-          option.selected = true;
-        }
-        typeSelect.appendChild(option);
-      });
-      typeSelect.addEventListener("change", () => {
-        condition.type = typeSelect.value;
-        updateJsonArea();
-      });
-
-      const meterSelect = document.createElement("select");
-      getMeterTypes().forEach((meterType) => {
-        const option = document.createElement("option");
-        option.value = meterType;
-        option.textContent = meterType;
-        if ((condition.meter || "affection") === meterType) {
-          option.selected = true;
-        }
-        meterSelect.appendChild(option);
-      });
-      meterSelect.addEventListener("change", () => {
-        condition.meter = meterSelect.value;
-        updateJsonArea();
-      });
-
-      const characterSelect = document.createElement("select");
-      const emptyChar = document.createElement("option");
-      emptyChar.value = "";
-      emptyChar.textContent = "character";
-      characterSelect.appendChild(emptyChar);
-      editorState.story.characters.forEach((character) => {
-        const option = document.createElement("option");
-        option.value = character.id;
-        option.textContent = character.name;
-        if (condition.character === character.id) {
-          option.selected = true;
-        }
-        characterSelect.appendChild(option);
-      });
-      characterSelect.addEventListener("change", () => {
-        condition.character = characterSelect.value || undefined;
-        updateJsonArea();
-      });
-
-      const aSelect = document.createElement("select");
-      const emptyA = document.createElement("option");
-      emptyA.value = "";
-      emptyA.textContent = "a";
-      aSelect.appendChild(emptyA);
-      editorState.story.characters.forEach((character) => {
-        const option = document.createElement("option");
-        option.value = character.id;
-        option.textContent = character.name;
-        if (condition.a === character.id) {
-          option.selected = true;
-        }
-        aSelect.appendChild(option);
-      });
-      aSelect.addEventListener("change", () => {
-        condition.a = aSelect.value || undefined;
-        updateJsonArea();
-      });
-
-      const bSelect = document.createElement("select");
-      const emptyB = document.createElement("option");
-      emptyB.value = "";
-      emptyB.textContent = "b";
-      bSelect.appendChild(emptyB);
-      editorState.story.characters.forEach((character) => {
-        const option = document.createElement("option");
-        option.value = character.id;
-        option.textContent = character.name;
-        if (condition.b === character.id) {
-          option.selected = true;
-        }
-        bSelect.appendChild(option);
-      });
-      bSelect.addEventListener("change", () => {
-        condition.b = bSelect.value || undefined;
-        updateJsonArea();
-      });
-
-      const valueInput = document.createElement("input");
-      valueInput.type = "number";
-      valueInput.placeholder = "value";
-      valueInput.value = Number.isFinite(condition.value) ? condition.value : "";
-      valueInput.addEventListener("input", () => {
-        const parsed = Number(valueInput.value);
-        condition.value = Number.isFinite(parsed) ? parsed : undefined;
-        updateJsonArea();
-      });
-
-      grid.appendChild(typeSelect);
-      grid.appendChild(meterSelect);
-      grid.appendChild(characterSelect);
-      grid.appendChild(aSelect);
-      grid.appendChild(bSelect);
-      grid.appendChild(valueInput);
-
-      const removeBtn = document.createElement("button");
-      removeBtn.className = "btn btn--ghost";
-      removeBtn.type = "button";
-      removeBtn.textContent = "Remove Condition";
-      removeBtn.addEventListener("click", () => {
-        ending.conditions.splice(conditionIndex, 1);
-        renderEndingsEditor();
-        updateJsonArea();
-      });
-
-      row.appendChild(grid);
-      row.appendChild(removeBtn);
-      conditionsWrapper.appendChild(row);
-    });
-
-    const addConditionBtn = document.createElement("button");
-    addConditionBtn.className = "btn btn--ghost";
-    addConditionBtn.type = "button";
-    addConditionBtn.textContent = "Add Condition";
-    addConditionBtn.addEventListener("click", () => {
-      ending.conditions = ending.conditions || [];
-      ending.conditions.push({ type: "min", meter: "affection", value: 50 });
-      renderEndingsEditor();
-      updateJsonArea();
-    });
-
-    card.appendChild(titleInput);
-    card.appendChild(textInput);
-    card.appendChild(targets);
-    card.appendChild(conditionsWrapper);
-    card.appendChild(addConditionBtn);
-
-    const removeEndingBtn = document.createElement("button");
-    removeEndingBtn.className = "btn btn--ghost";
-    removeEndingBtn.type = "button";
-    removeEndingBtn.textContent = "Remove Ending";
-    removeEndingBtn.addEventListener("click", () => {
-      editorState.story.endings.splice(endingIndex, 1);
-      renderEndingsEditor();
-      updateJsonArea();
-    });
-
-    card.appendChild(removeEndingBtn);
-    endingsEditorEl.appendChild(card);
+    endingListEl.appendChild(item);
   });
+}
+
+function renderEndingEditor() {
+  if (!endingEditorEl) return;
+  ensureCurrentEnding();
+  const ending = editorState.story.endings.find(
+    (item) => item.id === editorState.currentEndingId
+  );
+  endingEditorEl.innerHTML = "";
+  if (!ending) return;
+
+  const glossary = document.createElement("div");
+  glossary.className = "ending-glossary";
+  glossary.innerHTML = `
+    <div class="ending-glossary__title">Condition glossary</div>
+    <div class="ending-glossary__list">
+      <div><span class="ending-glossary__key">min</span> meter for character >= value</div>
+      <div><span class="ending-glossary__key">diff_greater</span> meter[a] > meter[b] + value</div>
+      <div><span class="ending-glossary__key">diff_abs_lte</span> |meter[a] - meter[b]| <= value</div>
+      <div><span class="ending-glossary__key">max_ge</span> max meter >= value</div>
+      <div><span class="ending-glossary__key">max_le</span> max meter <= value</div>
+      <div><span class="ending-glossary__key">top_is</span> top character == character</div>
+      <div><span class="ending-glossary__key">top_diff_gte</span> top - second >= value</div>
+      <div><span class="ending-glossary__key">top_diff_lte</span> top - second <= value</div>
+      <div><span class="ending-glossary__key">total_min</span> sum meter >= value</div>
+      <div><span class="ending-glossary__key">total_max</span> sum meter <= value</div>
+    </div>
+  `;
+
+  const titleInput = document.createElement("input");
+  titleInput.type = "text";
+  titleInput.value = ending.title || "";
+  titleInput.placeholder = "Ending title";
+  titleInput.addEventListener("input", () => {
+    ending.title = titleInput.value;
+    renderEndingsList();
+    updateJsonArea();
+  });
+
+  const textInput = document.createElement("textarea");
+  textInput.rows = 3;
+  textInput.value = ending.text || "";
+  textInput.placeholder = "Ending text";
+  textInput.addEventListener("input", () => {
+    ending.text = textInput.value;
+    updateJsonArea();
+  });
+
+  const priorityInput = document.createElement("input");
+  priorityInput.type = "number";
+  priorityInput.value = Number.isFinite(ending.priority) ? ending.priority : 0;
+  priorityInput.placeholder = "Priority (higher wins)";
+  priorityInput.addEventListener("input", () => {
+    const parsed = Number(priorityInput.value);
+    ending.priority = Number.isFinite(parsed) ? parsed : 0;
+    updateJsonArea();
+  });
+
+  const minChaptersInput = document.createElement("input");
+  minChaptersInput.type = "number";
+  minChaptersInput.value = Number.isFinite(ending.minChapters) ? ending.minChapters : 0;
+  minChaptersInput.placeholder = "Min chapters (0 = any)";
+  minChaptersInput.addEventListener("input", () => {
+    const parsed = Number(minChaptersInput.value);
+    ending.minChapters = Number.isFinite(parsed) ? parsed : 0;
+    updateJsonArea();
+  });
+
+  const targets = document.createElement("div");
+  targets.className = "ending-targets";
+
+  const targetsTitle = document.createElement("div");
+  targetsTitle.className = "ending-targets__title";
+  targetsTitle.textContent = "Target meter hints";
+  targets.appendChild(targetsTitle);
+
+  const targetsList = document.createElement("div");
+  targetsList.className = "ending-targets__list";
+  const targetLines = summarizeEndingTargets(ending);
+  if (targetLines.length) {
+    targetLines.forEach((line) => {
+      const item = document.createElement("div");
+      item.textContent = line;
+      targetsList.appendChild(item);
+    });
+  } else {
+    const empty = document.createElement("div");
+    empty.textContent = "No conditions set yet.";
+    targetsList.appendChild(empty);
+  }
+  targets.appendChild(targetsList);
+
+  const applySampleBtn = document.createElement("button");
+  applySampleBtn.className = "btn btn--ghost ending-targets__btn";
+  applySampleBtn.type = "button";
+  applySampleBtn.textContent = "Apply Sample Meters";
+  applySampleBtn.addEventListener("click", () => {
+    const sample = generateSampleMetersForEnding(ending);
+    if (sample) {
+      previewState.meters = sample;
+      const minChapters = Number.isFinite(ending.minChapters) ? ending.minChapters : 0;
+      if (minChapters > 0) {
+        setPreviewCompletedChapters(minChapters);
+      }
+      renderPreviewScene(previewState.currentScene || editorState.story.start);
+    }
+  });
+  targets.appendChild(applySampleBtn);
+
+  const conditionsWrapper = document.createElement("div");
+  conditionsWrapper.className = "ending-conditions";
+
+  (ending.conditions || []).forEach((condition, conditionIndex) => {
+    const row = document.createElement("div");
+    row.className = "condition-row";
+
+    const grid = document.createElement("div");
+    grid.className = "condition-grid";
+
+    const typeSelect = document.createElement("select");
+    CONDITION_TYPES.forEach((type) => {
+      const option = document.createElement("option");
+      option.value = type;
+      option.textContent = type;
+      if (condition.type === type) {
+        option.selected = true;
+      }
+      typeSelect.appendChild(option);
+    });
+    typeSelect.addEventListener("change", () => {
+      condition.type = typeSelect.value;
+      renderEndingEditor();
+      updateJsonArea();
+    });
+
+    const meterSelect = document.createElement("select");
+    getMeterTypes().forEach((meterType) => {
+      const option = document.createElement("option");
+      option.value = meterType;
+      option.textContent = meterType;
+      if ((condition.meter || "affection") === meterType) {
+        option.selected = true;
+      }
+      meterSelect.appendChild(option);
+    });
+    meterSelect.addEventListener("change", () => {
+      condition.meter = meterSelect.value;
+      renderEndingEditor();
+      updateJsonArea();
+    });
+
+    const characterSelect = document.createElement("select");
+    const emptyChar = document.createElement("option");
+    emptyChar.value = "";
+    emptyChar.textContent = "character";
+    characterSelect.appendChild(emptyChar);
+    editorState.story.characters.forEach((character) => {
+      const option = document.createElement("option");
+      option.value = character.id;
+      option.textContent = character.name;
+      if (condition.character === character.id) {
+        option.selected = true;
+      }
+      characterSelect.appendChild(option);
+    });
+    characterSelect.addEventListener("change", () => {
+      condition.character = characterSelect.value || undefined;
+      renderEndingEditor();
+      updateJsonArea();
+    });
+
+    const aSelect = document.createElement("select");
+    const emptyA = document.createElement("option");
+    emptyA.value = "";
+    emptyA.textContent = "a";
+    aSelect.appendChild(emptyA);
+    editorState.story.characters.forEach((character) => {
+      const option = document.createElement("option");
+      option.value = character.id;
+      option.textContent = character.name;
+      if (condition.a === character.id) {
+        option.selected = true;
+      }
+      aSelect.appendChild(option);
+    });
+    aSelect.addEventListener("change", () => {
+      condition.a = aSelect.value || undefined;
+      renderEndingEditor();
+      updateJsonArea();
+    });
+
+    const bSelect = document.createElement("select");
+    const emptyB = document.createElement("option");
+    emptyB.value = "";
+    emptyB.textContent = "b";
+    bSelect.appendChild(emptyB);
+    editorState.story.characters.forEach((character) => {
+      const option = document.createElement("option");
+      option.value = character.id;
+      option.textContent = character.name;
+      if (condition.b === character.id) {
+        option.selected = true;
+      }
+      bSelect.appendChild(option);
+    });
+    bSelect.addEventListener("change", () => {
+      condition.b = bSelect.value || undefined;
+      renderEndingEditor();
+      updateJsonArea();
+    });
+
+    const valueInput = document.createElement("input");
+    valueInput.type = "number";
+    valueInput.placeholder = "value";
+    valueInput.value = Number.isFinite(condition.value) ? condition.value : "";
+    valueInput.addEventListener("input", () => {
+      const parsed = Number(valueInput.value);
+      condition.value = Number.isFinite(parsed) ? parsed : undefined;
+      renderEndingEditor();
+      updateJsonArea();
+    });
+
+    grid.appendChild(typeSelect);
+    grid.appendChild(meterSelect);
+    grid.appendChild(characterSelect);
+    grid.appendChild(aSelect);
+    grid.appendChild(bSelect);
+    grid.appendChild(valueInput);
+
+    const removeBtn = document.createElement("button");
+    removeBtn.className = "btn btn--ghost";
+    removeBtn.type = "button";
+    removeBtn.textContent = "Remove Condition";
+    removeBtn.addEventListener("click", () => {
+      ending.conditions.splice(conditionIndex, 1);
+      renderEndingEditor();
+      updateJsonArea();
+    });
+
+    row.appendChild(grid);
+    row.appendChild(removeBtn);
+    conditionsWrapper.appendChild(row);
+  });
+
+  const addConditionBtn = document.createElement("button");
+  addConditionBtn.className = "btn btn--ghost";
+  addConditionBtn.type = "button";
+  addConditionBtn.textContent = "Add Condition";
+  addConditionBtn.addEventListener("click", () => {
+    ending.conditions = ending.conditions || [];
+    ending.conditions.push({ type: "min", meter: "affection", value: 50 });
+    renderEndingEditor();
+    updateJsonArea();
+  });
+
+  const removeEndingBtn = document.createElement("button");
+  removeEndingBtn.className = "btn btn--ghost";
+  removeEndingBtn.type = "button";
+  removeEndingBtn.textContent = "Remove Ending";
+  removeEndingBtn.addEventListener("click", () => {
+    const index = editorState.story.endings.findIndex((item) => item.id === ending.id);
+    if (index >= 0) {
+      editorState.story.endings.splice(index, 1);
+    }
+    renderEndingsList();
+    renderEndingEditor();
+    updateJsonArea();
+  });
+
+  endingEditorEl.appendChild(glossary);
+  endingEditorEl.appendChild(titleInput);
+  endingEditorEl.appendChild(textInput);
+  endingEditorEl.appendChild(priorityInput);
+  endingEditorEl.appendChild(minChaptersInput);
+  endingEditorEl.appendChild(targets);
+  endingEditorEl.appendChild(conditionsWrapper);
+  endingEditorEl.appendChild(addConditionBtn);
+  endingEditorEl.appendChild(removeEndingBtn);
 }
 
 function summarizeEndingTargets(ending) {
   const lines = [];
+  const minChapters = Number.isFinite(ending.minChapters) ? ending.minChapters : 0;
+  if (minChapters > 0) {
+    lines.push(`minChapters >= ${minChapters}`);
+  }
   (ending.conditions || []).forEach((cond) => {
     if (!cond || !cond.type) return;
     const meter = cond.meter || "affection";
@@ -1197,7 +1341,8 @@ function renderEditor() {
   renderSceneForm();
   renderChoicesEditor();
   renderGraph();
-  renderEndingsEditor();
+  renderEndingsList();
+  renderEndingEditor();
   renderCharacterEditor();
   updateJsonArea();
   if (!previewState.meters) {
@@ -1257,7 +1402,9 @@ function addEnding() {
     text: "Describe this ending.",
     conditions: [],
   });
-  renderEndingsEditor();
+  editorState.currentEndingId = editorState.story.endings.at(-1)?.id || null;
+  renderEndingsList();
+  renderEndingEditor();
   updateJsonArea();
 }
 
@@ -1360,6 +1507,8 @@ function renderGraph() {
         missing: false,
         isEnding: true,
         autoEndings: !!ending.autoEndings,
+        priority: Number.isFinite(ending.priority) ? ending.priority : 0,
+        minChapters: Number.isFinite(ending.minChapters) ? ending.minChapters : 0,
         groupLabel: "Ending",
         groupColor: colorMap.Ending,
       };
@@ -1554,6 +1703,13 @@ function renderGraph() {
       badges.push({ label: "H", cls: "graph-badge--hide" });
     }
 
+    if (node.isEnding) {
+      const priorityValue = Number.isFinite(node.priority) ? node.priority : 0;
+      badges.push({ label: `${priorityValue}`, cls: "graph-badge--priority" });
+      const chapterValue = Number.isFinite(node.minChapters) ? node.minChapters : 0;
+      badges.push({ label: `${chapterValue}`, cls: "graph-badge--chapters" });
+    }
+
     badges.forEach((badge, idx) => {
       const badgeGroup = document.createElementNS(svgNS, "g");
       badgeGroup.setAttribute("class", `graph-badge ${badge.cls}`);
@@ -1585,7 +1741,9 @@ function renderGraph() {
     if (!node.missing) {
       group.addEventListener("click", () => {
         if (node.isEnding) {
-          previewEndingById(node.id.replace("ending:", ""));
+          const endingId = node.id.replace("ending:", "");
+          previewEndingById(endingId);
+          focusEndingCard(endingId);
           return;
         }
         editorState.currentSceneId = node.id;
@@ -1603,7 +1761,12 @@ function renderGraph() {
   viewport.appendChild(svg);
   graphCanvas.appendChild(viewport);
   renderLegend(colorMap);
-  adjustDefaultZoom(Object.keys(nodes).length);
+  if (graphView.fitToFiltered) {
+    fitGraphToNodes(Object.keys(nodes), positions);
+    graphView.fitToFiltered = false;
+  } else {
+    adjustDefaultZoom(Object.keys(nodes).length);
+  }
   applyGraphTransform();
 }
 
@@ -1744,7 +1907,20 @@ deleteSceneBtn.addEventListener("click", deleteScene);
 applyStoryBtn.addEventListener("click", applyStory);
 exportStoryBtn.addEventListener("click", exportStory);
 importStoryBtn.addEventListener("click", importStory);
-autoLayoutBtn.addEventListener("click", renderGraph);
+if (endingLayoutBtn) {
+  endingLayoutBtn.addEventListener("click", () => {
+    const labels = getLabelList();
+    graphFilterState.labels.clear();
+    if (labels.includes("Ending")) {
+      graphFilterState.labels.add("Ending");
+    }
+    if (labels.includes("Finale")) {
+      graphFilterState.labels.add("Finale");
+    }
+    graphView.fitToFiltered = true;
+    renderGraph();
+  });
+}
 if (addEndingBtn) {
   addEndingBtn.addEventListener("click", addEnding);
 }
@@ -1847,4 +2023,33 @@ function adjustDefaultZoom(nodeCount) {
   } else {
     graphView.scale = Math.max(graphView.scale, 0.8);
   }
+}
+
+function fitGraphToNodes(nodeIds, positions) {
+  if (!graphCanvas || !nodeIds.length) return;
+  let minX = Infinity;
+  let minY = Infinity;
+  let maxX = -Infinity;
+  let maxY = -Infinity;
+  nodeIds.forEach((id) => {
+    const pos = positions[id];
+    if (!pos) return;
+    minX = Math.min(minX, pos.x);
+    minY = Math.min(minY, pos.y);
+    maxX = Math.max(maxX, pos.x + layout.nodeWidth);
+    maxY = Math.max(maxY, pos.y + layout.nodeHeight);
+  });
+  if (!Number.isFinite(minX) || !Number.isFinite(minY)) return;
+  const rect = graphCanvas.getBoundingClientRect();
+  const padding = 48;
+  const availableWidth = Math.max(1, rect.width - padding * 2);
+  const availableHeight = Math.max(1, rect.height - padding * 2);
+  const boxWidth = Math.max(1, maxX - minX);
+  const boxHeight = Math.max(1, maxY - minY);
+  const scale = clampGraphScale(
+    Math.min(availableWidth / boxWidth, availableHeight / boxHeight)
+  );
+  graphView.scale = scale;
+  graphView.x = padding - minX * scale;
+  graphView.y = padding - minY * scale;
 }

@@ -32,7 +32,25 @@
         <div class="graph__header">
           <h3>Branching Map</h3>
           <div class="graph__actions">
-            <button id="autoLayoutBtn" class="btn btn--ghost" type="button">Auto Layout</button>
+            <button id="endingLayoutBtn" class="btn btn--ghost" type="button">Ending Layout</button>
+          </div>
+        </div>
+        <div class="graph__badge-legend">
+          <div class="graph__badge-legend-item">
+            <span class="graph-badge graph-badge--auto">A</span>
+            Auto endings
+          </div>
+          <div class="graph__badge-legend-item">
+            <span class="graph-badge graph-badge--hide">H</span>
+            Hide chosen
+          </div>
+          <div class="graph__badge-legend-item">
+            <span class="graph-badge graph-badge--priority">7</span>
+            Priority
+          </div>
+          <div class="graph__badge-legend-item">
+            <span class="graph-badge graph-badge--chapters">3</span>
+            Min chapters
           </div>
         </div>
         <div id="graphLegend" class="graph__legend"></div>
@@ -74,6 +92,13 @@
         <div class="editor__grid">
           <div class="panel">
             <div class="panel__header">
+              <h4>Characters</h4>
+            </div>
+            <div id="characterEditor"></div>
+          </div>
+
+          <div class="panel">
+            <div class="panel__header">
               <h4>Scenes</h4>
               <button id="addSceneBtn" class="btn btn--ghost" type="button">Add Scene</button>
             </div>
@@ -81,13 +106,6 @@
             <div class="panel__footer">
               <p class="hint">Click a scene to edit it. Missing targets show in red.</p>
             </div>
-          </div>
-
-          <div class="panel">
-            <div class="panel__header">
-              <h4>Characters</h4>
-            </div>
-            <div id="characterEditor"></div>
           </div>
 
           <div class="panel panel--scene">
@@ -163,22 +181,20 @@
               <h4>Endings</h4>
               <button id="addEndingBtn" class="btn btn--ghost" type="button">Add Ending</button>
             </div>
-            <div class="ending-glossary">
-              <div class="ending-glossary__title">Condition glossary</div>
-              <div class="ending-glossary__list">
-                <div><span class="ending-glossary__key">min</span> meter for character >= value</div>
-                <div><span class="ending-glossary__key">diff_greater</span> meter[a] > meter[b] + value</div>
-                <div><span class="ending-glossary__key">diff_abs_lte</span> |meter[a] - meter[b]| <= value</div>
-                <div><span class="ending-glossary__key">max_ge</span> max meter >= value</div>
-                <div><span class="ending-glossary__key">max_le</span> max meter <= value</div>
-                <div><span class="ending-glossary__key">top_is</span> top character == character</div>
-                <div><span class="ending-glossary__key">top_diff_gte</span> top - second >= value</div>
-                <div><span class="ending-glossary__key">top_diff_lte</span> top - second <= value</div>
-                <div><span class="ending-glossary__key">total_min</span> sum meter >= value</div>
-                <div><span class="ending-glossary__key">total_max</span> sum meter <= value</div>
-              </div>
+            <div id="endingList" class="ending-list"></div>
+            <div class="panel__footer">
+              <p class="hint">Click an ending to edit its rules and text.</p>
             </div>
-            <div id="endingsEditor"></div>
+          </div>
+
+          <div class="panel">
+            <div class="panel__header">
+              <h4>Ending Editor</h4>
+            </div>
+            <div id="endingEditor" class="ending-editor"></div>
+            <div class="panel__footer">
+              <p class="hint">Select an ending to edit its details.</p>
+            </div>
           </div>
         </div>
       </section>

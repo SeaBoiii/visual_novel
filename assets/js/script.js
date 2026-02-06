@@ -59,6 +59,7 @@ async function startGame() {
     showClues: false,
     chosenChoicesByScene: {},
     history: [],
+    completedChapters: new Set(),
   };
 
   function clamp(value, min = 0, max = 100) {
@@ -202,9 +203,24 @@ async function startGame() {
   }
 
   function findEnding() {
-    return story.endings.find((ending) =>
-      (ending.conditions || []).every((cond) => meetsCondition(cond, state.meters))
-    );
+    let best = null;
+    let bestPriority = -Infinity;
+    let bestIndex = Infinity;
+    story.endings.forEach((ending, index) => {
+      const minChapters = Number.isFinite(ending.minChapters) ? ending.minChapters : 0;
+      if (state.completedChapters.size < minChapters) return;
+      const matches = (ending.conditions || []).every((cond) =>
+        meetsCondition(cond, state.meters)
+      );
+      if (!matches) return;
+      const priority = Number.isFinite(ending.priority) ? ending.priority : 0;
+      if (priority > bestPriority || (priority === bestPriority && index < bestIndex)) {
+        best = ending;
+        bestPriority = priority;
+        bestIndex = index;
+      }
+    });
+    return best;
   }
 
   function showScene(sceneId) {
@@ -212,6 +228,9 @@ async function startGame() {
     if (!scene) return;
 
     state.currentScene = sceneId;
+    if (scene.label && scene.label.trim().toLowerCase().startsWith("chapter")) {
+      state.completedChapters.add(scene.label.trim());
+    }
     sceneLabelEl.textContent = scene.label;
     sceneTitleEl.textContent = scene.title;
     sceneTextEl.innerHTML = formatTextWithIcons(scene.text);
@@ -231,6 +250,18 @@ async function startGame() {
 
     if (scene.ending) {
       const ending = findEnding();
+      if (!ending) {
+        sceneTitleEl.textContent = "Ending Not Available";
+        sceneTextEl.innerHTML =
+          "No ending matches the current conditions and minimum chapter requirement.";
+        const restartBtnInline = document.createElement("button");
+        restartBtnInline.className = "btn";
+        restartBtnInline.textContent = "Play Again";
+        restartBtnInline.type = "button";
+        restartBtnInline.addEventListener("click", resetGame);
+        choicesEl.appendChild(restartBtnInline);
+        return;
+      }
       if (ending.id.startsWith("true_partner_")) {
         sceneTitleEl.textContent = ending.title;
         sceneTextEl.innerHTML = formatTextWithIcons(ending.text);
@@ -318,6 +349,7 @@ async function startGame() {
     state.log = [];
     state.chosenChoicesByScene = {};
     state.history = [];
+    state.completedChapters = new Set();
     if (logListEl) {
       logListEl.innerHTML = "";
     }
