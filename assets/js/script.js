@@ -69,13 +69,19 @@ async function startGame() {
   function renderMeters() {
     metersEl.innerHTML = "";
     const meterTypes = Object.keys(state.meters);
+    const meterSymbols = {
+      affection: "♥",
+      trust: "🤝",
+      tension: "⚡",
+    };
     meterTypes.forEach((type) => {
       const group = document.createElement("div");
       group.className = "meter-group";
 
       const label = document.createElement("div");
       label.className = "meter-group__label";
-      label.textContent = type;
+      const symbol = meterSymbols[type] ? ` ${meterSymbols[type]}` : "";
+      label.textContent = `${type}${symbol}`;
       group.appendChild(label);
 
       const bars = document.createElement("div");

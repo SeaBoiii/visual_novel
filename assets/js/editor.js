@@ -251,13 +251,19 @@ function renderPreviewMeters() {
   if (!previewMetersEl) return;
   previewMetersEl.innerHTML = "";
   const meterTypes = Object.keys(previewState.meters || {});
+  const meterSymbols = {
+    affection: "♥",
+    trust: "🤝",
+    tension: "⚡",
+  };
   meterTypes.forEach((type) => {
     const group = document.createElement("div");
     group.className = "meter-group";
 
     const label = document.createElement("div");
     label.className = "meter-group__label";
-    label.textContent = type;
+    const symbol = meterSymbols[type] ? ` ${meterSymbols[type]}` : "";
+    label.textContent = `${type}${symbol}`;
     group.appendChild(label);
 
     const bars = document.createElement("div");
