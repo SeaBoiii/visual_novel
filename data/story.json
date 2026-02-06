@@ -4,31 +4,31 @@
       "id": "kira",
       "name": "Kira",
       "color": "#b5525c",
-      "icon": "???"
+      "icon": "🛡"
     },
     {
       "id": "jannah",
       "name": "Jannah",
       "color": "#5b7aa4",
-      "icon": "??"
+      "icon": "🌼"
     },
     {
       "id": "dasha",
       "name": "Dasha",
       "color": "#7a8f4a",
-      "icon": "??"
+      "icon": "🧭"
     },
     {
       "id": "xinyi",
       "name": "Xin Yi",
       "color": "#c28a3a",
-      "icon": "??"
+      "icon": "🏡"
     },
     {
       "id": "almah",
       "name": "Almahirah",
       "color": "#6e5aa8",
-      "icon": "??"
+      "icon": "🕋"
     }
   ],
   "meters": {
@@ -60,7 +60,7 @@
       "label": "Prologue",
       "title": "Memory Load",
       "text": "Your phone is face-down, but you can feel the weight of it — five names pressing into one night.\n\nYou try to sleep.\n\nInstead, your mind runs a highlight reel out of order:\n\n• A woman in a blazer, voice calm in a crisis, looking at you like competence is a kind of truth.\n• A preschool hallway, tiny shoes lined neatly, a familiar laugh that makes you feel seen.\n• Sapa — mist on your lashes, a stranger’s smile turning a temporary place into a permanent memory.\n• A close friend group, one person who knows your patterns and still chooses gentleness.\n• A sacred journey, where a nurse teaches you that sincerity is a discipline.\n\nThe memories don’t explain themselves yet.\n\nThey just ask one question:\n\nWho were you with each of them — before anyone asked you to choose?",
-      "image": "",
+      "image": "images/prologue.png",
       "choices": [
         {
           "text": "Let the memories come without trying to control the order.",
